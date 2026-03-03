@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import PageLayout from '../components/layout/PageLayout';
 import config from '../config';
+import contactHero from '../assets/tiny escape 5.jpg';
 import { contactInfo, countryCodes, tourInterests, months } from '../data/contactData';
 import { getWhatsAppLink } from '../utils/helpers';
 import {
@@ -12,10 +13,10 @@ import {
   FaWhatsapp,
   FaFacebook,
   FaInstagram,
-  FaTwitter,
   FaCalendarAlt,
   FaPaperPlane
 } from 'react-icons/fa';
+import { SiTiktok } from 'react-icons/si';
 
 const Contact = () => {
   const { isDarkMode } = useTheme();
@@ -102,21 +103,20 @@ const Contact = () => {
       }}
     >
       {/* ── Hero ── */}
-      <section
-        className={`relative py-24 overflow-hidden ${
-          isDarkMode
-            ? 'bg-[#0F1B14]'
-            : 'bg-[#EAF3EA]'
-        }`}
-      >
-        {/* decorative leaf shapes */}
+      <section className="relative py-24 overflow-hidden">
+        {/* Background image */}
         <div
-          className="absolute -top-16 -right-16 w-72 h-72 rounded-full opacity-10 pointer-events-none"
-          style={{ background: 'radial-gradient(circle, #A8E6A3, transparent 70%)' }}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${contactHero})` }}
         />
+        {/* Overlay */}
         <div
-          className="absolute -bottom-12 -left-12 w-56 h-56 rounded-full opacity-10 pointer-events-none"
-          style={{ background: 'radial-gradient(circle, #6AAF7E, transparent 70%)' }}
+          className="absolute inset-0"
+          style={{
+            background: isDarkMode
+              ? 'linear-gradient(to bottom, rgba(0,0,0,0.62), rgba(0,0,0,0.52))'
+              : 'linear-gradient(to bottom, rgba(0,0,0,0.52), rgba(0,0,0,0.42))'
+          }}
         />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -124,11 +124,11 @@ const Contact = () => {
             {/* icon badge */}
             <div
               className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6"
-              style={{ background: isDarkMode ? 'rgba(168,230,163,0.12)' : 'rgba(47,93,58,0.10)' }}
+              style={{ background: 'rgba(168,230,163,0.18)' }}
             >
               <FaEnvelope
                 className="text-2xl"
-                style={{ color: isDarkMode ? '#A8E6A3' : '#2F5D3A' }}
+                style={{ color: '#A8E6A3' }}
               />
             </div>
 
@@ -136,20 +136,20 @@ const Contact = () => {
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-5"
               style={{
                 fontFamily: 'Playfair Display, serif',
-                color: isDarkMode ? '#EAF3EA' : '#1F3A2A'
+                color: '#FFFFFF'
               }}
             >
               Get in Touch
             </h1>
             <p
               className="text-lg md:text-xl mb-3"
-              style={{ color: isDarkMode ? '#A8C8A8' : '#2F5D3A' }}
+              style={{ color: 'rgba(255,255,255,0.88)' }}
             >
-              Share your dates and preferences — we'll find the right stay for you.
+              Share your dates and preferences — we'll help you plan the perfect Tiny Escape.
             </p>
             <p
               className="text-sm font-medium tracking-wide"
-              style={{ color: isDarkMode ? '#6B8570' : '#5A7A5A' }}
+              style={{ color: 'rgba(255,255,255,0.65)' }}
             >
               Fast response · WhatsApp support available
             </p>
@@ -237,13 +237,13 @@ const Contact = () => {
                   className="text-3xl font-bold mb-2"
                   style={{ fontFamily: 'Playfair Display, serif', color: isDarkMode ? '#EAF3EA' : '#1F3A2A' }}
                 >
-                  Request Availability
+                  Check Availability
                 </h2>
                 <p
                   className="mb-8 text-sm"
                   style={{ color: isDarkMode ? '#6B8570' : '#5A7A5A' }}
                 >
-                  Tell us about your trip and we'll get back to you within 24 hours.
+                  Tell us about your trip and we'll help match you with the right stay.
                 </p>
 
                 {formStatus.submitted && (
@@ -335,7 +335,7 @@ const Contact = () => {
                       </select>
                     </div>
                     <div>
-                      <label className={labelCls}>Trip Type *</label>
+                      <label className={labelCls}>Occasion *</label>
                       <select
                         name="travelType"
                         value={formData.travelType}
@@ -343,7 +343,7 @@ const Contact = () => {
                         required
                         className={`w-full px-4 py-3 rounded-xl border transition-all focus:outline-none focus:ring-2 focus:ring-[#6AAF7E]/20 ${inputCls}`}
                       >
-                        <option value="">Select Trip Type</option>
+                        <option value="">Select Occasion</option>
                         <option value="solo">Solo Retreat</option>
                         <option value="couple">Couples Getaway</option>
                         <option value="family">Family Stay</option>
@@ -356,7 +356,7 @@ const Contact = () => {
                   {/* Stay Interest + Month */}
                   <div className="grid md:grid-cols-2 gap-5">
                     <div>
-                      <label className={labelCls}>Stay Interest</label>
+                      <label className={labelCls}>Preferred Stay</label>
                       <select
                         name="stayInterest"
                         value={formData.stayInterest}
@@ -413,7 +413,7 @@ const Contact = () => {
                     }}
                   >
                     <FaPaperPlane />
-                    <span>Send Inquiry</span>
+                    <span>Check Availability</span>
                   </button>
                 </form>
               </div>
@@ -432,16 +432,15 @@ const Contact = () => {
                   className="text-lg font-bold mb-4"
                   style={{ fontFamily: 'Playfair Display, serif', color: isDarkMode ? '#EAF3EA' : '#1F3A2A' }}
                 >
-                  Why Reach Out?
+                  How We Help
                 </h3>
                 <ul className="space-y-3">
                   {[
-                    'Reply within 24 hours',
-                    'Help matching you to the right cabin',
-                    'Local tips and experience planning',
-                    'Transparent, no-surprise pricing',
-                    'WhatsApp support for quick questions',
-                    'Flexible stay customization'
+                    'Help matching you with the right stay',
+                    'Local tips for your visit',
+                    'Clear, transparent pricing',
+                    'Fast WhatsApp support',
+                    'Flexible stay planning'
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <span
@@ -483,7 +482,7 @@ const Contact = () => {
                   className="text-sm mb-4"
                   style={{ color: isDarkMode ? '#A8C8A8' : '#5A7A5A' }}
                 >
-                  Reach us directly on WhatsApp — fast and friendly.
+                  Message us on WhatsApp for quick, friendly support.
                 </p>
                 <a
                   href={whatsappLink}
@@ -503,16 +502,16 @@ const Contact = () => {
                 } shadow-lg`}
               >
                 <h3
-                  className="text-lg font-bold mb-4"
+                  className="text-lg font-bold mb-4 text-center"
                   style={{ fontFamily: 'Playfair Display, serif', color: isDarkMode ? '#EAF3EA' : '#1F3A2A' }}
                 >
-                  Follow Along
+                  Follow The Tiny Escape
                 </h3>
                 <div className="flex gap-3 justify-center">
                   {[
-                    { icon: <FaFacebook className="text-xl" />, href: 'https://facebook.com/tinyescape', hover: '#1877F2' },
-                    { icon: <FaInstagram className="text-xl" />, href: 'https://instagram.com/tinyescape', hover: '#E1306C' },
-                    { icon: <FaTwitter className="text-xl" />, href: 'https://twitter.com/tinyescape', hover: '#1DA1F2' }
+                    { icon: <FaInstagram className="text-xl" />, href: 'https://instagram.com/thetinyescape', hover: '#E1306C' },
+                    { icon: <FaFacebook className="text-xl" />, href: 'https://facebook.com/thetinyescape', hover: '#1877F2' },
+                    { icon: <SiTiktok className="text-xl" />, href: 'https://tiktok.com/@thetinyescape', hover: '#010101' }
                   ].map((s, i) => (
                     <a
                       key={i}

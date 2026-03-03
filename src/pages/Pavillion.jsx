@@ -1,50 +1,96 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import PageLayout from '../components/layout/PageLayout';
 import { useTheme } from '../context/ThemeContext';
-import pavilionHero from '../assets/Pavilion images/Pavilion images/pavilion 2.jpg';
-import pavilionOne from '../assets/Pavilion images/Pavilion images/pavilion 1.webp';
-import pavilionThree from '../assets/Pavilion images/Pavilion images/pavilion 3.jpg';
-import pavilionFour from '../assets/Pavilion images/Pavilion images/pavilion 4.jpg';
-import pavilionFive from '../assets/Pavilion images/Pavilion images/pavilion 5.jpg';
+
+// All pavilion images
+import pav1 from '../assets/Pavilion images/Pavilion images/pavilion 1.webp';
+import pav2 from '../assets/Pavilion images/Pavilion images/pavilion 2.jpg';
+import pav3 from '../assets/Pavilion images/Pavilion images/pavilion 3.jpg';
+import pav4 from '../assets/Pavilion images/Pavilion images/pavilion 4.jpg';
+import pav5 from '../assets/Pavilion images/Pavilion images/pavilion 5.jpg';
+import pav6 from '../assets/Pavilion images/Pavilion images/pavilion 6.jpg';
+import pav7 from '../assets/Pavilion images/Pavilion images/pavilion 7.jpg';
+import pav8 from '../assets/Pavilion images/Pavilion images/pavilion 8.webp';
+import pav9 from '../assets/Pavilion images/Pavilion images/pavilion 9.jpg';
+import pavWa1 from '../assets/Pavilion images/Pavilion images/pavilion-wa-1.jpg';
+
+const heroSlides = [pav2, pav1, pav6, pav3, pav7, pav4, pav8, pav9, pav5, pavWa1];
 
 const pavilionHighlights = [
   {
     icon: '🏛',
-    title: 'Architectural Open-Air Design',
-    text: 'Vaulted timber structure with an elegant, resort-style look for events and premium gatherings.'
+    title: 'Grand Open-Air Pavilion Design',
+    text: 'A beautifully crafted 110 x 80 ft covered pavilion offering generous space for elevated gatherings and flexible event layouts.'
   },
   {
     icon: '🔥',
-    title: 'Evening Fire-Lit Ambience',
-    text: 'Soft lighting and fire features create a warm setting for dinners, celebrations, and late-night conversations.'
+    title: 'Dramatic Fireside Entrance',
+    text: 'A welcoming fire feature at the pavilion entrance creates a warm first impression for arriving guests.'
   },
   {
     icon: '✦',
-    title: 'Flexible Event Layout',
-    text: 'Suitable for private dinners, birthdays, mini functions, and curated guest experiences.'
+    title: 'Ceremony-Ready Front Steps',
+    text: 'A full-width stepped front provides a natural focal point for wedding ceremonies, grand entrances, and photo-worthy moments.'
   },
   {
-    icon: '🌿',
-    title: 'Scenic Backdrop',
-    text: 'Manicured surroundings and clean sight-lines make every moment photo-ready.'
+    icon: '💡',
+    title: 'Ambient Evening Lighting',
+    text: 'Soft overhead lighting enhances the atmosphere after sunset, creating an inviting setting for memorable events.'
   }
 ];
 
 const pavilionStats = [
-  { label: 'Event Capacity', value: '40–60 Guests' },
-  { label: 'Best Time', value: 'Sunset to Night' },
-  { label: 'Use Cases', value: 'Celebrations, Dining, Socials' }
+  { label: 'Size', value: '110 × 80 ft' },
+  { label: 'Opening', value: 'Coming Soon' },
+  { label: 'Setting', value: 'Open-Air Event Venue' }
 ];
 
 const Pavillion = () => {
   const { isDarkMode } = useTheme();
   const [dateRange, setDateRange] = useState({ from: undefined, to: undefined });
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const autoPlayRef = useRef(null);
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
+
+  // Auto-advance slider every 4.5s
+  const goToSlide = useCallback((index) => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentSlide(index);
+      setIsTransitioning(false);
+    }, 300);
+  }, [isTransitioning]);
+
+  const nextSlide = useCallback(() => {
+    goToSlide((currentSlide + 1) % heroSlides.length);
+  }, [currentSlide, goToSlide]);
+
+  const prevSlide = useCallback(() => {
+    goToSlide((currentSlide - 1 + heroSlides.length) % heroSlides.length);
+  }, [currentSlide, goToSlide]);
+
+  useEffect(() => {
+    autoPlayRef.current = setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % heroSlides.length);
+    }, 4500);
+    return () => clearInterval(autoPlayRef.current);
+  }, []);
+
+  // Reset timer on manual nav
+  const handleManualNav = (fn) => {
+    clearInterval(autoPlayRef.current);
+    fn();
+    autoPlayRef.current = setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % heroSlides.length);
+    }, 4500);
+  };
 
   const formatDateToYMD = useCallback((date) => {
     if (!date) return '';
@@ -87,27 +133,88 @@ const Pavillion = () => {
         url: '/pavillion'
       }}
     >
-      {/* ── Hero ── */}
+      {/* ── Hero with Image Slider ── */}
       <section className="relative min-h-[65vh] flex items-end overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center scale-[1.03]"
-          style={{ backgroundImage: `url(${pavilionHero})` }}
-        />
-        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-black/10" />
 
-        <div className="relative container mx-auto px-6 pb-16 md:pb-24">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#A8C9B1]/60 bg-[#1F3A2A]/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#D4EDDA] backdrop-blur-sm">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#6BAF7A]" />
-            Signature Venue
-          </span>
+        {/* Slider images */}
+        {heroSlides.map((img, idx) => (
+          <div
+            key={idx}
+            className="absolute inset-0 bg-cover bg-center transition-opacity duration-700"
+            style={{
+              backgroundImage: `url(${img})`,
+              opacity: idx === currentSlide ? 1 : 0,
+              transform: 'scale(1.03)',
+              zIndex: idx === currentSlide ? 1 : 0,
+            }}
+          />
+        ))}
+
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-black/10" style={{ zIndex: 2 }} />
+
+        {/* Prev arrow */}
+        <button
+          onClick={() => handleManualNav(prevSlide)}
+          aria-label="Previous image"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-sm border border-white/20 hover:bg-black/60 transition-all duration-200"
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        {/* Next arrow */}
+        <button
+          onClick={() => handleManualNav(nextSlide)}
+          aria-label="Next image"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-sm border border-white/20 hover:bg-black/60 transition-all duration-200"
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        {/* Dot indicators */}
+        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2">
+          {heroSlides.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => handleManualNav(() => goToSlide(idx))}
+              aria-label={`Go to slide ${idx + 1}`}
+              className={`rounded-full transition-all duration-300 ${
+                idx === currentSlide
+                  ? 'w-6 h-2 bg-white'
+                  : 'w-2 h-2 bg-white/50 hover:bg-white/75'
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Image counter */}
+        <div className="absolute top-5 right-5 z-10 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 px-3 py-1 text-xs text-white/80 font-medium">
+          {currentSlide + 1} / {heroSlides.length}
+        </div>
+
+        {/* Hero text */}
+        <div className="relative container mx-auto px-6 pb-16 md:pb-24" style={{ zIndex: 3 }}>
+          <div className="flex flex-wrap items-center gap-3 mb-5">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#A8C9B1]/60 bg-[#1F3A2A]/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#D4EDDA] backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#6BAF7A]" />
+              Signature Venue
+            </span>
+            <span className="inline-flex items-center rounded-full bg-linear-to-r from-[#D1965A] to-[#F1C281] px-4 py-1.5 text-xs font-black uppercase tracking-widest text-[#1A120A] shadow-lg animate-pulse">
+              Coming Soon
+            </span>
+          </div>
           <h1
-            className="mt-5 text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight"
+            className="text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight"
             style={{ fontFamily: 'Playfair Display, serif' }}
           >
             Fireside Pavilion
           </h1>
           <p className="mt-4 max-w-2xl text-base sm:text-lg md:text-xl text-white/85 leading-relaxed font-light">
-            A premium open-air destination for elegant evenings, celebrations, and curated guest experiences in the Texas Hill Country.
+            A spacious open-air venue designed for unforgettable evenings at The Tiny Escape. Featuring warm ambient lighting, a dramatic fireside entrance, and a grand stepped front perfect for ceremonies and gatherings, the pavilion sets the stage for beautifully curated events. Opening soon.
           </p>
         </div>
       </section>
@@ -126,7 +233,7 @@ const Pavillion = () => {
                 className={`text-3xl md:text-4xl font-bold mb-8 leading-snug ${isDarkMode ? 'text-[#E8F0E8]' : 'text-[#0F1F0F]'}`}
                 style={{ fontFamily: 'Playfair Display, serif' }}
               >
-                Designed for <br />memorable moments
+                Designed for memorable moments
               </h2>
               <div className="space-y-4">
                 {pavilionHighlights.map((item) => (
@@ -175,25 +282,25 @@ const Pavillion = () => {
               </div>
             </div>
 
-            {/* Right — Photo grid */}
+            {/* Right — Photo grid (3 images) */}
             <div className="grid grid-cols-2 gap-3">
               <img
-                src={pavilionOne}
-                alt="Pavillion seating area"
+                src={pav3}
+                alt="Pavilion seating area"
                 className="h-48 md:h-60 w-full rounded-2xl object-cover"
                 loading="lazy"
                 decoding="async"
               />
               <img
-                src={pavilionThree}
-                alt="Pavillion scenic view"
+                src={pav4}
+                alt="Pavilion scenic view"
                 className="h-48 md:h-60 w-full rounded-2xl object-cover"
                 loading="lazy"
                 decoding="async"
               />
               <img
-                src={pavilionFour}
-                alt="Pavillion at sunset"
+                src={pav8}
+                alt="Pavilion at dusk"
                 className="col-span-2 h-56 md:h-72 w-full rounded-2xl object-cover"
                 loading="lazy"
                 decoding="async"
@@ -299,8 +406,8 @@ const Pavillion = () => {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-[1fr_1fr] gap-10 items-center">
             <img
-              src={pavilionFive}
-              alt="Pavillion event layout"
+              src={pav5}
+              alt="Pavilion event layout"
               className="w-full h-64 md:h-80 rounded-3xl object-cover"
               loading="lazy"
               decoding="async"
@@ -313,7 +420,7 @@ const Pavillion = () => {
                 className={`text-3xl md:text-4xl font-bold leading-snug mb-4 ${isDarkMode ? 'text-[#E8F0E8]' : 'text-[#0F1F0F]'}`}
                 style={{ fontFamily: 'Playfair Display, serif' }}
               >
-                Plan your <br />pavilion evening
+                Plan your pavilion evening
               </h2>
               <p className={`text-base leading-relaxed ${isDarkMode ? 'text-[#8FA88F]' : 'text-[#4A6A4A]'}`}>
                 Tell us your occasion, preferred setup, and guest count. Our team will help you shape a smooth and memorable experience tailored to your vision.

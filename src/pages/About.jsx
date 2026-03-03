@@ -8,33 +8,6 @@ import tinyEscape3 from '../assets/tiny escape 3.jpg';
 const About = () => {
   const { isDarkMode } = useTheme();
 
-  const teamMembers = [
-    {
-      id: 1,
-      name: 'Avery Cole',
-      position: 'Founder',
-      avatar: 'https://ui-avatars.com/api/?name=Avery+Cole&background=2F5D3A&color=fff&size=300&bold=true',
-      bio: 'Shapes the Tiny Escape vision with a focus on calm, quality, and thoughtful guest experiences across Texas.',
-      expertise: ['Hospitality Design', 'Guest Experience', 'Brand Strategy'],
-    },
-    {
-      id: 2,
-      name: 'Jordan Reed',
-      position: 'Operations Lead',
-      avatar: 'https://ui-avatars.com/api/?name=Jordan+Reed&background=1F3A2A&color=A8E6A3&size=300&bold=true',
-      bio: 'Leads day-to-day operations, ensuring every stay is smooth, clean, and ready for arrival.',
-      expertise: ['Operations', 'Quality Assurance', 'Guest Care'],
-    },
-    {
-      id: 3,
-      name: 'Maya Patel',
-      position: 'Experience Designer',
-      avatar: 'https://ui-avatars.com/api/?name=Maya+Patel&background=3A7048&color=fff&size=300&bold=true',
-      bio: 'Designs stay details that feel calm, intentional, and premium from arrival to checkout.',
-      expertise: ['Interior Styling', 'Service Design', 'Guest Journey'],
-    },
-  ];
-
   const values = [
     {
       icon: (
@@ -43,7 +16,7 @@ const About = () => {
         </svg>
       ),
       title: 'Calm & Care',
-      description: 'Every stay is designed for comfort, quiet, and an easy pace.',
+      description: 'Comfort-first, quiet, and easy pace.',
     },
     {
       icon: (
@@ -52,7 +25,7 @@ const About = () => {
         </svg>
       ),
       title: 'Trust & Transparency',
-      description: 'Clear policies, responsive support, and no surprises.',
+      description: 'Clear communication and no surprises.',
     },
     {
       icon: (
@@ -61,7 +34,7 @@ const About = () => {
         </svg>
       ),
       title: 'Excellence',
-      description: 'Thoughtful design, clean spaces, and consistent quality.',
+      description: 'Thoughtful design and consistent quality.',
     },
     {
       icon: (
@@ -70,7 +43,7 @@ const About = () => {
         </svg>
       ),
       title: 'Local Roots',
-      description: 'We work with local makers and partners across Central Texas.',
+      description: 'Proud to build in Central Texas.',
     },
   ];
 
@@ -148,7 +121,7 @@ const About = () => {
               isDarkMode ? 'text-[#C4B9A8]' : 'text-[#3E4F3E]'
             }`}
           >
-            A curated collection of tiny homes designed for slow mornings, wide skies, and genuine rest — nestled in Bruceville-Eddy, Texas.
+            A thoughtfully curated tiny home village created for slow mornings, open skies, and meaningful time away — nestled in Bruceville-Eddy, Texas.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center">
@@ -160,7 +133,7 @@ const About = () => {
                   : 'bg-[#1F3A2A] text-white hover:bg-[#2F5D3A]'
               }`}
             >
-              View Our Stays
+              Browse Stays
             </Link>
             <Link
               to="/contact"
@@ -238,23 +211,23 @@ const About = () => {
                   isDarkMode ? 'text-[#C4B9A8]' : 'text-[#3E4F3E]'
                 }`}
               >
-                The Tiny Escape was born from a simple belief: that people deserve a place to slow down. We designed a thoughtful tiny home village in Central Texas where guests can unplug, breathe, and reconnect with what matters.
+                The Tiny Escape began as a simple idea: create a place where people can step away from the noise and come back to what matters. Tucked into Bruceville-Eddy, Texas, our tiny home village was built for slow mornings, golden hour walks, and the kind of quiet that resets you.
               </p>
               <p
                 className={`text-base sm:text-lg leading-relaxed ${
                   isDarkMode ? 'text-[#C4B9A8]' : 'text-[#3E4F3E]'
                 }`}
               >
-                Every home is designed with intention — from the warm interiors to the private fire pits, the creek-side trails, and the guided horseback rides. We handle every detail so our guests can simply arrive and unwind.
+                This isn't just a place to sleep — it's a place to linger. Start your day at Creekside Cafe, cool off in our container pools, gather under the stars, or book a guided horseback ride to experience Central Texas in a way that feels both grounded and unforgettable.
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               {[
-                { title: 'Curated Spaces', desc: 'Design-forward interiors and calm outdoor settings.' },
-                { title: 'Local Touches', desc: 'Thoughtful details from Central Texas makers.' },
-                { title: 'Easy Arrival', desc: 'Smart self check-in and clear, simple guidance.' },
-                { title: 'Transparent Rates', desc: 'No hidden fees or surprise add-ons. Ever.' },
+                { title: 'Design-Forward Stays', desc: 'Warm, intentional interiors made for comfort and ease.' },
+                { title: 'Creekside Cafe', desc: 'Coffee + small bites in a cozy on-property setting.' },
+                { title: 'On-Property Experiences', desc: 'Guided horseback riding, pools, and starry nights.' },
+                { title: 'Spaces to Gather', desc: 'From the grand firepit to our pavilion plans ahead.' },
               ].map((item) => (
                 <div
                   key={item.title}
@@ -285,7 +258,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* ── Team ── */}
+      {/* ── Family-Owned, Guest-Focused ── */}
       <section
         className={`py-16 md:py-24 ${
           isDarkMode
@@ -294,7 +267,7 @@ const About = () => {
         }`}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="text-center mb-14">
+          <div className="text-center">
             <p
               className={`text-xs uppercase tracking-[0.22em] font-bold mb-4 ${
                 isDarkMode ? 'text-[#A8E6A3]' : 'text-[#2F5D3A]'
@@ -303,84 +276,18 @@ const About = () => {
               The People Behind It
             </p>
             <h2
-              className={`text-3xl sm:text-4xl font-bold ${
+              className={`text-3xl sm:text-4xl font-bold mb-4 ${
                 isDarkMode ? 'text-[#F2EEE7]' : 'text-[#1F2A1F]'
               }`}
               style={{ fontFamily: 'Playfair Display, serif' }}
             >
-              Meet Our Team
+              Family-Owned, Guest-Focused
             </h2>
+            <p className={`max-w-2xl mx-auto text-base sm:text-lg leading-relaxed ${isDarkMode ? 'text-[#C4B9A8]' : 'text-[#3E4F3E]'}`}>
+              The Tiny Escape is proudly family-owned and operated, built on a shared passion for creating peaceful, memorable stays in Central Texas. We're hands-on with the details — from the way each home feels to the experiences offered on property — so every guest can arrive, unwind, and leave feeling restored.
+            </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            {teamMembers.map((member) => (
-              <div
-                key={member.id}
-                className={`rounded-3xl border p-6 text-center transition-all duration-500 hover:-translate-y-1 hover:shadow-xl ${
-                  isDarkMode
-                    ? 'bg-[#16120F] border-[rgba(201,163,106,0.2)]'
-                    : 'bg-white border-[#DDE8DD]'
-                }`}
-              >
-                <div
-                  className={`inline-block p-1 rounded-full mb-5 ${
-                    isDarkMode
-                      ? 'bg-gradient-to-br from-[#2F5D3A] to-[#A8E6A3]'
-                      : 'bg-gradient-to-br from-[#1F3A2A] to-[#6BAF7A]'
-                  }`}
-                >
-                  <img
-                    src={member.avatar}
-                    alt={member.name}
-                    className="h-24 w-24 rounded-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-
-                <span
-                  className={`inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 ${
-                    isDarkMode
-                      ? 'bg-[#1F3A2A] text-[#A8E6A3]'
-                      : 'bg-[#EAF3EA] text-[#1F3A2A]'
-                  }`}
-                >
-                  {member.position}
-                </span>
-
-                <h3
-                  className={`text-xl font-bold mb-3 ${
-                    isDarkMode ? 'text-[#F2EEE7]' : 'text-[#1F2A1F]'
-                  }`}
-                  style={{ fontFamily: 'Playfair Display, serif' }}
-                >
-                  {member.name}
-                </h3>
-
-                <p
-                  className={`text-sm leading-relaxed mb-4 ${
-                    isDarkMode ? 'text-[#A79C8C]' : 'text-[#4B5F4B]'
-                  }`}
-                >
-                  {member.bio}
-                </p>
-
-                <div className="flex flex-wrap gap-2 justify-center">
-                  {member.expertise.map((skill, idx) => (
-                    <span
-                      key={idx}
-                      className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        isDarkMode
-                          ? 'bg-[#1F3A2A] text-[#A8E6A3]'
-                          : 'bg-[#EAF3EA] text-[#2F5D3A]'
-                      }`}
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -466,7 +373,7 @@ const About = () => {
               isDarkMode ? 'text-[#A79C8C]' : 'text-[#4B5F4B]'
             }`}
           >
-            Book a calm, design-forward stay and slow down in Central Texas.
+            Book your calm, design-forward stay and experience The Tiny Escape for yourself.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link

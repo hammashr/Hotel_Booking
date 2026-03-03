@@ -310,7 +310,9 @@ const DestinationDetail = memo(() => {
       )}
 
       {/* ── Hero ── */}
-      <section className="relative h-[60vh] md:h-[70vh] overflow-hidden">
+      <section className="relative h-[78vh] md:h-[88vh] overflow-hidden">
+
+        {/* Gallery slides */}
         <div className="absolute inset-0">
           {stay.gallery.map((image, index) => (
             <div
@@ -320,97 +322,102 @@ const DestinationDetail = memo(() => {
               }`}
             >
               <div
-                className="w-full h-full bg-cover bg-center"
-                style={{
-                  backgroundImage: `url(${image})`,
-                  filter: "brightness(0.7)",
-                }}
+                className="w-full h-full bg-cover bg-center scale-105 transition-transform duration-[8000ms]"
+                style={{ backgroundImage: `url(${image})` }}
               />
             </div>
           ))}
+          {/* Cinematic gradient layers */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/35 to-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/10 to-transparent" />
         </div>
 
+        {/* Nav arrows */}
         <button
-          onClick={() =>
-            setCurrentImageIndex((prev) =>
-              prev === 0 ? stay.gallery.length - 1 : prev - 1,
-            )
-          }
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all"
+          onClick={() => setCurrentImageIndex((prev) => prev === 0 ? stay.gallery.length - 1 : prev - 1)}
+          className="absolute left-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-black/40 hover:bg-[#1F3A2A]/80 border border-white/20 hover:border-[#4A8F5A]/60 text-white flex items-center justify-center transition-all duration-300 hover:scale-105 backdrop-blur-sm shadow-lg"
         >
-          <FaChevronLeft size={24} />
+          <FaChevronLeft size={15} />
         </button>
         <button
-          onClick={() =>
-            setCurrentImageIndex((prev) =>
-              prev === stay.gallery.length - 1 ? 0 : prev + 1,
-            )
-          }
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all"
+          onClick={() => setCurrentImageIndex((prev) => prev === stay.gallery.length - 1 ? 0 : prev + 1)}
+          className="absolute right-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-black/40 hover:bg-[#1F3A2A]/80 border border-white/20 hover:border-[#4A8F5A]/60 text-white flex items-center justify-center transition-all duration-300 hover:scale-105 backdrop-blur-sm shadow-lg"
         >
-          <FaChevronRight size={24} />
+          <FaChevronRight size={15} />
         </button>
 
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+        {/* Dot indicators */}
+        <div className="absolute bottom-7 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2">
           {stay.gallery.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentImageIndex(index)}
-              className={`h-2 rounded-full transition-all ${
+              className={`rounded-full transition-all duration-300 ${
                 index === currentImageIndex
-                  ? "bg-white w-8"
-                  : "bg-white/50 hover:bg-white/75 w-2"
+                  ? "bg-white w-7 h-2"
+                  : "bg-white/40 hover:bg-white/65 w-2 h-2"
               }`}
             />
           ))}
         </div>
 
-        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent flex items-end">
-          <div className="container mx-auto px-4 pb-12 md:pb-16">
-            <div className="max-w-4xl">
-              <div className="inline-block mb-4">
-                <span className="px-4 py-2 rounded-full text-sm font-semibold text-white bg-[#22D3EE]/80">
+        {/* Image counter badge */}
+        <div className="absolute top-6 right-6 z-10">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-black/50 text-white/80 border border-white/15 backdrop-blur-sm">
+            {currentImageIndex + 1} / {stay.gallery.length}
+          </span>
+        </div>
+
+        {/* Content */}
+        <div className="absolute inset-0 flex items-end z-10">
+          <div className="w-full container mx-auto px-4 sm:px-6 pb-20 md:pb-24">
+            <div className="max-w-3xl">
+
+              {/* Tagline pill */}
+              <div className="mb-4">
+                <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[#162A18]/85 text-[#A8DFB8] border border-[#2F5D3A]/50 backdrop-blur-sm">
                   {stay.tagline}
                 </span>
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+
+              {/* Name */}
+              <h1
+                className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-[1.02]"
+                style={{ fontFamily: "Playfair Display, serif", textShadow: "0 6px 30px rgba(0,0,0,0.5)" }}
+              >
                 {stay.name}
               </h1>
-              <div className="flex flex-wrap gap-6 text-white/90 mb-6">
-                <div className="flex items-center gap-2">
-                  <FaStar className="text-yellow-400" />
-                  <span>
-                    {stay.rating} ({stay.reviews} reviews)
+
+              {/* Stats pills */}
+              <div className="flex flex-wrap gap-2.5 mb-8">
+                {[
+                  { icon: <FaStar className="text-amber-400" size={11} />, label: `${stay.rating} (${stay.reviews} reviews)` },
+                  { icon: <FaUsers size={11} className="text-[#8FC99A]" />, label: `Sleeps ${stay.sleeps}` },
+                  { icon: <FaBed size={11} className="text-[#8FC99A]" />, label: `${stay.bedrooms} bed${stay.bedrooms !== 1 ? "s" : ""}` },
+                  { icon: <FaBath size={11} className="text-[#8FC99A]" />, label: `${stay.baths} bath` },
+                  { icon: <FaHome size={11} className="text-[#8FC99A]" />, label: `${stay.sizeSqFt} sq ft` },
+                ].map(({ icon, label }) => (
+                  <span
+                    key={label}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-black/50 text-white border border-white/15 backdrop-blur-sm"
+                  >
+                    {icon}
+                    {label}
                   </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaUsers className="text-[#22D3EE]" />
-                  <span>Sleeps {stay.sleeps}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaBed className="text-[#22D3EE]" />
-                  <span>{stay.bedrooms} beds</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaBath className="text-[#22D3EE]" />
-                  <span>{stay.baths} bath</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaHome className="text-[#22D3EE]" />
-                  <span>{stay.sizeSqFt} sq ft</span>
-                </div>
+                ))}
               </div>
 
-              <div className="flex flex-wrap gap-4">
+              {/* Action buttons */}
+              <div className="flex flex-wrap gap-3">
                 <a
                   href="#pricing-card"
-                  className="px-6 py-3 bg-[#22D3EE] hover:bg-[#4DBBFF] text-white font-semibold rounded-lg transition-all transform hover:scale-105"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#1F3A2A] hover:bg-[#2F5D3A] text-white font-bold text-sm rounded-xl transition-all duration-300 hover:scale-105 shadow-[0_8px_24px_rgba(31,58,42,0.5)]"
                 >
                   View Pricing
                 </a>
                 <a
                   href="#amenities"
-                  className="px-6 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold rounded-lg transition-all"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/12 hover:bg-white/22 backdrop-blur-sm text-white font-semibold text-sm rounded-xl transition-all duration-300 border border-white/22 hover:border-white/40"
                 >
                   Amenities
                 </a>
@@ -422,18 +429,17 @@ const DestinationDetail = memo(() => {
                           title: stay.name,
                           source: `stay-${stay.slug}`,
                           packageCode: "standard",
-                          ...(prefilledDates
-                            ? { prefillDates: prefilledDates }
-                            : {}),
+                          ...(prefilledDates ? { prefillDates: prefilledDates } : {}),
                         },
                       },
                     })
                   }
-                  className="px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-semibold rounded-lg transition-all border border-white/30"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/8 hover:bg-white/18 backdrop-blur-sm text-white font-semibold text-sm rounded-xl transition-all duration-300 border border-white/18 hover:border-white/35"
                 >
                   Request Availability
                 </button>
               </div>
+
             </div>
           </div>
         </div>
@@ -475,6 +481,32 @@ const DestinationDetail = memo(() => {
                 ))}
               </div>
             </section>
+
+            {/* ── Feature Chips ── */}
+            {stay.featureChips && stay.featureChips.length > 0 && (
+              <section>
+                <h2 className={`text-3xl font-bold mb-6 ${
+                  isDarkMode ? "text-[#E0E7EE]" : "text-[#0F172A]"
+                }`}>
+                  Feature Chips
+                </h2>
+                <div className="flex flex-wrap gap-3">
+                  {stay.featureChips.map((chip) => (
+                    <span
+                      key={chip.label}
+                      className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border transition-all ${
+                        isDarkMode
+                          ? "bg-[#112216] border-[#1F4028] text-[#A8D8B0] hover:border-[#2F5D3A] hover:bg-[#172D1E]"
+                          : "bg-white border-[#C0DEC0] text-[#1F3A2A] hover:border-[#2F5D3A] hover:bg-[#EAF5EA]"
+                      }`}
+                    >
+                      <span className="text-base leading-none">{chip.icon}</span>
+                      {chip.label}
+                    </span>
+                  ))}
+                </div>
+              </section>
+            )}
 
             {/* ── Amenities Section ── */}
             <section id="amenities">
