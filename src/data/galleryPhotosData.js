@@ -1,6 +1,9 @@
 import newYearVideo from '../assets/videos/New Year Celebration video.mp4';
 import tinyEscape3 from '../assets/tiny escape 3.jpg';
 
+// ── Featured ─────────────────────────────────────────────────
+import galleryTinyEscape2026 from '../assets/gallery/gallery-tiny-escape-2026.png';
+
 // ── General ──────────────────────────────────────────────────
 import galleryGeneral1 from '../assets/gallery/gallery-general-1.jpeg';
 import galleryGeneral2 from '../assets/gallery/gallery-general-2.jpeg';
@@ -86,6 +89,9 @@ import galleryPool4 from '../assets/gallery/gallery-pool-4.webp';
 import galleryPool5 from '../assets/gallery/gallery-pool-5.jpg';
 
 export const galleryPhotos = [
+  // Featured
+  { id: 0,  title: 'The Tiny Escape', location: 'Bruceville-Eddy, TX', image: galleryTinyEscape2026 },
+
   // All Homes
   { id: 1,  title: 'The Village', location: 'Bruceville-Eddy, TX', image: galleryAllHomes1 },
   { id: 2,  title: 'Community Grounds', location: 'Bruceville-Eddy, TX', image: galleryAllHomes2 },

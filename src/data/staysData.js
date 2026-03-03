@@ -11,6 +11,9 @@ import konaMeadow1 from "../assets/homes/kona-meadow/kona-meadow-1.jpg";
 import konaMeadow2 from "../assets/homes/kona-meadow/kona-meadow-2.jpg";
 import konaMeadow3 from "../assets/homes/kona-meadow/kona-meadow-3.jpg";
 
+// Shared A-frame feature image
+import tinyEscape2026 from "../assets/homes/catalina-ridge/catalina-ridge-new.png";
+
 // Catalina Ridge (Triangle 1) images
 import catalinaRidge1 from "../assets/homes/catalina-ridge/catalina-ridge-1.jpg";
 import catalinaRidge2 from "../assets/homes/catalina-ridge/catalina-ridge-2.jpg";
@@ -419,8 +422,9 @@ export const staysData = [
     checkIn: "3:00 PM",
     checkOut: "11:00 AM",
     petFriendly: false,
-    heroImage: catalinaRidge1,
+    heroImage: tinyEscape2026,
     gallery: [
+      tinyEscape2026,
       catalinaRidge1,
       catalinaRidge2,
       catalinaRidge3,
@@ -610,8 +614,9 @@ export const staysData = [
     checkIn: "3:00 PM",
     checkOut: "11:00 AM",
     petFriendly: false,
-    heroImage: raniRidge1,
+    heroImage: tinyEscape2026,
     gallery: [
+      tinyEscape2026,
       raniRidge1,
       raniRidge2,
       raniRidge3,
