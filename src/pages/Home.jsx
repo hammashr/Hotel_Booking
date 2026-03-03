@@ -70,32 +70,32 @@ const AMENITIES = [
 
 const TESTIMONIALS = [
   {
-    name: "Sarah M.",
+    name: "Rosalia Treto",
     rating: 5,
-    date: "January 2026",
-    text: "Absolutely magical! The tiny home was perfectly designed — cozy, clean, and surrounded by nature. Waking up to the sound of birds and sipping coffee on the deck was everything we needed. Will definitely be back.",
-    avatar: "S",
+    date: "4 months ago",
+    text: "I absolutely loved my stay at The Tiny Escape! From the moment I arrived, I felt an incredible sense of peace and calm. The location is beautiful — tucked away just enough to feel private, yet still close to everything you need. Cozy, thoughtfully designed, and full of charm. I left feeling refreshed and already can't wait to come back! 🌿✨",
+    avatar: "R",
   },
   {
-    name: "James & Linda R.",
+    name: "tauseef ashraf",
     rating: 5,
-    date: "February 2026",
-    text: "We came for a weekend anniversary trip and ended up wishing we could stay longer. The fire pit nights were unforgettable. The Creekside Café was a wonderful bonus — great coffee and a cozy vibe.",
-    avatar: "J",
+    date: "Recently",
+    text: "The Tiny Escape is a peaceful forest retreat nestled halfway between Austin and Dallas. Cozy Scandinavian-style tiny homes sit among tall trees with a flowing creek nearby. Waking up to birdsong and sunlight through the woods is unforgettable and the included horse ride through shaded trails is a true highlight!",
+    avatar: "T",
   },
   {
-    name: "Carlos T.",
+    name: "Manuel Fajardo",
     rating: 5,
-    date: "January 2026",
-    text: "The horseback riding was a highlight of our trip. The tiny home itself felt like a luxury treehouse. Very well maintained, super clean, and the hosts were incredibly responsive. Highly recommend!",
+    date: "9 months ago",
+    text: "Loved the stay, very nice and peaceful, had a blast! 10/10",
+    avatar: "M",
+  },
+  {
+    name: "Christy Jaynes",
+    rating: 5,
+    date: "A year ago",
+    text: "Amazing, beautiful and relaxing atmosphere.",
     avatar: "C",
-  },
-  {
-    name: "Priya N.",
-    rating: 5,
-    date: "February 2026",
-    text: "I needed a true digital detox and this place delivered. No distractions, just beautiful nature, comfy beds, and the most stunning starry skies. The location between Waco and Temple is also super convenient.",
-    avatar: "P",
   },
 ];
 
@@ -351,11 +351,11 @@ const Home = () => {
                 isDarkMode ? "text-[#A79C8C]" : "text-[#3E4F3E]"
               }`}
             >
-              Conveniently located in Bruceville-Eddy, The Tiny Escape sits just minutes from{" "}
-              <span className={`font-semibold ${isDarkMode ? "text-[#C9A36A]" : "text-[#1F3A2A]"}`}>Waco</span>
-              {" "}and{" "}
+              Conveniently located in Bruceville-Eddy, The Tiny Escape is just 15 minutes from{" "}
               <span className={`font-semibold ${isDarkMode ? "text-[#C9A36A]" : "text-[#1F3A2A]"}`}>Temple</span>
-              {" "}— close enough for easy access, yet far enough to truly unplug and unwind.
+              {" "}and 20 minutes from{" "}
+              <span className={`font-semibold ${isDarkMode ? "text-[#C9A36A]" : "text-[#1F3A2A]"}`}>Waco</span>
+              {" "}— and within easy reach of Austin and Dallas — close enough for easy access, yet far enough to truly unplug and unwind.
             </p>
           </div>
           <div
@@ -404,7 +404,7 @@ const Home = () => {
               }`}
               style={{ fontFamily: "Playfair Display, serif" }}
             >
-              Guest Testimonials
+              What Guests Are Saying
             </h2>
             <div className="flex items-center justify-center gap-2 mt-3">
               <StarRating count={5} />
@@ -413,7 +413,7 @@ const Home = () => {
                   isDarkMode ? "text-[#C9A36A]" : "text-[#1F3A2A]"
                 }`}
               >
-                4.9 / 5
+                5.0 / 5
               </span>
               <span
                 className={`text-sm ${
@@ -494,12 +494,12 @@ const Home = () => {
 
       {/* CTA Section */}
       <section
-        className="relative py-14 sm:py-20 md:py-24 min-h-[56vh] sm:min-h-[70vh] overflow-hidden img-section"
+        className="relative py-14 sm:py-20 md:py-24 min-h-[56vh] sm:min-h-[70vh] overflow-hidden img-section flex items-center justify-center"
         style={{ "--cta-bg-image": `url(${tinyEscape7})` }}
       >
-        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="relative z-10 w-full mx-auto max-w-3xl px-4 sm:px-6">
           <div
-            className="cta-cut-card tiny-cta-frame grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center px-4 md:px-8 py-10 md:py-14"
+            className="cta-cut-card tiny-cta-frame grid gap-10 lg:grid-cols-1 items-center px-8 md:px-12 py-10 md:py-14 text-center"
             style={{
               "--cta-frame-gradient": isDarkMode
                 ? "linear-gradient(90deg, rgba(14, 22, 17, 0.78), rgba(14, 22, 17, 0.38))"
@@ -527,69 +527,26 @@ const Home = () => {
               "--cta-btn-secondary-hover-text": isDarkMode ? "#0E1A12" : "#F7FBF7",
             }}
           >
-            <div>
-              <p className="tiny-cta-kicker">Get Started</p>
+            <div className="lg:col-span-2">
+              <p className="tiny-cta-kicker">Your Next Stay Awaits</p>
               <h2
-                className="tiny-cta-title"
+                className="tiny-cta-title whitespace-nowrap"
                 style={{ fontFamily: "Playfair Display, serif" }}
               >
-                Design Your Tiny Escape
+                Your Escape is Waiting
               </h2>
               <p className="tiny-cta-subtitle">
-                Tell us your dates, style, and pace. We will pair you with a
-                quiet cabin, the right view, and a stay that feels effortless.
+                Choose your dates and start planning your stay at The Tiny Escape — your peaceful retreat in Central Texas.
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <Link to={viewStaysPath} className="tiny-cta-primary">
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+                <Link to={requestAvailabilityPath} className="tiny-cta-primary">
+                  View Availability
+                </Link>
+                <Link to={viewStaysPath} className="tiny-cta-secondary">
                   View Stays
                 </Link>
-                <Link to={requestAvailabilityPath} className="tiny-cta-secondary">
-                  Request Availability
-                </Link>
               </div>
-            </div>
-
-            <div className="tiny-cta-glass">
-              {[
-                {
-                  label: "Early Bird Savings",
-                  text: "Reserve early to unlock calm-season pricing.",
-                  icon: (
-                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                      <circle cx="12" cy="12" r="4" />
-                      <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
-                    </svg>
-                  ),
-                },
-                {
-                  label: "Extended Stay Rewards",
-                  text: "Stay 3+ nights for extra savings and perks.",
-                  icon: (
-                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                      <path d="M12 3l3 6 6 .8-4.5 4.4 1 6-5.5-3-5.5 3 1-6L3 9.8 9 9l3-6z" />
-                    </svg>
-                  ),
-                },
-                {
-                  label: "Seasonal Nature Offers",
-                  text: "Limited-time stays for blooms, stars, and cool nights.",
-                  icon: (
-                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                      <path d="M12 2v20M4 12h16" />
-                      <path d="M7 5c1.5 2 8.5 2 10 0M7 19c1.5-2 8.5-2 10 0" />
-                    </svg>
-                  ),
-                },
-              ].map((item) => (
-                <div key={item.label} className="tiny-cta-feature">
-                  <span className="tiny-cta-icon">{item.icon}</span>
-                  <div>
-                    <p className="tiny-cta-feature-title">{item.label}</p>
-                    <p className="tiny-cta-feature-text">{item.text}</p>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
