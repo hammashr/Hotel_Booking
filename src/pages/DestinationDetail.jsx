@@ -51,11 +51,19 @@ import {
 // ─── Icon maps ────────────────────────────────────────────────────────────────
 
 const AMENITY_ICONS = {
-  "Communal swimming pool": FaSwimmingPool,
-  "Coffee and light bites": FaCoffee,
+  // New canonical amenity names
+  "Container pools access": FaSwimmingPool,
+  "Grand fire pit access": FaFire,
   Kitchenette: FaUtensils,
+  "Mini fridge/freezer": FaSnowflake,
   Microwave: FaBlender,
   "Coffee maker": FaCoffee,
+  "Wi-Fi": FaWifi,
+  "Smart lock self check-in": FaKey,
+  "Outdoor seating area": FaChair,
+  // Legacy mappings kept for safety
+  "Communal swimming pool": FaSwimmingPool,
+  "Coffee and light bites": FaCoffee,
   "Mini Fridge/Freezer": FaSnowflake,
   Utensils: FaUtensils,
   "Dining table": FaChair,
