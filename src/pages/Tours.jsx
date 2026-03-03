@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import heroAllHomes from '../assets/homes/all-homes/all-homes-1.jpg';
+import heroAllHomes from '../assets/gallery/gallery-tiny-escape-2026.png';
 import { useTheme } from '../context/ThemeContext';
 import PageLayout from '../components/layout/PageLayout';
 import { getAllStays } from '../data/staysData';
@@ -145,7 +145,7 @@ const Tours = () => {
               Find Your Stay
             </h1>
             <p className="text-white/75 text-base sm:text-lg max-w-xl mx-auto">
-              Select your dates to check availability for your perfect tiny escape.
+              Thoughtfully designed tiny homes for rest, comfort, and connection.
             </p>
           </div>
 
@@ -361,7 +361,7 @@ const Tours = () => {
               </div>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-7">
               {visibleHouses.map((stay) => {
                 const isUnknown = searched && availabilityMap[stay.slug] === null;
 
@@ -369,101 +369,109 @@ const Tours = () => {
                   <Link
                     key={stay.slug}
                     to={`/stay/${stay.slug}${checkIn && checkOut ? `?checkIn=${formatYMD(checkIn)}&checkOut=${formatYMD(checkOut)}&guests=${guests}` : ''}`}
-                    className={`group flex flex-col overflow-hidden rounded-3xl border transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(0,0,0,0.18)] ${
+                    className={`group flex flex-col overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-2 ${
                       isDarkMode
-                        ? 'bg-[#16120F] border-[rgba(201,163,106,0.2)] hover:border-[rgba(201,163,106,0.5)]'
-                        : 'bg-white border-[#DDE8DD] hover:border-[#8FBA8F] shadow-md'
+                        ? 'bg-[#0F1A12] shadow-[0_4px_28px_rgba(0,0,0,0.45)] hover:shadow-[0_24px_56px_rgba(0,0,0,0.6)]'
+                        : 'bg-white shadow-[0_2px_18px_rgba(31,58,42,0.09)] hover:shadow-[0_22px_52px_rgba(31,58,42,0.2)]'
                     }`}
                   >
-                    {/* Image */}
-                    <div className="relative h-72 overflow-hidden">
+                    {/* ── Image ── */}
+                    <div className="relative overflow-hidden" style={{ aspectRatio: '4/3' }}>
                       <img
                         src={stay.heroImage}
                         alt={stay.name}
                         loading="lazy"
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-108"
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                      {/* Layered gradient for depth */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#0B1F10]/30 via-transparent to-transparent" />
 
-                      {/* Availability badge */}
-                      {searched && (
-                        <div className={`absolute top-4 left-4 px-3 py-1.5 rounded-full text-xs font-bold shadow-lg ${
-                          isUnknown
-                            ? 'bg-yellow-500/90 text-black'
-                            : 'bg-[#2F5D3A] text-white'
-                        }`}>
-                          {isUnknown ? '● Check dates' : '✓ Available'}
-                        </div>
-                      )}
-
-                      {/* Category pill */}
-                      <div className={`absolute top-4 right-4 px-3 py-1.5 rounded-full text-xs font-bold backdrop-blur-sm ${
-                        isDarkMode ? 'bg-black/50 text-[#C9A36A]' : 'bg-white/80 text-[#1F3A2A]'
-                      }`}>
-                        {stay.category || 'Tiny Home'}
+                      {/* Top row: availability + category */}
+                      <div className="absolute top-3.5 left-3.5 right-3.5 flex items-start justify-between">
+                        {searched ? (
+                          <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold shadow-lg backdrop-blur-md border ${
+                            isUnknown
+                              ? 'bg-amber-400/85 text-black border-amber-300/50'
+                              : 'bg-[#1A3A22]/90 text-[#7DCEA0] border-[#2F5D3A]/60'
+                          }`}>
+                            {isUnknown ? '● Check dates' : '✓ Available'}
+                          </span>
+                        ) : <span />}
+                        <span />
                       </div>
 
-                      {/* Rating overlaid on image bottom */}
-                      <div className="absolute bottom-4 left-4 flex items-center gap-1.5">
-                        <div className="flex items-center gap-1 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1.5">
-                          <svg className="h-3.5 w-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                      {/* Bottom: rating left, price right */}
+                      <div className="absolute bottom-0 left-0 right-0 px-4 pb-4 flex items-end justify-between">
+                        <div className="flex items-center gap-1.5 bg-black/55 backdrop-blur-sm rounded-full px-3 py-1.5 border border-white/10">
+                          <svg className="h-3.5 w-3.5 text-amber-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                           </svg>
                           <span className="text-white text-xs font-bold">{stay.rating || '4.9'}</span>
-                          <span className="text-white/70 text-xs">({stay.reviews || '0'} reviews)</span>
+                          <span className="text-white/65 text-[11px]">({stay.reviews || '0'} reviews)</span>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-white font-black text-xl leading-none drop-shadow-lg">${stay.pricing?.standard?.price || '—'}</span>
+                          <span className="text-white/65 text-[11px] ml-1">/ night</span>
                         </div>
                       </div>
                     </div>
 
-                    {/* Content */}
-                    <div className="flex flex-col flex-1 p-6">
-                      <div className="flex items-start justify-between gap-4 mb-3">
-                        <div>
-                          <h3
-                            className={`text-2xl font-bold mb-1 leading-tight ${isDarkMode ? 'text-[#F2EEE7]' : 'text-[#1F2A1F]'}`}
-                            style={{ fontFamily: 'Playfair Display, serif' }}
-                          >
-                            {stay.name}
-                          </h3>
-                          <p className={`text-sm flex items-center gap-1 ${isDarkMode ? 'text-[#A79C8C]' : 'text-[#6B7C6B]'}`}>
-                            <svg className="h-3.5 w-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            </svg>
-                            {stay.location}
-                          </p>
-                        </div>
-                        <div className="text-right shrink-0">
-                          <div className={`text-2xl font-black ${isDarkMode ? 'text-[#F2EEE7]' : 'text-[#1F3A2A]'}`}>
-                            ${stay.pricing?.standard?.price || '—'}
-                          </div>
-                          <div className={`text-xs ${isDarkMode ? 'text-[#A79C8C]' : 'text-[#6B7C6B]'}`}>per night</div>
-                        </div>
+                    {/* ── Card Body ── */}
+                    <div className="flex flex-col flex-1 px-5 pt-5 pb-5">
+
+                      {/* Name + location */}
+                      <div className="mb-4">
+                        <h3
+                          className={`text-[1.25rem] font-bold leading-snug mb-1.5 ${isDarkMode ? 'text-[#EDF5EE]' : 'text-[#162816]'}`}
+                          style={{ fontFamily: 'Playfair Display, serif' }}
+                        >
+                          {stay.name}
+                        </h3>
+                        <p className={`text-[11px] uppercase tracking-widest font-semibold flex items-center gap-1 ${isDarkMode ? 'text-[#4E7A5A]' : 'text-[#5A7A5A]'}`}>
+                          <svg className="h-3 w-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                          </svg>
+                          {stay.location}
+                        </p>
                       </div>
 
-                      {/* Quick stats row */}
-                      <div className={`flex items-center gap-4 py-3 mb-4 border-y text-sm ${isDarkMode ? 'border-[rgba(255,255,255,0.07)] text-[#A79C8C]' : 'border-[#EEF4EE] text-[#4B5F4B]'}`}>
-                        <span className="flex items-center gap-1.5">
-                          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-                          Sleeps {stay.sleeps}
-                        </span>
-                        <span className="flex items-center gap-1.5">
-                          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-                          {stay.bedrooms} bed{stay.bedrooms !== 1 ? 's' : ''}
-                        </span>
-                        <span className="flex items-center gap-1.5">
-                          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2"/></svg>
-                          {stay.sizeSqFt || '—'} sq ft
-                        </span>
+                      {/* Stats pills */}
+                      <div className={`flex items-center gap-2 flex-wrap mb-4 pb-4 border-b ${isDarkMode ? 'border-[#1A3A1A]' : 'border-[#E8F2E8]'}`}>
+                        {[
+                          {
+                            label: `Sleeps ${stay.sleeps}`,
+                            icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                          },
+                          {
+                            label: `${stay.bedrooms} bed${stay.bedrooms !== 1 ? 's' : ''}`,
+                            icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                          },
+                          {
+                            label: `${stay.sizeSqFt || '—'} sq ft`,
+                            icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+                          }
+                        ].map(({ label, icon }) => (
+                          <span
+                            key={label}
+                            className={`inline-flex items-center gap-1.5 text-[11px] font-semibold px-2.5 py-1 rounded-full ${
+                              isDarkMode ? 'bg-[#162A18] text-[#7AAF88]' : 'bg-[#EAF3EA] text-[#2F5D3A]'
+                            }`}
+                          >
+                            <svg className="h-3 w-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">{icon}</svg>
+                            {label}
+                          </span>
+                        ))}
                       </div>
 
                       {/* Highlights */}
-                      <ul className="space-y-2 mb-5 flex-1">
+                      <ul className="space-y-2.5 mb-5 flex-1">
                         {(stay.highlights || []).slice(0, 3).map((h, i) => (
-                          <li key={i} className={`flex items-center gap-2 text-sm ${isDarkMode ? 'text-[#C0B8AE]' : 'text-[#334155]'}`}>
-                            <span className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${isDarkMode ? 'bg-[#1A3A1A]' : 'bg-[#EAF3EA]'}`}>
-                              <svg className={`h-3 w-3 ${isDarkMode ? 'text-[#6BAF7A]' : 'text-[#2F5D3A]'}`} fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                          <li key={i} className={`flex items-center gap-2.5 text-sm leading-snug ${isDarkMode ? 'text-[#A8C4AD]' : 'text-[#2C452C]'}`}>
+                            <span className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center ${isDarkMode ? 'bg-[#162A18]' : 'bg-[#DDF0DD]'}`}>
+                              <svg className={`h-3 w-3 ${isDarkMode ? 'text-[#5AA870]' : 'text-[#2F5D3A]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7"/>
                               </svg>
                             </span>
                             {h}
@@ -471,10 +479,10 @@ const Tours = () => {
                         ))}
                       </ul>
 
-                      {/* CTA Button */}
-                      <div className={`rounded-2xl py-3.5 px-6 text-center font-bold text-sm transition-all duration-300 group-hover:shadow-lg ${
+                      {/* CTA */}
+                      <div className={`mt-auto rounded-xl py-3 px-5 text-center text-sm font-bold tracking-wide transition-all duration-300 group-hover:shadow-lg ${
                         isDarkMode
-                          ? 'bg-[#1F3A2A] text-white group-hover:bg-[#2F5D3A]'
+                          ? 'bg-[#1A3A22] text-[#9FD4AB] border border-[#2A5434] group-hover:bg-[#224D2C] group-hover:text-white'
                           : 'bg-[#1F3A2A] text-white group-hover:bg-[#2F5D3A]'
                       }`}>
                         View This Stay →
@@ -488,21 +496,24 @@ const Tours = () => {
         </div>
       </section>
 
-      {/* ── Why Choose Us ── */}
+      {/* ── The Tiny Escape Difference ── */}
       <section className={`py-14 md:py-20 transition-colors duration-500 ${isDarkMode ? 'bg-[#120F0C]' : 'bg-[#EAF3EA]'}`}>
         <div className="mx-auto max-w-5xl px-4 sm:px-6 text-center">
           <h2
-            className={`text-2xl sm:text-3xl font-bold mb-10 ${isDarkMode ? 'text-[#F2EEE7]' : 'text-[#1F2A1F]'}`}
+            className={`text-2xl sm:text-3xl font-bold mb-3 ${isDarkMode ? 'text-[#F2EEE7]' : 'text-[#1F2A1F]'}`}
             style={{ fontFamily: 'Playfair Display, serif' }}
           >
-            Why Stay With Us
+            The Tiny Escape Difference
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <p className={`text-sm sm:text-base mb-10 max-w-2xl mx-auto ${isDarkMode ? 'text-[#A79C8C]' : 'text-[#4B5F4B]'}`}>
+            Thoughtfully designed for comfort, connection, and quiet moments that matter.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { icon: '★', title: 'Local Hosts', desc: 'Warm, responsive support always available' },
-              { icon: '✓', title: 'No Hidden Fees', desc: 'Transparent, honest pricing on every stay' },
-              { icon: '◎', title: 'Private Stays', desc: 'Quiet, low-density — your own space' },
-              { icon: '⟳', title: 'Easy Booking', desc: 'Simple request process, fast confirmation' },
+              { icon: '🏡', title: 'Thoughtfully Designed Homes', desc: 'Modern tiny homes intentionally crafted for comfort, style, and effortless relaxation.' },
+              { icon: '🔥', title: 'Spaces Made to Gather', desc: 'From fireside evenings to the open-air pavilion, every space is designed to bring people together.' },
+              { icon: '🌿', title: 'Curated On-Property Experiences', desc: 'Enjoy guided horseback riding, refreshing container pools, and moments made for the outdoors.' },
+              { icon: '✦', title: 'Peaceful, Low-Density Retreat', desc: 'Fewer homes, more breathing room, and the quiet escape you\'ve been craving.' },
             ].map((item) => (
               <div
                 key={item.title}
@@ -513,7 +524,7 @@ const Tours = () => {
                 }`}
               >
                 <div className={`text-2xl mb-2 ${isDarkMode ? 'text-[#C9A36A]' : 'text-[#2F5D3A]'}`}>{item.icon}</div>
-                <h3 className={`text-sm font-bold mb-1 ${isDarkMode ? 'text-[#F2EEE7]' : 'text-[#1F2A1F]'}`}>{item.title}</h3>
+                <h3 className={`text-sm font-bold mb-2 ${isDarkMode ? 'text-[#F2EEE7]' : 'text-[#1F2A1F]'}`}>{item.title}</h3>
                 <p className={`text-xs leading-relaxed ${isDarkMode ? 'text-[#A79C8C]' : 'text-[#4B5F4B]'}`}>{item.desc}</p>
               </div>
             ))}
@@ -528,12 +539,22 @@ const Tours = () => {
             className={`text-2xl sm:text-3xl font-bold mb-3 ${isDarkMode ? 'text-[#F2EEE7]' : 'text-[#1F2A1F]'}`}
             style={{ fontFamily: 'Playfair Display, serif' }}
           >
-            Ready to Book?
+            Ready to Escape?
           </h2>
           <p className={`text-sm sm:text-base mb-6 ${isDarkMode ? 'text-[#A79C8C]' : 'text-[#4B5F4B]'}`}>
-            Pick your dates above or contact us directly — we confirm quickly.
+            Check availability and start planning your stay at The Tiny Escape.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
+            <Link
+              to="/book-now"
+              className={`rounded-xl px-6 py-3 text-sm font-bold transition-all hover:scale-105 ${
+                isDarkMode
+                  ? 'bg-[#C9A36A] text-[#1A120A] hover:bg-[#E7CFA2]'
+                  : 'bg-[#1F3A2A] text-white hover:bg-[#2F5D3A]'
+              }`}
+            >
+              Check Availability
+            </Link>
             <Link
               to="/contact"
               className={`rounded-xl border-2 px-6 py-3 text-sm font-bold transition-all hover:scale-105 ${
