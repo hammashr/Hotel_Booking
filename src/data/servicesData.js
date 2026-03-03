@@ -39,7 +39,7 @@ export const servicesData = {
     featuredProperties: [
       {
         id: 'apple-1-razoo-creek',
-        name: 'Apple 1: Razoo Creek',
+        name: 'Razzo Creek',
         location: 'Texas Hill Country, Wimberley',
         price: 185,
         category: 'comfort',
@@ -51,7 +51,7 @@ export const servicesData = {
       },
       {
         id: 'apple-2-limestone-ridge',
-        name: 'Apple 2: Limestone Ridge',
+        name: 'Kona Meadows',
         location: 'Texas Hill Country, Dripping Springs',
         price: 210,
         category: 'comfort',
@@ -63,7 +63,7 @@ export const servicesData = {
       },
       {
         id: 'triangle-1-cedar-glen',
-        name: 'Triangle 1: Cedar Glen',
+        name: 'Catalina Ridge',
         location: 'Texas Hill Country, Marble Falls',
         price: 265,
         category: 'luxury',
@@ -75,7 +75,7 @@ export const servicesData = {
       },
       {
         id: 'triangle-2-prairie-lake',
-        name: 'Triangle 2: Prairie Lake',
+        name: 'Rani Ridge',
         location: 'Texas Hill Country, Wimberley',
         price: 145,
         category: 'budget',

@@ -45,7 +45,7 @@ const STANDARD_HOME_AMENITIES = [
 const HOUSE_SEED_DATA = [
   {
     slug: "apple-1-razoo-creek",
-    name: "Apple 1: Razoo Creek",
+    name: "Razzo Creek",
     description:
       "A quiet couples cabin with panoramic views, private firepit, and a warm, modern interior designed for slow mornings and golden-hour evenings.",
     heroImage:
@@ -59,7 +59,7 @@ const HOUSE_SEED_DATA = [
     beds: 1,
     baths: 1,
     amenities: [...STANDARD_HOME_AMENITIES],
-    baseLocation: "Texas Hill Country",
+    baseLocation: "Bruceville-Eddy, TX",
     mapEmbedUrl: null,
     isActive: true,
     sortOrder: 1,
@@ -76,7 +76,7 @@ const HOUSE_SEED_DATA = [
   },
   {
     slug: "apple-2-kona-meadows",
-    name: "Apple 2: Kona Meadows",
+    name: "Kona Meadows",
     description:
       "Family-friendly tiny home steps from the water with generous outdoor space and an open-plan living area for relaxed stays.",
     heroImage:
@@ -90,7 +90,7 @@ const HOUSE_SEED_DATA = [
     beds: 2,
     baths: 1,
     amenities: [...STANDARD_HOME_AMENITIES],
-    baseLocation: "Wimberley, TX",
+    baseLocation: "Bruceville-Eddy, TX",
     mapEmbedUrl: null,
     isActive: true,
     sortOrder: 2,
@@ -107,7 +107,7 @@ const HOUSE_SEED_DATA = [
   },
   {
     slug: "triangle-1-catalina-ridge",
-    name: "Triangle 1: Catalina Ridge",
+    name: "Catalina Ridge",
     description:
       "Minimalist loft with vaulted ceilings, expansive glass, and a stargazing deck blending modern architecture with Texas skies.",
     heroImage:
@@ -121,7 +121,7 @@ const HOUSE_SEED_DATA = [
     beds: 1,
     baths: 1,
     amenities: [...STANDARD_HOME_AMENITIES],
-    baseLocation: "Dripping Springs, TX",
+    baseLocation: "Bruceville-Eddy, TX",
     mapEmbedUrl: null,
     isActive: true,
     sortOrder: 3,
@@ -138,7 +138,7 @@ const HOUSE_SEED_DATA = [
   },
   {
     slug: "triangle-2-rani-ridge",
-    name: "Triangle 2: Rani Ridge",
+    name: "Rani Ridge",
     description:
       "Spacious tiny home with wide views, private deck, and room to unwind. Ideal for small groups seeking a calm base.",
     heroImage:
@@ -152,7 +152,7 @@ const HOUSE_SEED_DATA = [
     beds: 2,
     baths: 1,
     amenities: [...STANDARD_HOME_AMENITIES],
-    baseLocation: "Marble Falls, TX",
+    baseLocation: "Bruceville-Eddy, TX",
     mapEmbedUrl: null,
     isActive: true,
     sortOrder: 4,

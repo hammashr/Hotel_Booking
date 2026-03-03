@@ -6,7 +6,7 @@ import raniRidge1 from '../assets/homes/rani-ridge/rani-ridge-1.jpg';
 export const specialOfferPackages = [
   {
     id: 'apple-1-midweek',
-    name: 'Apple 1: Razoo Creek Midweek Reset',
+    name: 'Razzo Creek Midweek Reset',
     originalPrice: 219,
     offerPrice: 179,
     discount: 18,
@@ -23,7 +23,7 @@ export const specialOfferPackages = [
   },
   {
     id: 'apple-2-family',
-    name: 'Apple 2: Kona Meadows Family Escape',
+    name: 'Kona Meadows Family Escape',
     originalPrice: 259,
     offerPrice: 219,
     discount: 15,
@@ -40,7 +40,7 @@ export const specialOfferPackages = [
   },
   {
     id: 'triangle-1-extended',
-    name: 'Triangle 1: Catalina Ridge Extended Stay',
+    name: 'Catalina Ridge Extended Stay',
     originalPrice: 189,
     offerPrice: 149,
     discount: 21,
@@ -57,7 +57,7 @@ export const specialOfferPackages = [
   },
   {
     id: 'triangle-2-weekend',
-    name: 'Triangle 2: Rani Ridge Weekend',
+    name: 'Rani Ridge Weekend',
     originalPrice: 239,
     offerPrice: 205,
     discount: 14,

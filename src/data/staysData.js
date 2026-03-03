@@ -254,9 +254,8 @@ export const staysData = [
     checkIn: "3:00 PM",
     checkOut: "11:00 AM",
     petFriendly: false,
-    heroImage: tinyEscape2026,
+    heroImage: catalinaRidge1,
     gallery: [
-      tinyEscape2026,
       catalinaRidge1,
       catalinaRidge2,
       catalinaRidge3,
@@ -362,9 +361,8 @@ export const staysData = [
     checkIn: "3:00 PM",
     checkOut: "11:00 AM",
     petFriendly: false,
-    heroImage: tinyEscape2026,
+    heroImage: raniRidge1,
     gallery: [
-      tinyEscape2026,
       raniRidge1,
       raniRidge2,
       raniRidge3,

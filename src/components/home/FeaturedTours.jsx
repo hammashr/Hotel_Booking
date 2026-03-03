@@ -42,7 +42,7 @@ const FeaturedTours = ({ isDarkMode }) => {
       {
         frontImage: kona?.heroImage,
         title: "Kona Meadow",
-        subtitle: "Apple Home • Sleek and sustainable",
+        subtitle: "Tiny Home • Sleek and sustainable",
         description:
           "Innovative tiny-home design blending eco-conscious living with comfort and style.",
         link: "/stay/apple-2-kona-meadows",
@@ -118,7 +118,7 @@ const FeaturedTours = ({ isDarkMode }) => {
             }`}
           >
             Tiny in size, big on experience. Explore our A-Frame cabins and
-            Apple Homes designed for comfort, style, and slow living.
+            Tiny Homes designed for comfort, style, and slow living.
           </p>
         </div>
 

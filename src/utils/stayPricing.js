@@ -1,6 +1,6 @@
 export const RATE_PLANS = {
   apple: {
-    label: 'Apple Homes',
+    label: 'Tiny Homes',
     weekday: 205,
     weekend: 255,
   },
