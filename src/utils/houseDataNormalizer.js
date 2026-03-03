@@ -46,7 +46,7 @@ export const normalizeHouseToStay = ({ house, packages = [], fallbackStay = null
     ...(fallbackStay || {}),
     id: house.slug,
     slug: house.slug,
-    name: house.name,
+    name: (house.name || '').replace(/^(Apple \d+|Triangle \d+):\s*/i, ''),
     location: house.baseLocation || fallbackStay?.location || 'Texas',
     description: house.description || fallbackStay?.description || '',
     shortDescription: fallbackStay?.shortDescription || house.description || '',
@@ -69,7 +69,7 @@ export const normalizeHouseToStay = ({ house, packages = [], fallbackStay = null
     reviews: fallbackStay?.reviews || 0,
     sizeSqFt: fallbackStay?.sizeSqFt || 420,
     category: fallbackStay?.category || 'stay',
-    tagline: fallbackStay?.tagline || `${house.name} stay`,
+    tagline: fallbackStay?.tagline || `${(house.name || '').replace(/^(Apple \d+|Triangle \d+):\s*/i, '')} stay`,
     sortOrder: house.sortOrder ?? fallbackStay?.sortOrder ?? 999,
     pricing: createPricingFromPackages(packages, fallbackStay?.pricing),
   };
