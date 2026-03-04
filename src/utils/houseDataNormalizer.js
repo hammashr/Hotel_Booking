@@ -47,7 +47,7 @@ export const normalizeHouseToStay = ({ house, packages = [], fallbackStay = null
     id: house.slug,
     slug: house.slug,
     name: (house.name || '').replace(/^(Apple \d+|Triangle \d+):\s*/i, ''),
-    location: house.baseLocation || fallbackStay?.location || 'Texas',
+    location: fallbackStay?.location || house.baseLocation || 'Bruceville-Eddy, TX',
     description: house.description || fallbackStay?.description || '',
     shortDescription: fallbackStay?.shortDescription || house.description || '',
     heroImage: fallbackStay?.heroImage || house.heroImage || '',
