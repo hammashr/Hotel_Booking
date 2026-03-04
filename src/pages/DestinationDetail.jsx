@@ -399,7 +399,7 @@ const DestinationDetail = memo(() => {
               {/* Stats pills */}
               <div className="flex flex-wrap gap-2.5 mb-8">
                 {[
-                  { icon: <FaStar className="text-amber-400" size={11} />, label: `${stay.rating} (${stay.reviews} reviews)` },
+                  { icon: <FaStar className="text-amber-400" size={11} />, label: `${stay.rating}` },
                   { icon: <FaUsers size={11} className="text-[#8FC99A]" />, label: `Sleeps ${stay.sleeps}` },
                   { icon: <FaBed size={11} className="text-[#8FC99A]" />, label: `${stay.bedrooms} bed${stay.bedrooms !== 1 ? "s" : ""}` },
                   { icon: <FaBath size={11} className="text-[#8FC99A]" />, label: `${stay.baths} bath` },
