@@ -46,6 +46,8 @@ import {
   FaShieldAlt,
   FaGamepad,
   FaBlender,
+  FaGift,
+  FaClock,
 } from "react-icons/fa";
 
 // ─── Icon maps ────────────────────────────────────────────────────────────────
@@ -586,6 +588,56 @@ const DestinationDetail = memo(() => {
                   </span>
                 </button>
               )}
+            </section>
+
+            {/* ── Optional Add-Ons ── */}
+            <section>
+              <h2
+                className={`text-3xl font-bold mb-2 ${
+                  isDarkMode ? "text-[#E0E7EE]" : "text-[#0F172A]"
+                }`}
+              >
+                Optional Add-Ons
+              </h2>
+              <p className={`text-sm mb-4 ${isDarkMode ? "text-[#8B949E]" : "text-[#64748B]"}`}>
+                Enhance your stay with these available extras
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                {[
+                  { icon: FaHorse,  label: "Guided horseback riding" },
+                  { icon: FaFire,   label: "S'mores bundle" },
+                  { icon: FaCoffee, label: "Creekside Cafe purchases" },
+                  { icon: FaGift,   label: "Anniversary / Birthday bundle" },
+                  { icon: FaClock,  label: "Early Check-in / Late Check-Out" },
+                ].map(({ icon: Icon, label }) => (
+                  <div
+                    key={label}
+                    className={`flex items-center gap-3 p-4 rounded-xl border transition-colors ${
+                      isDarkMode
+                        ? "bg-[#0F1419] border-[#1E2A1E] hover:border-[#2F5D3A]"
+                        : "bg-white border-[#E8F0E8] hover:border-[#2F5D3A]"
+                    }`}
+                  >
+                    <div
+                      className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 ${
+                        isDarkMode ? "bg-[#1A2E1A]" : "bg-[#EAF3EA]"
+                      }`}
+                    >
+                      <Icon
+                        size={15}
+                        className={isDarkMode ? "text-[#C9A36A]" : "text-[#2F5D3A]"}
+                      />
+                    </div>
+                    <span
+                      className={`text-sm font-medium leading-tight ${
+                        isDarkMode ? "text-[#C9D6DF]" : "text-[#2D3748]"
+                      }`}
+                    >
+                      {label}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </section>
 
             {/* House Rules + Policies */}
