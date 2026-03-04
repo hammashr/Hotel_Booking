@@ -599,10 +599,7 @@ const DestinationDetail = memo(() => {
               >
                 Optional Add-Ons
               </h2>
-              <p className={`text-sm mb-4 ${isDarkMode ? "text-[#8B949E]" : "text-[#64748B]"}`}>
-                Enhance your stay with these available extras
-              </p>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-4">
                 {[
                   { icon: FaHorse,  label: "Guided horseback riding" },
                   { icon: FaFire,   label: "S'mores bundle" },
