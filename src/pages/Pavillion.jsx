@@ -199,10 +199,6 @@ const Pavillion = () => {
         {/* Hero text */}
         <div className="relative container mx-auto px-6 pb-16 md:pb-24" style={{ zIndex: 3 }}>
           <div className="flex flex-wrap items-center gap-3 mb-5">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#A8C9B1]/60 bg-[#1F3A2A]/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#D4EDDA] backdrop-blur-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#6BAF7A]" />
-              Signature Venue
-            </span>
             <span className="inline-flex items-center rounded-full bg-linear-to-r from-[#D1965A] to-[#F1C281] px-4 py-1.5 text-xs font-black uppercase tracking-widest text-[#1A120A] shadow-lg animate-pulse">
               Coming Soon
             </span>

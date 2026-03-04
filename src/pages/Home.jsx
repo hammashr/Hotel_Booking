@@ -16,7 +16,8 @@ import HeroSection from "../components/home/HeroSection";
 // Assets
 import tinyEscape7 from "../assets/tiny escape 7.jpeg";
 import tinyEscape3 from "../assets/tiny escape 3.jpg";
-import cafeImage from "../assets/prefab house portable container cafe/prefab house portable container cafe/cafe 1.avif";
+import parkingImage from "../assets/gallery/gallery-parking-1.jpeg";
+import cafeImage from "../assets/gallery/gallery-cafe-wa-1.jpeg";
 import firepitImage from "../assets/firepit/Firepit.jpg";
 import poolImage from "../assets/swimming pool/swimming pool/swimming pool 1.webp";
 import horseImage from "../assets/horse riding/horse riding/horse riding 1.jpg";
@@ -62,7 +63,7 @@ const AMENITIES = [
   {
     title: "On-Site Guest Parking",
     description: "Ample, convenient parking right at the property so your arrival is effortless.",
-    image: tinyEscape3,
+    image: parkingImage,
     link: "/contact",
   },
 ];
