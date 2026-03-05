@@ -81,6 +81,11 @@ import galleryCafeWa1 from '../assets/gallery/gallery-cafe-wa-1.jpeg';
 import galleryCafeWa2 from '../assets/gallery/gallery-cafe-wa-2.jpeg';
 import galleryCafeWa3 from '../assets/gallery/gallery-cafe-wa-3.jpeg';
 
+// ── New Experiences ───────────────────────────────────────────
+import galleryPoolNew from '../assets/swimming pool/swimming pool/swimming pool 6.jpeg';
+import galleryHorseNew from '../assets/horse riding/horse riding/Horseback riding image.jpeg';
+import galleryTrail1 from '../assets/walking trails/Walking Trail.jpeg';
+
 // ── Swimming Pool ────────────────────────────────────────────
 import galleryPool1 from '../assets/gallery/gallery-pool-1.webp';
 import galleryPool2 from '../assets/gallery/gallery-pool-2.avif';
@@ -175,6 +180,13 @@ export const galleryPhotos = [
 
   // Parking
   { id: 60, title: 'Parking Area', location: 'Bruceville-Eddy, TX', image: galleryParking1 },
+
+  // Trails
+  { id: 62, title: 'Walking Trails', location: 'Bruceville-Eddy, TX', image: galleryTrail1 },
+
+  // Additional Pool & Horse Riding
+  { id: 63, title: 'Container Pools', location: 'Bruceville-Eddy, TX', image: galleryPoolNew },
+  { id: 64, title: 'Horse Riding', location: 'Bruceville-Eddy, TX', image: galleryHorseNew },
 
   // New Year Video
   {

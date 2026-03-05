@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
 import PageLayout from "../components/layout/PageLayout";
-import horseRidingOne from "../assets/horse riding/horse riding/horse riding 1.jpg";
-import swimmingPoolThree from "../assets/swimming pool/swimming pool/swimming pool 3.jpg";
+import horseRidingOne from "../assets/horse riding/horse riding/Horseback riding image.jpeg";
+import swimmingPoolThree from "../assets/swimming pool/swimming pool/swimming pool 6.jpeg";
 import firepitImage from "../assets/firepit/Firepit.jpg";
 import kartTrackImage from "../assets/gallery/gallery-kart-1.jpeg";
+import walkingTrailImage from "../assets/walking trails/Walking Trail.jpeg";
 
 const EXPERIENCE_SECTIONS = [
   {
@@ -30,8 +31,7 @@ const EXPERIENCE_SECTIONS = [
     title: "Trails",
     description:
       "Explore nearby walking trails at your own pace, perfect for quiet morning strolls or peaceful sunset moments in nature.",
-    image:
-      "https://images.unsplash.com/photo-1501554728187-ce583db33af7?auto=format&fit=crop&w=1400&q=80",
+    image: walkingTrailImage,
     imageAlt: "Nature trail experience",
     imageOnRight: true,
   },

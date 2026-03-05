@@ -41,7 +41,7 @@ const CreeksCafe = () => {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-contain"
         >
           <source src={cafeHeroVideo} type="video/mp4" />
         </video>
@@ -61,27 +61,9 @@ const CreeksCafe = () => {
       <section className="container mx-auto px-4 py-14 md:py-20">
         <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-10 items-start">
           <div className="grid grid-cols-2 gap-4">
-            <img
-              src={cafeOne}
-              alt="Coffee at Creekside Cafe"
-              className="h-44 md:h-56 w-full rounded-2xl object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-            <img
-              src={cafeTwo}
-              alt="Cafe interior"
-              className="h-44 md:h-56 w-full rounded-2xl object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-            <img
-              src={cafeThree}
-              alt="Fresh cafe meal"
-              className="col-span-2 h-52 md:h-64 w-full rounded-2xl object-cover"
-              loading="lazy"
-              decoding="async"
-            />
+            <img src={cafeOne} alt="Coffee at Creekside Cafe" className="h-44 md:h-56 w-full rounded-2xl object-cover" loading="lazy" decoding="async" />
+            <img src={cafeTwo} alt="Cafe interior" className="h-44 md:h-56 w-full rounded-2xl object-cover" loading="lazy" decoding="async" />
+            <img src={cafeThree} alt="Fresh cafe meal" className="col-span-2 h-52 md:h-64 w-full rounded-2xl object-cover" loading="lazy" decoding="async" />
           </div>
 
           <div>
