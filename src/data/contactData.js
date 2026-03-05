@@ -1,30 +1,30 @@
 export const contactInfo = [
   {
-    iconKey: 'phone',
-    title: 'Phone',
-    details: '+1 (512) 555-0189',
-    subtext: 'WhatsApp Available',
-    link: 'tel:+15125550189'
-  },
-  {
     iconKey: 'email',
-    title: 'Email',
-    details: 'hello@tinyescape.com',
+    title: 'Email Us',
+    details: 'hello@thetinyescape.com',
     subtext: 'Response within 24 hours',
-    link: 'mailto:hello@tinyescape.com'
+    link: 'mailto:hello@thetinyescape.com'
   },
   {
     iconKey: 'location',
-    title: 'Office Location',
-    details: 'Bruceville-Eddy, TX',
-    subtext: 'Serving Texas travelers',
+    title: 'Location',
+    details: '102 CR 499, Eddy TX',
+    subtext: 'Central Texas getaway destination',
     link: null
   },
   {
     iconKey: 'hours',
-    title: 'Working Hours',
-    details: 'Mon - Sat: 9AM - 6PM CT',
+    title: 'Response Hours',
+    details: 'Mon – Sat: 9AM – 6PM CT',
     subtext: 'Sunday: By Appointment',
+    link: null
+  },
+  {
+    iconKey: 'phone',
+    title: 'WhatsApp',
+    details: 'Message Us Directly',
+    subtext: 'Quick questions & availability',
     link: null
   }
 ];
@@ -48,7 +48,7 @@ export const countryCodes = [
 ];
 
 export const tourInterests = [
-  'Razoo Creek',
+  'Razzo Creek',
   'Kona Meadows',
   'Catalina Ridge',
   'Rani Ridge',
@@ -56,9 +56,7 @@ export const tourInterests = [
   'Family Stay',
   'Group Retreat',
   'Remote Work Escape',
-  'Stargazing Weekend',
-  'Creek & Nature Experience',
-  'ATV & Outdoor Adventure',
+  'Horseback Riding Experience',
   'Fireside & Relaxation',
   'Corporate / Team Building',
   'Not Sure – Help Me Choose'

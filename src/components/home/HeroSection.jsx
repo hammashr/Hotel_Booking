@@ -15,7 +15,7 @@ const HeroSection = ({ isDarkMode, videoSrc }) => {
   };
 
   return (
-    <section className="relative min-h-[calc(80svh-72px)] md:min-h-[82vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[calc(70svh-72px)] md:min-h-[72vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <video
           className={`absolute inset-0 h-full w-full object-cover object-[58%_center] scale-[1.22] sm:scale-[1.12] md:scale-100 transition-opacity duration-500 ${

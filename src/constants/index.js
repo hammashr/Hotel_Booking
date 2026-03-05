@@ -15,7 +15,7 @@ export const QUICK_LINKS = [
 
 // Popular Destinations
 export const POPULAR_DESTINATIONS = [
-  { name: 'Razoo Creek', slug: 'apple-1-razoo-creek' },
+  { name: 'Razzo Creek', slug: 'apple-1-razoo-creek' },
   { name: 'Kona Meadows', slug: 'apple-2-kona-meadows' },
   { name: 'Catalina Ridge', slug: 'triangle-1-catalina-ridge' },
   { name: 'Rani Ridge', slug: 'triangle-2-rani-ridge' }
@@ -92,10 +92,10 @@ export const TOUR_CATEGORIES = [
 // Service Categories
 export const SERVICE_CATEGORIES = [
   { id: 'horseback', name: 'Horseback Riding', path: '/destinations#horseback-riding' },
-  { id: 'pool', name: 'Swimming Pool', path: '/destinations#swimming-pool' },
+  { id: 'container-pools', name: 'Container Pools', path: '/destinations#container-pools' },
   { id: 'trails', name: 'Trails', path: '/destinations#trails' },
-  { id: 'firepit', name: 'Firepit', path: '/destinations#firepit' },
-  { id: 'atv', name: 'ATV Adventure', path: '/destinations#atv-adventure' }
+  { id: 'grand-fire-pit', name: 'Grand Fire Pit', path: '/destinations#grand-fire-pit' },
+  { id: 'go-kart-track', name: 'Go Kart Track', path: '/destinations#go-kart-track' }
 ];
 
 // Theme Configuration

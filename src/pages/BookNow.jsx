@@ -80,8 +80,7 @@ const BookNow = () => {
   });
 
   const ADD_ON_OPTIONS = [
-    { value: 'horse-riding', label: 'Horse Riding', price: 150 },
-    { value: 'atv', label: 'ATV Adventure', price: 50 },
+    { value: 'horse-riding', label: 'Horseback Riding', price: 150 },
   ];
   const CLEANING_FEE = 50;
   const TAX_RATE = 0.06;
