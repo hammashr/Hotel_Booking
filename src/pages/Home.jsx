@@ -19,9 +19,10 @@ import tinyEscape3 from "../assets/tiny escape 3.jpg";
 import parkingImage from "../assets/gallery/gallery-parking-1.jpeg";
 import cafeImage from "../assets/gallery/gallery-cafe-wa-1.jpeg";
 import firepitImage from "../assets/firepit/Firepit.jpg";
-import poolImage from "../assets/swimming pool/swimming pool/swimming pool 1.webp";
-import horseImage from "../assets/horse riding/horse riding/horse riding 1.jpg";
-import pavilionImage from "../assets/Pavilion images/Pavilion images/pavilion 1.webp";
+import poolImage from "../assets/swimming pool/swimming pool/swimming pool 6.jpeg";
+import horseImage from "../assets/horse riding/horse riding/Horseback riding image.jpeg";
+import pavilionImage from "../assets/Pavilion images/Pavilion images/pavilion 10.jpeg";
+import walkingTrailImage from "../assets/walking trails/Walking Trail.jpeg";
 
 const AMENITIES = [
   {
@@ -57,7 +58,7 @@ const AMENITIES = [
   {
     title: "Walking Trails",
     description: "Wander at your own pace along peaceful nature trails — ideal for morning or sunset strolls.",
-    image: "https://images.unsplash.com/photo-1501554728187-ce583db33af7?auto=format&fit=crop&w=800&q=80",
+    image: walkingTrailImage,
     link: "/destinations#trails",
   },
   {
@@ -277,7 +278,7 @@ const Home = () => {
                 data-reveal
                 style={{ transitionDelay: `${index * 60}ms` }}
               >
-                <div className="relative h-44 overflow-hidden">
+                <div className="relative h-56 overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.title}
