@@ -1,8 +1,8 @@
 import PageLayout from '../components/layout/PageLayout';
 import { useTheme } from '../context/ThemeContext';
-import cafeOne from '../assets/prefab house portable container cafe/prefab house portable container cafe/cafe-wa-1.jpg';
-import cafeTwo from '../assets/prefab house portable container cafe/prefab house portable container cafe/cafe-wa-2.jpg';
-import cafeThree from '../assets/prefab house portable container cafe/prefab house portable container cafe/cafe-wa-3.jpg';
+import cafeOne from '../assets/prefab house portable container cafe/prefab house portable container cafe/cafe 5.jpeg';
+import cafeTwo from '../assets/prefab house portable container cafe/prefab house portable container cafe/cafe 6.jpg';
+import cafeThree from '../assets/prefab house portable container cafe/prefab house portable container cafe/cafe 7.jpg';
 import cafeHeroVideo from '../assets/videos/cafe-hero.mp4';
 
 const menuHighlights = [
@@ -129,8 +129,8 @@ const CreeksCafe = () => {
 
       <section className={`py-16 ${isDarkMode ? 'bg-[#141A1F]' : 'bg-[#F3F8F3]'}`}>
         <div className="container mx-auto px-4">
-          <div className={`rounded-3xl p-6 md:p-8 border grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center ${
-            isDarkMode ? 'bg-[#0F1419] border-[#1F2A33]' : 'bg-white border-[#DDE8DD]'
+          <div className={`rounded-3xl p-6 md:p-8 border grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center backdrop-blur-md ${
+            isDarkMode ? 'bg-[#0F1419]/40 border-[#1F2A33]/50' : 'bg-white/30 border-[#DDE8DD]/60'
           }`}>
             <div>
               <h2 className={`text-3xl md:text-4xl font-bold ${isDarkMode ? 'text-[#E0E7EE]' : 'text-[#0F172A]'}`}>
