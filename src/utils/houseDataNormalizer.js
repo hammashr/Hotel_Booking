@@ -48,16 +48,16 @@ export const normalizeHouseToStay = ({ house, packages = [], fallbackStay = null
     slug: house.slug,
     name: (house.name || '').replace(/^(Apple \d+|Triangle \d+):\s*/i, ''),
     location: fallbackStay?.location || house.baseLocation || 'Bruceville-Eddy, TX',
-    description: house.description || fallbackStay?.description || '',
+    description: fallbackStay?.description || house.description || '',
     shortDescription: fallbackStay?.shortDescription || house.description || '',
     heroImage: fallbackStay?.heroImage || house.heroImage || '',
     gallery:
       (fallbackStay?.gallery?.length ? fallbackStay.gallery : null) ||
       (house.galleryImages?.length ? house.galleryImages : null) ||
       [fallbackStay?.heroImage || house.heroImage],
-    sleeps: house.capacity ?? fallbackStay?.sleeps ?? 1,
-    bedrooms: house.beds ?? fallbackStay?.bedrooms ?? 1,
-    baths: house.baths ?? fallbackStay?.baths ?? 1,
+    sleeps: fallbackStay?.sleeps ?? house.capacity ?? 1,
+    bedrooms: fallbackStay?.bedrooms ?? house.beds ?? 1,
+    baths: fallbackStay?.baths ?? house.baths ?? 1,
     amenities: fallbackStay?.amenities?.length ? fallbackStay.amenities : house.amenities || [],
     highlights: fallbackStay?.highlights || house.amenities || [],
     policies: fallbackStay?.policies || ['Quiet hours after 10:00 PM'],

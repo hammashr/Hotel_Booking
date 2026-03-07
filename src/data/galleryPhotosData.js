@@ -84,7 +84,7 @@ import galleryCafeWa3 from '../assets/gallery/gallery-cafe-wa-3.jpeg';
 // ── New Experiences ───────────────────────────────────────────
 import galleryPoolNew from '../assets/swimming pool/swimming pool/swimming pool 6.jpeg';
 import galleryHorseNew from '../assets/horse riding/horse riding/Horseback riding image.jpeg';
-import galleryTrail1 from '../assets/walking trails/Walking Trail.jpeg';
+import galleryTrail1 from '../assets/walking trails/walking Trail 2.jpeg';
 
 // ── Swimming Pool ────────────────────────────────────────────
 import galleryPool1 from '../assets/gallery/gallery-pool-1.webp';

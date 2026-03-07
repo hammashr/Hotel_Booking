@@ -22,7 +22,7 @@ import firepitImage from "../assets/firepit/Firepit.jpg";
 import poolImage from "../assets/swimming pool/swimming pool/swimming pool 6.jpeg";
 import horseImage from "../assets/horse riding/horse riding/Horseback riding image.jpeg";
 import pavilionImage from "../assets/Pavilion images/Pavilion images/pavilion 10.jpeg";
-import walkingTrailImage from "../assets/walking trails/Walking Trail.jpeg";
+import walkingTrailImage from "../assets/walking trails/walking Trail 2.jpeg";
 
 const AMENITIES = [
   {

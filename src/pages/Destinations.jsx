@@ -1,11 +1,10 @@
-import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
 import PageLayout from "../components/layout/PageLayout";
 import horseRidingOne from "../assets/horse riding/horse riding/Horseback riding image.jpeg";
 import swimmingPoolThree from "../assets/swimming pool/swimming pool/swimming pool 6.jpeg";
 import firepitImage from "../assets/firepit/Firepit.jpg";
 import kartTrackImage from "../assets/gallery/gallery-kart-1.jpeg";
-import walkingTrailImage from "../assets/walking trails/Walking Trail.jpeg";
+import walkingTrailImage from "../assets/walking trails/walking Trail 2.jpeg";
 
 const EXPERIENCE_SECTIONS = [
   {
@@ -107,11 +106,6 @@ const Destinations = () => {
                 style={{ transitionDelay: `${index * 70}ms` }}
               >
                 <div className={`${contentOrderClass}`}>
-                  <p
-                    className={`mb-3 text-xs md:text-sm font-semibold tracking-[0.2em] uppercase ${isDarkMode ? "text-[#8B949E]" : "text-[#64748B]"}`}
-                  >
-                    Experience {String(index + 1).padStart(2, "0")}
-                  </p>
                   <h2
                     className={`text-3xl md:text-6xl font-extrabold uppercase tracking-tight mb-4 bg-clip-text text-transparent ${
                       isDarkMode
@@ -131,20 +125,6 @@ const Destinations = () => {
                   >
                     {section.description}
                   </p>
-                  {!section.comingSoon && (
-                    <div className="mt-8">
-                      <Link
-                        to="/book-now"
-                        className={`inline-flex items-center justify-center min-w-[170px] rounded-full px-6 py-3 text-lg font-semibold transition-all duration-300 ${
-                          isDarkMode
-                            ? "bg-linear-to-r from-[#1F3A2A] to-[#5F8C6A] text-[#F7FBF7] hover:from-[#5F8C6A] hover:to-[#1F3A2A]"
-                            : "bg-linear-to-r from-[#2F5D3A] to-[#7BAF7C] text-white hover:from-[#7BAF7C] hover:to-[#2F5D3A]"
-                        }`}
-                      >
-                        Book Your Stay
-                      </Link>
-                    </div>
-                  )}
                 </div>
 
                 <div className={`${imageOrderClass}`}>

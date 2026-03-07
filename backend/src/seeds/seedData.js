@@ -47,7 +47,7 @@ const HOUSE_SEED_DATA = [
     slug: "apple-1-razoo-creek",
     name: "Razzo Creek",
     description:
-      "A quiet couples cabin with panoramic views, private firepit, and a warm, modern interior designed for slow mornings and golden-hour evenings.",
+      "Razzo Creek is a design-forward Apple Home made for quiet resets and easy getaways. Enjoy a warm modern interior, private outdoor space, and effortless access to The Tiny Escape's signature experiences — from Creekside Cafe and the grand fire pit to guided horseback riding and our container pools.",
     heroImage:
       "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1600&q=80",
     galleryImages: [
@@ -55,7 +55,7 @@ const HOUSE_SEED_DATA = [
       "https://images.unsplash.com/photo-1444201983204-c43cbd584d93?w=1400&q=80",
       "https://images.unsplash.com/photo-1464146072230-91cabc968266?w=1400&q=80",
     ],
-    capacity: 2,
+    capacity: 3,
     beds: 1,
     baths: 1,
     amenities: [...STANDARD_HOME_AMENITIES],
@@ -78,7 +78,7 @@ const HOUSE_SEED_DATA = [
     slug: "apple-2-kona-meadows",
     name: "Kona Meadows",
     description:
-      "Family-friendly tiny home steps from the water with generous outdoor space and an open-plan living area for relaxed stays.",
+      "Kona Meadow offers a calm, modern retreat designed for slow mornings and peaceful evenings. Thoughtfully styled and comfortably equipped, this Apple Home places you steps away from The Tiny Escape's most loved experiences while still feeling like your own private hideaway.",
     heroImage:
       "https://images.unsplash.com/photo-1494526585095-c41746248156?w=1600&q=80",
     galleryImages: [
@@ -86,8 +86,8 @@ const HOUSE_SEED_DATA = [
       "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=1400&q=80",
       "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1400&q=80",
     ],
-    capacity: 4,
-    beds: 2,
+    capacity: 3,
+    beds: 1,
     baths: 1,
     amenities: [...STANDARD_HOME_AMENITIES],
     baseLocation: "Bruceville-Eddy, TX",
@@ -109,7 +109,7 @@ const HOUSE_SEED_DATA = [
     slug: "triangle-1-catalina-ridge",
     name: "Catalina Ridge",
     description:
-      "Minimalist loft with vaulted ceilings, expansive glass, and a stargazing deck blending modern architecture with Texas skies.",
+      "Catalina Ridge is a spacious A-frame retreat designed for guests who want a little more room to unwind. With its upstairs loft, warm modern finishes, and easy access to on-property experiences, this home is perfect for memory-making stays at The Tiny Escape.",
     heroImage:
       "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=1600&q=80",
     galleryImages: [
@@ -117,7 +117,7 @@ const HOUSE_SEED_DATA = [
       "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1400&q=80",
       "https://images.unsplash.com/photo-1464146072230-91cabc968266?w=1400&q=80",
     ],
-    capacity: 3,
+    capacity: 4,
     beds: 1,
     baths: 1,
     amenities: [...STANDARD_HOME_AMENITIES],
@@ -140,7 +140,7 @@ const HOUSE_SEED_DATA = [
     slug: "triangle-2-rani-ridge",
     name: "Rani Ridge",
     description:
-      "Spacious tiny home with wide views, private deck, and room to unwind. Ideal for small groups seeking a calm base.",
+      "Rani Ridge blends cozy comfort with elevated design, featuring an upstairs loft and thoughtfully curated interiors. Ideal for small families or friends traveling together, this A-frame delivers the signature Tiny Escape experience with extra room to relax.",
     heroImage:
       "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1600&q=80",
     galleryImages: [
@@ -148,8 +148,8 @@ const HOUSE_SEED_DATA = [
       "https://images.unsplash.com/photo-1493666438817-866a91353ca9?w=1400&q=80",
       "https://images.unsplash.com/photo-1501183638710-841dd1904471?w=1400&q=80",
     ],
-    capacity: 5,
-    beds: 2,
+    capacity: 4,
+    beds: 1,
     baths: 1,
     amenities: [...STANDARD_HOME_AMENITIES],
     baseLocation: "Bruceville-Eddy, TX",
