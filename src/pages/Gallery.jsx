@@ -4,7 +4,7 @@ import PageLayout from '../components/layout/PageLayout';
 import { galleryPhotos } from '../data/galleryPhotosData';
 
 // Icons
-import { FaSearch, FaTh, FaThLarge, FaTimes, FaMapMarkerAlt, FaCamera } from 'react-icons/fa';
+import { FaSearch, FaTh, FaThLarge, FaTimes, FaCamera } from 'react-icons/fa';
 
 
 const Gallery = () => {
@@ -31,8 +31,7 @@ const Gallery = () => {
     if (!searchQuery) return galleryPhotos;
     const query = searchQuery.toLowerCase();
     return galleryPhotos.filter(photo =>
-      photo.title.toLowerCase().includes(query) ||
-      photo.location.toLowerCase().includes(query)
+      photo.title.toLowerCase().includes(query)
     );
   }, [searchQuery]);
 
@@ -182,11 +181,13 @@ const Gallery = () => {
                   {photo.mediaType === 'video' ? (
                     <video
                       src={photo.video}
-                      poster={photo.poster || photo.image}
+                      poster={photo.poster}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       muted
                       playsInline
                       loop
+                      onMouseEnter={(e) => e.currentTarget.play()}
+                      onMouseLeave={(e) => { e.currentTarget.pause(); e.currentTarget.currentTime = 0; }}
                     />
                   ) : (
                     <img
@@ -198,16 +199,6 @@ const Gallery = () => {
                     />
                   )}
 
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <h3 className="text-white font-bold text-lg mb-1">{photo.title}</h3>
-                      <div className="flex items-center gap-2 text-white/80 text-sm">
-                        <FaMapMarkerAlt className="text-[#7BAF7C]" />
-                        <span>{photo.location}</span>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               ))}
             </div>
@@ -246,10 +237,7 @@ const Gallery = () => {
               />
             )}
 
-            <div className="mt-4 flex items-center gap-2 text-white/70 text-sm">
-              <FaMapMarkerAlt className="text-[#7BAF7C]" />
-              <span>{selectedPhoto.title} · {selectedPhoto.location}</span>
-            </div>
+
 
             {/* Navigation Buttons */}
             <div className="flex justify-center gap-4 mt-6">

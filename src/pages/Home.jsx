@@ -501,7 +501,7 @@ const Home = () => {
       >
         <div className="relative z-10 w-full mx-auto max-w-3xl px-4 sm:px-6">
           <div
-            className="cta-cut-card tiny-cta-frame grid gap-10 lg:grid-cols-1 items-center px-8 md:px-12 py-10 md:py-14 text-center"
+            className="cta-cut-card tiny-cta-frame grid gap-10 lg:grid-cols-1 items-center px-4 sm:px-8 md:px-12 py-10 md:py-14 text-center"
             style={{
               "--cta-frame-gradient": isDarkMode
                 ? "linear-gradient(90deg, rgba(14, 22, 17, 0.78), rgba(14, 22, 17, 0.38))"
@@ -532,7 +532,7 @@ const Home = () => {
             <div className="lg:col-span-2">
               <p className="tiny-cta-kicker">Your Next Stay Awaits</p>
               <h2
-                className="tiny-cta-title whitespace-nowrap"
+                className="tiny-cta-title"
                 style={{ fontFamily: "Playfair Display, serif" }}
               >
                 Your Escape is Waiting

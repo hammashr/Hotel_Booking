@@ -343,11 +343,13 @@ body {
 
 .tiny-cta-title {
   margin-top: 1rem;
-  font-size: clamp(2rem, 3.6vw, 3.4rem);
+  font-size: clamp(1.6rem, 5.5vw, 3.4rem);
   font-weight: 600;
-  line-height: 1.1;
+  line-height: 1.15;
   color: var(--cta-frame-text, #1f2a1f);
   text-shadow: 0 14px 36px rgba(8, 12, 10, 0.35);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .tiny-cta-subtitle {

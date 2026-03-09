@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import PageLayout from '../components/layout/PageLayout';
 import config from '../config';
-import contactHero from '../assets/tiny escape 5.jpg';
+import contactHeroVideo from '../assets/videos/New Year Celebration video.mp4';
 import { contactInfo, countryCodes, tourInterests, months } from '../data/contactData';
 import { getWhatsAppLink } from '../utils/helpers';
 import {
@@ -104,10 +104,14 @@ const Contact = () => {
     >
       {/* ── Hero ── */}
       <section className="relative py-24 overflow-hidden">
-        {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${contactHero})` }}
+        {/* Background video */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          src={contactHeroVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
         />
         {/* Overlay */}
         <div
@@ -151,7 +155,7 @@ const Contact = () => {
               className="text-sm font-medium tracking-wide"
               style={{ color: 'rgba(255,255,255,0.65)' }}
             >
-              Fast response · WhatsApp support available
+              Fast response · Follow us on social media
             </p>
           </div>
         </div>
@@ -162,8 +166,9 @@ const Contact = () => {
         className={`py-12 ${isDarkMode ? 'bg-[#0A1610]' : 'bg-white'}`}
       >
         <div className="container mx-auto px-4">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {contactInfo.map((info, idx) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+            {/* Email & Location cards */}
+            {contactInfo.filter(info => info.iconKey === 'email' || info.iconKey === 'location').map((info, idx) => (
               <div
                 key={idx}
                 className={`p-6 rounded-2xl text-center transition-all duration-300 ${
@@ -176,42 +181,46 @@ const Contact = () => {
                   className="inline-flex items-center justify-center w-14 h-14 rounded-full mb-4"
                   style={{ background: isDarkMode ? 'rgba(168,230,163,0.10)' : 'rgba(47,93,58,0.08)' }}
                 >
-                  <div
-                    className="text-2xl"
-                    style={{ color: isDarkMode ? '#A8E6A3' : '#2F5D3A' }}
-                  >
+                  <div className="text-2xl" style={{ color: isDarkMode ? '#A8E6A3' : '#2F5D3A' }}>
                     {iconMap[info.iconKey]}
                   </div>
                 </div>
-                <h3
-                  className="text-base font-bold mb-1"
-                  style={{ color: isDarkMode ? '#EAF3EA' : '#1F3A2A' }}
-                >
+                <h3 className="text-base font-bold mb-1" style={{ color: isDarkMode ? '#EAF3EA' : '#1F3A2A' }}>
                   {info.title}
                 </h3>
                 {info.link ? (
-                  <a
-                    href={info.link}
-                    className="block text-sm font-semibold mb-1 transition-colors"
-                    style={{ color: isDarkMode ? '#A8E6A3' : '#2F5D3A' }}
-                  >
+                  <a href={info.link} className="block text-sm font-semibold mb-1 transition-colors" style={{ color: isDarkMode ? '#A8E6A3' : '#2F5D3A' }}>
                     {info.details}
                   </a>
                 ) : (
-                  <p
-                    className="text-sm font-semibold mb-1"
-                    style={{ color: isDarkMode ? '#C8DEC8' : '#2F5D3A' }}
-                  >
-                    {info.details}
-                  </p>
+                  <p className="text-sm font-semibold mb-1" style={{ color: isDarkMode ? '#C8DEC8' : '#2F5D3A' }}>{info.details}</p>
                 )}
-                <p
-                  className="text-xs"
-                  style={{ color: isDarkMode ? '#6B8570' : '#5A7A5A' }}
-                >
-                  {info.subtext}
-                </p>
+                <p className="text-xs" style={{ color: isDarkMode ? '#6B8570' : '#5A7A5A' }}>{info.subtext}</p>
               </div>
+            ))}
+            {/* Social media cards */}
+            {[
+              { icon: <FaInstagram className="text-2xl" />, title: 'Instagram', handle: '@thetinyescapetx', href: 'https://www.instagram.com/thetinyescapetx/', color: '#E1306C' },
+              { icon: <FaFacebook className="text-2xl" />, title: 'Facebook', handle: 'The Tiny Escape', href: 'https://www.facebook.com/thetinyescapetx', color: '#1877F2' },
+              { icon: <SiTiktok className="text-2xl" />, title: 'TikTok', handle: '@thetinyescapetx', href: 'https://www.tiktok.com/@thetinyescapetx', color: '#010101' },
+            ].map((s, idx) => (
+              <a
+                key={idx}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`p-6 rounded-2xl text-center transition-all duration-300 hover:shadow-lg block ${
+                  isDarkMode
+                    ? 'bg-[#0F1B14] border border-[#1E3528] hover:border-[#2F5D3A]'
+                    : 'bg-[#F5FAF5] border border-[#D4E8D4] hover:border-[#6AAF7E]'
+                }`}
+              >
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full mb-4" style={{ background: isDarkMode ? 'rgba(168,230,163,0.10)' : 'rgba(47,93,58,0.08)' }}>
+                  <div style={{ color: s.color }}>{s.icon}</div>
+                </div>
+                <h3 className="text-base font-bold mb-1" style={{ color: isDarkMode ? '#EAF3EA' : '#1F3A2A' }}>{s.title}</h3>
+                <p className="text-sm font-semibold" style={{ color: isDarkMode ? '#A8E6A3' : '#2F5D3A' }}>{s.handle}</p>
+              </a>
             ))}
           </div>
         </div>
@@ -237,7 +246,7 @@ const Contact = () => {
                   className="text-3xl font-bold mb-2"
                   style={{ fontFamily: 'Playfair Display, serif', color: isDarkMode ? '#EAF3EA' : '#1F3A2A' }}
                 >
-                  Check Availability
+                  Send Us a Message
                 </h2>
                 <p
                   className="mb-8 text-sm"
@@ -291,7 +300,7 @@ const Contact = () => {
 
                   {/* Phone */}
                   <div>
-                    <label className={labelCls}>Phone (WhatsApp welcome)</label>
+                    <label className={labelCls}>Phone</label>
                     <div className="flex gap-2">
                       <select
                         name="countryCode"
@@ -329,9 +338,8 @@ const Contact = () => {
                       >
                         <option value="1">1 Guest</option>
                         <option value="2">2 Guests</option>
-                        <option value="3-4">3 – 4 Guests</option>
-                        <option value="5-6">5 – 6 Guests</option>
-                        <option value="7+">7+ Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
                       </select>
                     </div>
                     <div>
@@ -413,7 +421,7 @@ const Contact = () => {
                     }}
                   >
                     <FaPaperPlane />
-                    <span>Check Availability</span>
+                    <span>Send Message</span>
                   </button>
                 </form>
               </div>
@@ -439,7 +447,6 @@ const Contact = () => {
                     'Help matching you with the right stay',
                     'Local tips for your visit',
                     'Clear, transparent pricing',
-                    'Fast WhatsApp support',
                     'Flexible stay planning'
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
@@ -460,41 +467,6 @@ const Contact = () => {
                 </ul>
               </div>
 
-              {/* WhatsApp CTA */}
-              <div
-                className="p-6 rounded-2xl text-center border"
-                style={{
-                  background: isDarkMode ? 'rgba(31,58,42,0.40)' : 'rgba(168,230,163,0.20)',
-                  borderColor: isDarkMode ? 'rgba(106,175,126,0.25)' : 'rgba(47,93,58,0.20)'
-                }}
-              >
-                <FaWhatsapp
-                  className="text-5xl mx-auto mb-3"
-                  style={{ color: '#25D366' }}
-                />
-                <h3
-                  className="text-lg font-bold mb-1"
-                  style={{ fontFamily: 'Playfair Display, serif', color: isDarkMode ? '#EAF3EA' : '#1F3A2A' }}
-                >
-                  Prefer to Chat?
-                </h3>
-                <p
-                  className="text-sm mb-4"
-                  style={{ color: isDarkMode ? '#A8C8A8' : '#5A7A5A' }}
-                >
-                  Message us on WhatsApp for quick, friendly support.
-                </p>
-                <a
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block px-6 py-3 rounded-xl font-bold text-sm transition-all hover:opacity-90"
-                  style={{ background: '#25D366', color: '#fff' }}
-                >
-                  Open WhatsApp
-                </a>
-              </div>
-
               {/* Social Media */}
               <div
                 className={`p-6 rounded-2xl border ${
@@ -509,9 +481,9 @@ const Contact = () => {
                 </h3>
                 <div className="flex gap-3 justify-center">
                   {[
-                    { icon: <FaInstagram className="text-xl" />, href: 'https://instagram.com/thetinyescape', hover: '#E1306C' },
-                    { icon: <FaFacebook className="text-xl" />, href: 'https://facebook.com/thetinyescape', hover: '#1877F2' },
-                    { icon: <SiTiktok className="text-xl" />, href: 'https://tiktok.com/@thetinyescape', hover: '#010101' }
+                    { icon: <FaInstagram className="text-xl" />, href: 'https://www.instagram.com/thetinyescapetx/', hover: '#E1306C' },
+                    { icon: <FaFacebook className="text-xl" />, href: 'https://www.facebook.com/thetinyescapetx', hover: '#1877F2' },
+                    { icon: <SiTiktok className="text-xl" />, href: 'https://www.tiktok.com/@thetinyescapetx', hover: '#010101' }
                   ].map((s, i) => (
                     <a
                       key={i}

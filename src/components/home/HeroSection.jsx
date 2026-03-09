@@ -45,7 +45,7 @@ const HeroSection = ({ isDarkMode, videoSrc }) => {
 
         {/* Main Heading — all on one line, white */}
         <h1
-          className="mb-6 text-4xl font-bold tracking-normal sm:text-5xl md:text-7xl lg:text-8xl text-white reveal-delay-2 whitespace-nowrap"
+          className="mb-6 text-4xl font-bold tracking-normal sm:text-5xl md:text-7xl lg:text-8xl text-white reveal-delay-2"
           style={{ fontFamily: 'Playfair Display, serif', letterSpacing: '0.02em' }}
         >
           The Tiny Escape

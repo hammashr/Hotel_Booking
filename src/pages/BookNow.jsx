@@ -874,7 +874,7 @@ const BookNow = () => {
                               required
                               className={selectBaseClass}
                             >
-                              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
+                              {[1, 2, 3, 4].map(num => (
                                 <option key={num} value={num}>{num}</option>
                               ))}
                             </select>
@@ -890,7 +890,7 @@ const BookNow = () => {
                               onChange={handleInputChange}
                               className={selectBaseClass}
                             >
-                              {[0, 1, 2, 3, 4, 5].map(num => (
+                              {[0, 1, 2, 3].map(num => (
                                 <option key={num} value={num}>{num}</option>
                               ))}
                             </select>
