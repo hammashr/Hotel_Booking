@@ -5,7 +5,7 @@ import 'react-day-picker/dist/style.css';
 import PageLayout from '../components/layout/PageLayout';
 import { useTheme } from '../context/ThemeContext';
 
-import pavCropped from '../assets/Pavilion images/Pavilion images/pavilion cropped.jpeg';
+import pavCropped from '../assets/gallery/pavilion cropped.jpeg';
 
 const pavilionHighlights = [
   {
