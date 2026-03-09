@@ -3,7 +3,7 @@ import PageLayout from "../components/layout/PageLayout";
 import horseRidingOne from "../assets/horse riding/horse riding/Horseback riding image.jpeg";
 import swimmingPoolThree from "../assets/swimming pool/swimming pool/swimming pool 6.jpeg";
 import firepitImage from "../assets/firepit/Firepit.jpg";
-import kartTrackImage from "../assets/gallery/gallery-kart-1.jpeg";
+import kartTrackImage from "../assets/gallery/gallery-general-1.jpeg";
 import walkingTrailImage from "../assets/walking trails/walking Trail 2.jpeg";
 
 const EXPERIENCE_SECTIONS = [
