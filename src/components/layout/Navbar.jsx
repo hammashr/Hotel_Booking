@@ -25,7 +25,7 @@ const Navbar = ({ isDarkMode, mobileMenuOpen, setMobileMenuOpen }) => {
 
         {/* Logo — white on transparent */}
         <Link to="/" className="flex items-center group flex-shrink-0">
-          <div className="relative flex h-11 w-11 lg:h-12 lg:w-12 xl:h-16 xl:w-16 items-center justify-center">
+          <div className="relative flex h-16 w-16 lg:h-18 lg:w-18 xl:h-20 xl:w-20 items-center justify-center">
             <img
               src={logo}
               alt="The Tiny Escape logo"

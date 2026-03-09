@@ -60,10 +60,42 @@ const CreeksCafe = () => {
 
       <section className="container mx-auto px-4 py-14 md:py-20">
         <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-10 items-start">
-          <div className="grid grid-cols-2 gap-4">
-            <img src={cafeOne} alt="Coffee at Creekside Cafe" className="h-44 md:h-56 w-full rounded-2xl object-cover" loading="lazy" decoding="async" />
-            <img src={cafeTwo} alt="Cafe interior" className="h-44 md:h-56 w-full rounded-2xl object-cover" loading="lazy" decoding="async" />
-            <img src={cafeThree} alt="Fresh cafe meal" className="col-span-2 h-52 md:h-64 w-full rounded-2xl object-cover" loading="lazy" decoding="async" />
+          <div className="grid grid-cols-2 gap-4 h-[480px] md:h-[540px]">
+            {/* Left — tall portrait image */}
+            <div className="relative overflow-hidden rounded-2xl shadow-lg">
+              <img
+                src={cafeThree}
+                alt="Cafe seating area"
+                className="absolute inset-0 w-full h-full object-cover object-center"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
+            </div>
+
+            {/* Right — two stacked images */}
+            <div className="flex flex-col gap-4">
+              <div className="relative flex-1 overflow-hidden rounded-2xl shadow-lg">
+                <img
+                  src={cafeOne}
+                  alt="Coffee at Creekside Cafe"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-black/15 to-transparent" />
+              </div>
+              <div className="relative flex-1 overflow-hidden rounded-2xl shadow-lg">
+                <img
+                  src={cafeTwo}
+                  alt="Cafe drinks"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-black/15 to-transparent" />
+              </div>
+            </div>
           </div>
 
           <div>
@@ -129,11 +161,11 @@ const CreeksCafe = () => {
 
       <section className={`py-16 ${isDarkMode ? 'bg-[#141A1F]' : 'bg-[#F3F8F3]'}`}>
         <div className="container mx-auto px-4">
-          <div className={`rounded-3xl p-6 md:p-8 border grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center backdrop-blur-md ${
+          <div className={`rounded-3xl border overflow-hidden flex flex-col lg:flex-row items-start max-w-4xl mx-auto backdrop-blur-md ${
             isDarkMode ? 'bg-[#0F1419]/40 border-[#1F2A33]/50' : 'bg-white/30 border-[#DDE8DD]/60'
           }`}>
-            <div>
-              <h2 className={`text-3xl md:text-4xl font-bold ${isDarkMode ? 'text-[#E0E7EE]' : 'text-[#0F172A]'}`}>
+            <div className="flex-1 min-w-0 p-6 md:p-8">
+              <h2 className={`text-2xl md:text-3xl font-bold whitespace-nowrap ${isDarkMode ? 'text-[#E0E7EE]' : 'text-[#0F172A]'}`}>
                 Plan a Visit to Creekside Cafe
               </h2>
               <p className={`mt-3 text-lg ${isDarkMode ? 'text-[#C9D6DF]' : 'text-[#475569]'}`}>
@@ -162,13 +194,17 @@ const CreeksCafe = () => {
                 </a>
               </div>
             </div>
-            <img
-              src={cafeOne}
-              alt="Creekside Cafe seating"
-              className="w-full h-64 md:h-80 rounded-2xl object-cover"
-              loading="lazy"
-              decoding="async"
-            />
+            <div className={`flex items-center justify-center p-5 ${isDarkMode ? 'bg-[#111820]' : 'bg-[#FBF7F2]'}`}>
+              <div style={{ height: '262px', width: '279px', overflow: 'hidden', borderRadius: '1rem', flexShrink: 0 }}>
+                <img
+                  src={cafeOne}
+                  alt="Creekside Cafe baked goods"
+                  style={{ height: '100%', width: '100%', objectFit: 'cover', display: 'block' }}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

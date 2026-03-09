@@ -4,7 +4,6 @@ import tinyEscape3 from "../assets/tiny escape 3.jpg";
 // Razzo Creek (Apple 1) images
 import razzoCreek1 from "../assets/homes/razzo-creek/razzo-creek-1.jpg";
 import razzoCreek2 from "../assets/homes/razzo-creek/razzo-creek-2.jpg";
-import razzoCreek3 from "../assets/homes/razzo-creek/razzo-creek-3.jpg";
 
 // Kona Meadow (Apple 2) images
 import konaMeadow1 from "../assets/homes/kona-meadow/kona-meadow-1.jpg";
@@ -16,24 +15,14 @@ import tinyEscape2026 from "../assets/homes/catalina-ridge/catalina-ridge-new.pn
 
 // Catalina Ridge (Triangle 1) images
 import catalinaRidge1 from "../assets/homes/catalina-ridge/catalina-ridge-1.jpg";
-import catalinaRidge2 from "../assets/homes/catalina-ridge/catalina-ridge-2.jpg";
-import catalinaRidge3 from "../assets/homes/catalina-ridge/catalina-ridge-3.jpg";
 import catalinaRidge4 from "../assets/homes/catalina-ridge/catalina-ridge-4.jpg";
-import catalinaRidge5 from "../assets/homes/catalina-ridge/catalina-ridge-5.jpg";
-import catalinaRidge6 from "../assets/homes/catalina-ridge/catalina-ridge-6.jpg";
 import catalinaRidge7 from "../assets/homes/catalina-ridge/catalina-ridge-7.jpg";
 
 // Rani Ridge (Triangle 2) images
-import raniRidge1 from "../assets/homes/rani-ridge/rani-ridge-1.jpg";
 import raniRidge2 from "../assets/homes/rani-ridge/rani-ridge-2.jpg";
-import raniRidge3 from "../assets/homes/rani-ridge/rani-ridge-3.jpg";
-import raniRidge4 from "../assets/homes/rani-ridge/rani-ridge-4.jpg";
-import raniRidge5 from "../assets/homes/rani-ridge/rani-ridge-5.jpg";
 import raniRidge6 from "../assets/homes/rani-ridge/rani-ridge-6.jpg";
-import raniRidge7 from "../assets/homes/rani-ridge/rani-ridge-7.jpg";
 import raniRidge8 from "../assets/homes/rani-ridge/rani-ridge-8.jpg";
 import raniRidge9 from "../assets/homes/rani-ridge/rani-ridge-9.jpg";
-import raniRidge10 from "../assets/homes/rani-ridge/rani-ridge-10.jpg";
 
 export const staysData = [
   {
@@ -57,7 +46,7 @@ export const staysData = [
     checkOut: "11:00 AM",
     petFriendly: false,
     heroImage: razzoCreek1,
-    gallery: [razzoCreek1, razzoCreek2, razzoCreek3],
+    gallery: [razzoCreek1, razzoCreek2],
     highlights: [
       "Sleeps up to 3 guests",
       "Queen bed + futon",
@@ -255,15 +244,7 @@ export const staysData = [
     checkOut: "11:00 AM",
     petFriendly: false,
     heroImage: catalinaRidge1,
-    gallery: [
-      catalinaRidge1,
-      catalinaRidge2,
-      catalinaRidge3,
-      catalinaRidge4,
-      catalinaRidge5,
-      catalinaRidge6,
-      catalinaRidge7,
-    ],
+    gallery: [catalinaRidge1, catalinaRidge4, catalinaRidge7],
     highlights: [
       "Sleeps up to 4 guests",
       "Queen bed + futon",
@@ -361,19 +342,8 @@ export const staysData = [
     checkIn: "3:00 PM",
     checkOut: "11:00 AM",
     petFriendly: false,
-    heroImage: raniRidge1,
-    gallery: [
-      raniRidge1,
-      raniRidge2,
-      raniRidge3,
-      raniRidge4,
-      raniRidge5,
-      raniRidge6,
-      raniRidge7,
-      raniRidge8,
-      raniRidge9,
-      raniRidge10,
-    ],
+    heroImage: raniRidge2,
+    gallery: [raniRidge2, raniRidge6, raniRidge8, raniRidge9],
     highlights: [
       "Sleeps up to 4 guests",
       "Queen bed + futon",
