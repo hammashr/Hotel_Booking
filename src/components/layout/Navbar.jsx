@@ -16,16 +16,16 @@ const Navbar = ({ isDarkMode, mobileMenuOpen, setMobileMenuOpen }) => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 w-full border-b backdrop-blur-xl shadow-lg transition-colors duration-500 ${
+    <header className={`fixed top-0 left-0 right-0 z-50 w-full border-b backdrop-blur-xl shadow-lg transition-colors duration-500 h-[90px] overflow-hidden ${
       isDarkMode
         ? 'border-[rgba(201,163,106,0.25)] bg-[rgba(11,10,9,0.95)]'
         : 'border-[rgba(231,240,233,0.18)] bg-[rgba(20,55,40,0.95)]'
     }`}>
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-4 xl:px-6 py-2 lg:py-2 xl:py-4">
+      <div className="mx-auto flex w-full h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-4 xl:px-6">
 
         {/* Logo — white on transparent */}
         <Link to="/" className="flex items-center group flex-shrink-0">
-          <div className="relative flex h-16 w-16 lg:h-18 lg:w-18 xl:h-20 xl:w-20 items-center justify-center">
+          <div className="relative flex h-[90px] w-[90px] items-center justify-center overflow-hidden">
             <img
               src={logo}
               alt="The Tiny Escape logo"

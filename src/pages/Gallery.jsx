@@ -4,13 +4,12 @@ import PageLayout from '../components/layout/PageLayout';
 import { galleryPhotos } from '../data/galleryPhotosData';
 
 // Icons
-import { FaSearch, FaTh, FaThLarge, FaTimes, FaCamera } from 'react-icons/fa';
+import { FaTh, FaThLarge, FaTimes, FaCamera } from 'react-icons/fa';
 
 
 const Gallery = () => {
   const { isDarkMode } = useTheme();
   const [selectedPhoto, setSelectedPhoto] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
   const [layout, setLayout] = useState('grid');
 
   // SEO structured data
@@ -26,14 +25,7 @@ const Gallery = () => {
     }
   }), []);
 
-  // Search filter only (no category)
-  const filteredPhotos = useMemo(() => {
-    if (!searchQuery) return galleryPhotos;
-    const query = searchQuery.toLowerCase();
-    return galleryPhotos.filter(photo =>
-      photo.title.toLowerCase().includes(query)
-    );
-  }, [searchQuery]);
+  const filteredPhotos = galleryPhotos;
 
   // Navigate lightbox
   const navigateLightbox = (direction) => {
@@ -90,23 +82,6 @@ const Gallery = () => {
               A calm visual tour of our cabins, details, and surrounding landscape
             </p>
 
-            {/* Search Bar */}
-            <div className="max-w-xl mx-auto">
-              <div className="relative">
-                <FaSearch className={`absolute left-4 top-1/2 -translate-y-1/2 ${isDarkMode ? 'text-[#8B949E]' : 'text-[#5B6B5B]'}`} />
-                <input
-                  type="text"
-                  placeholder="Search photos by space, view, or detail..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className={`w-full pl-12 pr-4 py-4 rounded-xl border transition-colors ${
-                    isDarkMode
-                      ? 'bg-[#141A1F] border-[rgba(34,211,238,0.2)] text-[#E0E7EE] focus:border-[#22D3EE]'
-                      : 'bg-white border-[#C7D5C7] text-[#1F2A1F] focus:border-[#1F3A2A]'
-                  } focus:outline-none`}
-                />
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -114,11 +89,7 @@ const Gallery = () => {
       {/* Layout Toggle & Count */}
       <section className={`py-4 backdrop-blur-lg border-b ${isDarkMode ? 'bg-[#0B0C0E]/95 border-[#1E242B]' : 'bg-[rgba(240,234,221,0.95)] border-[#D4E2D4]'}`}>
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between">
-            <span className={`text-sm ${isDarkMode ? 'text-[#8B949E]' : 'text-[#526352]'}`}>
-              Showing {filteredPhotos.length} {filteredPhotos.length === 1 ? 'photo' : 'photos'}
-            </span>
-
+          <div className="flex items-center justify-end">
             {/* Layout Toggle */}
             <div className="flex gap-2">
               <button
@@ -181,13 +152,14 @@ const Gallery = () => {
                   {photo.mediaType === 'video' ? (
                     <video
                       src={photo.video}
-                      poster={photo.poster}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       muted
                       playsInline
                       loop
+                      preload="metadata"
+                      onLoadedMetadata={(e) => { e.currentTarget.currentTime = 0.001; }}
                       onMouseEnter={(e) => e.currentTarget.play()}
-                      onMouseLeave={(e) => { e.currentTarget.pause(); e.currentTarget.currentTime = 0; }}
+                      onMouseLeave={(e) => { e.currentTarget.pause(); e.currentTarget.currentTime = 0.001; }}
                     />
                   ) : (
                     <img
