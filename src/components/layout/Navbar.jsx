@@ -16,12 +16,12 @@ const Navbar = ({ isDarkMode, mobileMenuOpen, setMobileMenuOpen }) => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 w-full border-b backdrop-blur-xl shadow-lg transition-colors duration-500 h-[90px] overflow-hidden ${
+    <header className={`fixed top-0 left-0 right-0 z-50 w-full border-b backdrop-blur-xl shadow-lg transition-colors duration-500 ${
       isDarkMode
         ? 'border-[rgba(201,163,106,0.25)] bg-[rgba(11,10,9,0.95)]'
         : 'border-[rgba(231,240,233,0.18)] bg-[rgba(20,55,40,0.95)]'
     }`}>
-      <div className="mx-auto flex w-full h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-4 xl:px-6">
+      <div className="mx-auto flex w-full h-[90px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-4 xl:px-6">
 
         {/* Logo — white on transparent */}
         <Link to="/" className="flex items-center group flex-shrink-0">
