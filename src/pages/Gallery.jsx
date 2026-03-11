@@ -70,7 +70,7 @@ const Gallery = () => {
             </div>
 
             <h1
-              className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${
+              className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 pb-2 ${
                 isDarkMode
                   ? 'bg-linear-to-r from-[#22D3EE] to-[#4DBBFF]'
                   : 'bg-linear-to-r from-[#1F3A2A] to-[#5F8C6A]'

@@ -113,7 +113,7 @@ const Tours = () => {
       }}
     >
       {/* ── Page Hero + Search Bar (one unified section) ── */}
-      <section className="relative pt-24 md:pt-28 pb-12">
+      <section className="relative pt-24 md:pt-28 pb-12 min-h-[calc(70svh-72px)] md:min-h-[72vh] w-full">
         {/* Background image */}
         <div
           className="absolute inset-0"

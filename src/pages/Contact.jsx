@@ -103,7 +103,7 @@ const Contact = () => {
       }}
     >
       {/* ── Hero ── */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-24 overflow-hidden min-h-[calc(70svh-72px)] md:min-h-[72vh] w-full">
         {/* Background video */}
         <video
           className="absolute inset-0 w-full h-full object-cover"

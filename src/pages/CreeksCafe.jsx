@@ -32,7 +32,7 @@ const CreeksCafe = () => {
       }}
     >
       <section
-        className={`relative min-h-[62vh] flex items-end overflow-hidden ${
+        className={`relative min-h-[calc(70svh-72px)] md:min-h-[72vh] w-full flex items-end overflow-hidden ${
           isDarkMode ? 'bg-[#0B0C0E]' : 'bg-[#F8FAFC]'
         }`}
       >

@@ -492,31 +492,6 @@ const DestinationDetail = memo(() => {
               </div>
             </section>
 
-            {/* ── Feature Chips ── */}
-            {stay.featureChips && stay.featureChips.length > 0 && (
-              <section>
-                <h2 className={`text-3xl font-bold mb-6 ${
-                  isDarkMode ? "text-[#E0E7EE]" : "text-[#0F172A]"
-                }`}>
-                  Feature Chips
-                </h2>
-                <div className="flex flex-wrap gap-3">
-                  {stay.featureChips.map((chip) => (
-                    <span
-                      key={chip.label}
-                      className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border transition-all ${
-                        isDarkMode
-                          ? "bg-[#112216] border-[#1F4028] text-[#A8D8B0] hover:border-[#2F5D3A] hover:bg-[#172D1E]"
-                          : "bg-white border-[#C0DEC0] text-[#1F3A2A] hover:border-[#2F5D3A] hover:bg-[#EAF5EA]"
-                      }`}
-                    >
-                      <span className="text-base leading-none">{chip.icon}</span>
-                      {chip.label}
-                    </span>
-                  ))}
-                </div>
-              </section>
-            )}
 
             {/* ── Amenities Section ── */}
             <section id="amenities">
