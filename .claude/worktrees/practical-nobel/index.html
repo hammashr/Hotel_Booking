@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ── Fonts ── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
+    />
+
+    <!-- ── Icons / PWA ── -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1F3A2A" />
+
+    <!-- ── Primary SEO ── -->
+    <title>The Tiny Escape — Tiny Home Stays in Texas Hill Country</title>
+    <meta name="title" content="The Tiny Escape — Tiny Home Stays in Texas Hill Country" />
+    <meta
+      name="description"
+      content="Escape to design-forward tiny homes nestled in the Texas Hill Country. Book Razoo Creek, Kona Meadows, Catalina Ridge, or Rani Ridge for a weekend retreat, romantic getaway, or digital detox."
+    />
+    <meta
+      name="keywords"
+      content="tiny home rental Texas, Texas Hill Country vacation, tiny cabin stays, Razoo Creek, Kona Meadows, Catalina Ridge, Rani Ridge, weekend retreat Texas, romantic getaway Hill Country, glamping Texas"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="The Tiny Escape" />
+    <link rel="canonical" href="https://tinyescape.vercel.app" />
+
+    <!-- ── Open Graph (Facebook / Meta Ads) ── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tinyescape.vercel.app" />
+    <meta property="og:title" content="The Tiny Escape — Tiny Home Stays in Texas Hill Country" />
+    <meta
+      property="og:description"
+      content="Escape to design-forward tiny homes in the Texas Hill Country. Cozy weekend retreats, romantic getaways &amp; digital detox stays."
+    />
+    <meta property="og:image" content="https://tinyescape.vercel.app/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="Cozy tiny home nestled in Texas Hill Country at golden hour" />
+    <meta property="og:site_name" content="The Tiny Escape" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ── Twitter / X Card ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@tinyescape" />
+    <meta name="twitter:url" content="https://tinyescape.vercel.app" />
+    <meta name="twitter:title" content="The Tiny Escape — Tiny Home Stays in Texas Hill Country" />
+    <meta
+      name="twitter:description"
+      content="Escape to design-forward tiny homes in the Texas Hill Country. Weekend retreats &amp; romantic getaways."
+    />
+    <meta name="twitter:image" content="https://tinyescape.vercel.app/og-image.jpg" />
+    <meta name="twitter:image:alt" content="Tiny home stay in Texas Hill Country" />
+
+    <!-- ── Google Analytics 4 ──────────────────────────────────────────────
+         Replace G-XXXXXXXXXX with your real GA4 Measurement ID.
+         Set VITE_GA_ID in your .env file; this script reads it at build time
+         via the analytics.jsx util. (Runtime injection is handled in main.jsx)
+    ─────────────────────────────────────────────────────────────────────── -->
+
+    <!-- ── Meta (Facebook) Pixel ───────────────────────────────────────────
+         The Pixel is injected at runtime by src/utils/analytics.js
+         when VITE_FB_PIXEL_ID is set. No inline script needed here.
+    ─────────────────────────────────────────────────────────────────────── -->
+
+    <!-- ── Square Web Payments SDK (preloaded for faster init) ── -->
+    <script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+
+    <!-- ── Local Business Structured Data ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LodgingBusiness",
+      "name": "The Tiny Escape",
+      "description": "Design-forward tiny homes and cabin stays in the Texas Hill Country, perfect for romantic getaways, weekend retreats, and digital detox.",
+      "url": "https://tinyescape.vercel.app",
+      "logo": "https://tinyescape.vercel.app/logo.png",
+      "image": "https://tinyescape.vercel.app/og-image.jpg",
+      "telephone": "+1-512-555-0189",
+      "email": "hello@tinyescape.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "US",
+        "addressRegion": "TX",
+        "addressLocality": "Texas Hill Country"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.3,
+        "longitude": -98.5
+      },
+      "sameAs": [
+        "https://facebook.com/tinyescape",
+        "https://instagram.com/tinyescape",
+        "https://twitter.com/tinyescape"
+      ],
+      "priceRange": "$$",
+      "checkinTime": "15:00",
+      "checkoutTime": "11:00",
+      "numberOfRooms": 4,
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Horseback Riding", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "ATV Adventure", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Firepit", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Hiking Trails", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Swimming Pool", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Pavilion Event Space", "value": true }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "87",
+        "bestRating": "5"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

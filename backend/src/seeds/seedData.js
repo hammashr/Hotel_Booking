@@ -67,7 +67,7 @@ const HOUSE_SEED_DATA = [
       standard: {
         name: "Standard",
         code: "standard",
-        pricePerNight: 159,
+        pricePerNight: 205,
         minNights: 1,
         perks: ["Nightly rate", "Self check-in", "Private deck access"],
         isPopular: false,
@@ -98,7 +98,7 @@ const HOUSE_SEED_DATA = [
       standard: {
         name: "Standard",
         code: "standard",
-        pricePerNight: 169,
+        pricePerNight: 205,
         minNights: 1,
         perks: ["Nightly rate", "Outdoor dining area", "Creek access"],
         isPopular: false,
@@ -129,7 +129,7 @@ const HOUSE_SEED_DATA = [
       standard: {
         name: "Standard",
         code: "standard",
-        pricePerNight: 149,
+        pricePerNight: 215,
         minNights: 1,
         perks: ["Nightly rate", "Stargazing deck", "Self check-in"],
         isPopular: false,
@@ -160,7 +160,7 @@ const HOUSE_SEED_DATA = [
       standard: {
         name: "Standard",
         code: "standard",
-        pricePerNight: 159,
+        pricePerNight: 215,
         minNights: 1,
         perks: ["Nightly rate", "Outdoor dining", "Self check-in"],
         isPopular: false,
