@@ -170,6 +170,21 @@ const Home = () => {
       {/* Hero Section */}
       <HeroSection isDarkMode={isDarkMode} videoSrc={heroVideo} />
 
+      {/* ── Hero Text (moved below video) ── */}
+      <section className={`py-12 md:py-16 text-center transition-colors duration-500 ${isDarkMode ? 'bg-[#0F0D0A]' : 'bg-[#F5F9F3]'}`}>
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+          <h1
+            className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-5 ${isDarkMode ? 'text-[#F2EEE7]' : 'text-[#1F2A1F]'}`}
+            style={{ fontFamily: 'Playfair Display, serif', letterSpacing: '0.02em' }}
+          >
+            The Tiny Escape
+          </h1>
+          <p className={`text-base sm:text-lg md:text-xl font-medium leading-relaxed ${isDarkMode ? 'text-[#C4B9A8]' : 'text-[#3E4F3E]'}`}>
+            Your escape to tranquility is closer than you think. Our tiny home village gives you the perfect opportunity to unplug, unwind, and explore the beauty that nature has to offer.
+          </p>
+        </div>
+      </section>
+
       {/* ── A Different Kind of Escape ── */}
       <section
         className={`relative py-16 md:py-24 lg:py-28 transition-colors duration-500 ${
@@ -204,7 +219,7 @@ const Home = () => {
               isDarkMode ? "text-[#C4B9A8]" : "text-[#3E4F3E]"
             }`}
           >
-            Enjoy slow mornings at the Creekside Café, gather under the stars at the grand fire pit, cool off in our two container pools, or explore the property with guided horseback riding. Every detail is designed to help you slow down and breathe a little deeper.
+            Enjoy slow mornings at the Creekside Cafe, gather under the stars at the grand fire pit, cool off in our two container pools, or explore the property with guided horseback riding. Every detail is designed to help you slow down and breathe a little deeper.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
@@ -541,10 +556,7 @@ const Home = () => {
                 Choose your dates and start planning your stay at The Tiny Escape — your peaceful retreat in Central Texas.
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-                <Link to={requestAvailabilityPath} className="tiny-cta-primary">
-                  View Availability
-                </Link>
+              <div className="mt-8 flex justify-center">
                 <Link to={viewStaysPath} className="tiny-cta-secondary">
                   View Stays
                 </Link>

@@ -93,7 +93,7 @@ export const staysData = [
     ],
     houseRules: [
       "No smoking inside",
-      "No parties or events",
+      "No parties or events unless approved",
       "Registered guests only",
       "Quiet hours after 10:00 PM",
     ],
@@ -192,7 +192,7 @@ export const staysData = [
     ],
     houseRules: [
       "No smoking inside",
-      "No parties or events",
+      "No parties or events unless approved",
       "Registered guests only",
       "Quiet hours after 10:00 PM",
     ],
@@ -291,7 +291,7 @@ export const staysData = [
     ],
     houseRules: [
       "No smoking inside",
-      "No parties or events",
+      "No parties or events unless approved",
       "Registered guests only",
       "Quiet hours after 10:00 PM",
     ],
@@ -390,7 +390,7 @@ export const staysData = [
     ],
     houseRules: [
       "No smoking inside",
-      "No parties or events",
+      "No parties or events unless approved",
       "Registered guests only",
       "Quiet hours after 10:00 PM",
     ],

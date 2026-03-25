@@ -1,5 +1,6 @@
 import PageLayout from '../components/layout/PageLayout';
 import { useTheme } from '../context/ThemeContext';
+import { FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa';
 import cafeOne from '../assets/prefab house portable container cafe/prefab house portable container cafe/cafe 5.jpeg';
 import cafeTwo from '../assets/prefab house portable container cafe/prefab house portable container cafe/cafe 6.jpg';
 import cafeThree from '../assets/prefab house portable container cafe/prefab house portable container cafe/cafe 7.jpg';
@@ -32,7 +33,7 @@ const CreeksCafe = () => {
       }}
     >
       <section
-        className={`relative min-h-[calc(70svh-72px)] md:min-h-[72vh] w-full flex items-end overflow-hidden ${
+        className={`relative min-h-[calc(70svh-72px)] md:min-h-[72vh] flex items-end overflow-hidden ${
           isDarkMode ? 'bg-[#0B0C0E]' : 'bg-[#F8FAFC]'
         }`}
       >
@@ -156,6 +157,50 @@ const CreeksCafe = () => {
           <p className={`mt-4 text-base leading-relaxed ${isDarkMode ? 'text-[#C9D6DF]' : 'text-[#475569]'}`}>
             Follow us on social media for the latest live music schedule and upcoming artist nights.
           </p>
+          <div className="mt-6 flex justify-center gap-4">
+            <a
+              href="https://www.facebook.com/creeksidecafetx"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Creekside Cafe on Facebook"
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${
+                isDarkMode
+                  ? 'bg-[#1F2A33] text-[#C9D6DF] hover:bg-[#1877F2] hover:text-white'
+                  : 'bg-[#F0F4FF] text-[#1877F2] border border-[#C7D4F8] hover:bg-[#1877F2] hover:text-white'
+              }`}
+            >
+              <FaFacebookF size={16} />
+              Facebook
+            </a>
+            <a
+              href="https://www.instagram.com/creeksidecafetx"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Creekside Cafe on Instagram"
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${
+                isDarkMode
+                  ? 'bg-[#1F2A33] text-[#C9D6DF] hover:bg-[#E1306C] hover:text-white'
+                  : 'bg-[#FFF0F5] text-[#E1306C] border border-[#F8C7D8] hover:bg-[#E1306C] hover:text-white'
+              }`}
+            >
+              <FaInstagram size={16} />
+              Instagram
+            </a>
+            <a
+              href="https://www.tiktok.com/@creeksidecafe"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Creekside Cafe on TikTok"
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${
+                isDarkMode
+                  ? 'bg-[#1F2A33] text-[#C9D6DF] hover:bg-[#010101] hover:text-white'
+                  : 'bg-[#F5F5F5] text-[#010101] border border-[#D0D0D0] hover:bg-[#010101] hover:text-white'
+              }`}
+            >
+              <FaTiktok size={16} />
+              TikTok
+            </a>
+          </div>
         </div>
       </section>
 

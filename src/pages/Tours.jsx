@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import heroAllHomes from '../assets/gallery/gallery-tiny-escape-2026.png';
 import { useTheme } from '../context/ThemeContext';
@@ -29,6 +29,19 @@ const Tours = () => {
   const { isDarkMode } = useTheme();
   const { houses, isLoading, isFallback } = useHousesData({ fallbackData: getAllStays() });
   const allHouses = useMemo(() => houses.slice(0, 4), [houses]);
+  const heroRef = useRef(null);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!heroRef.current || !imgRef.current) return;
+      const offset = window.scrollY * 0.3;
+      imgRef.current.style.transform = `translateY(${offset}px)`;
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    imgRef.current.style.transform = 'translateY(0px)';
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   /* ── search state ── */
   const [checkIn, setCheckIn] = useState(null);
@@ -113,16 +126,14 @@ const Tours = () => {
       }}
     >
       {/* ── Page Hero + Search Bar (one unified section) ── */}
-      <section className="relative pt-24 md:pt-28 pb-12 min-h-[calc(70svh-72px)] md:min-h-[72vh] w-full">
+      <section ref={heroRef} className="relative pt-24 md:pt-28 pb-12 min-h-[calc(70svh-72px)] md:min-h-[72vh] w-full overflow-hidden">
         {/* Background image */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url(${heroAllHomes})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center center',
-            backgroundRepeat: 'no-repeat',
-          }}
+        <img
+          ref={imgRef}
+          src={heroAllHomes}
+          alt="All homes at The Tiny Escape"
+          className="absolute w-full h-full object-cover will-change-transform"
+          style={{ height: '130%', top: '-15%' }}
         />
         {/* Dark overlay */}
         <div

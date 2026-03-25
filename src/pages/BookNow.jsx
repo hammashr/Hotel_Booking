@@ -464,7 +464,7 @@ const BookNow = () => {
       {
         '@context': 'https://schema.org',
         '@type': 'WebPage',
-        name: 'Request Availability | The Tiny Escape',
+        name: 'Book Now | The Tiny Escape',
         description:
           'Request dates for Tiny Escape stays in Texas with transparent pricing and quick confirmation.',
         url: 'https://tinyescape.vercel.app/book-now',
@@ -646,7 +646,7 @@ const BookNow = () => {
   return (
     <PageLayout
       seo={{
-        title: 'Request Availability | The Tiny Escape',
+        title: 'Book Now | The Tiny Escape',
         description: 'Request availability for Tiny Escape stays in Texas Hill Country. Clear pricing, fast confirmation, and a secure booking inquiry flow.',
         keywords: 'Tiny Escape booking, stay availability, Texas Hill Country lodging, tiny home reservation request',
         url: '/book-now',
@@ -674,7 +674,7 @@ const BookNow = () => {
             <h1 className={`text-3xl md:text-4xl font-bold mb-4 text-center ${
               isDarkMode ? 'bg-linear-to-r from-[#C9A36A] to-[#E7CFA2]' : 'bg-linear-to-r from-[#2F5D3A] to-[#7BAF7C]'
             } bg-clip-text text-transparent`}>
-              Request Availability
+              Book Now
             </h1>
             <p className={`text-center font-medium ${mutedTextClass}`}>
               {packageData.title}

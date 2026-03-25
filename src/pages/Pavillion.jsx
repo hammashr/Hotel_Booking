@@ -1,11 +1,11 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import PageLayout from '../components/layout/PageLayout';
 import { useTheme } from '../context/ThemeContext';
 
-import pavCropped from '../assets/gallery/pavilion cropped.jpeg';
+import pavCropped from '../assets/Pavilion images/Pavilion images/pavilion cropped.jpeg';
 
 const pavilionHighlights = [
   {
@@ -38,10 +38,25 @@ const pavilionStats = [
 
 const Pavillion = () => {
   const { isDarkMode } = useTheme();
+  const heroRef = useRef(null);
+  const imgRef = useRef(null);
   const [dateRange, setDateRange] = useState({ from: undefined, to: undefined });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!heroRef.current || !imgRef.current) return;
+      const offset = window.scrollY * 0.3;
+      imgRef.current.style.transform = `translateY(${offset}px)`;
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    imgRef.current.style.transform = 'translateY(0px)';
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
+
+  const earliestBooking = new Date(2026, 5, 5); // June 5, 2026
 
   const formatDateToYMD = useCallback((date) => {
     if (!date) return '';
@@ -85,12 +100,13 @@ const Pavillion = () => {
       }}
     >
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden">
+      <section ref={heroRef} className="relative overflow-hidden">
 
         <img
+          ref={imgRef}
           src={pavCropped}
           alt="Fireside Pavilion"
-          className="w-full h-auto block"
+          className="w-full h-auto block will-change-transform"
         />
 
         {/* Gradient overlay */}
@@ -219,7 +235,8 @@ const Pavillion = () => {
                   selected={dateRange}
                   onSelect={(range) => setDateRange(range || { from: undefined, to: undefined })}
                   numberOfMonths={2}
-                  disabled={{ before: today }}
+                  defaultMonth={earliestBooking}
+                  disabled={{ before: earliestBooking }}
                   modifiersStyles={{
                     selected: {
                       backgroundColor: '#2F5D3A',
@@ -254,7 +271,7 @@ const Pavillion = () => {
                         state={bookNowState}
                         className="px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#1F3A2A] text-[#F7FBF7] hover:bg-[#2F5D3A] transition-colors duration-200"
                       >
-                        Request Availability
+                        Book Now
                       </Link>
                       <Link
                         to="/contact"
@@ -317,7 +334,7 @@ const Pavillion = () => {
                       : 'bg-[#1F3A2A] text-[#F7FBF7] hover:bg-[#2F5D3A]'
                   }`}
                 >
-                  Request Availability
+                  Book Now
                 </Link>
                 <Link
                   to="/contact"

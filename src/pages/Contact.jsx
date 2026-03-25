@@ -95,9 +95,9 @@ const Contact = () => {
   return (
     <PageLayout
       seo={{
-        title: 'Contact The Tiny Escape | Request Availability',
-        description: 'Contact The Tiny Escape team to request availability, ask stay questions, and plan a calm Texas getaway near Waco.',
-        keywords: 'The Tiny Escape contact, request availability, tiny home stay inquiry, Texas getaway, Bruceville-Eddy',
+        title: 'Contact The Tiny Escape | Book Now',
+        description: 'Contact The Tiny Escape team to book your stay, ask questions, and plan a calm Texas getaway near Waco.',
+        keywords: 'The Tiny Escape contact, book now, tiny home stay inquiry, Texas getaway, Bruceville-Eddy',
         url: "/contact",
         structuredData
       }}

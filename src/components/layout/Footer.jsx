@@ -1,7 +1,21 @@
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
+import { FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa';
 import { QUICK_LINKS, POPULAR_DESTINATIONS, CONTACT_INFO, COMPANY_INFO, LEGAL_LINKS } from '../../constants';
 import logo from '../../assets/logo.png';
+
+const SOCIAL_LINKS = {
+  cafe: [
+    { icon: FaFacebookF, label: 'Facebook', href: 'https://www.facebook.com/creeksidecafetx', color: '#1877F2' },
+    { icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/creeksidecafetx', color: '#E1306C' },
+    { icon: FaTiktok, label: 'TikTok', href: 'https://www.tiktok.com/@creeksidecafe', color: '#ffffff' },
+  ],
+  escape: [
+    { icon: FaFacebookF, label: 'Facebook', href: 'https://www.facebook.com/thetinyescapetx/', color: '#1877F2' },
+    { icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/Thetinyescapetx', color: '#E1306C' },
+    { icon: FaTiktok, label: 'TikTok', href: 'https://www.tiktok.com/@thetinyescapetx', color: '#ffffff' },
+  ],
+};
 
 const Footer = ({ isDarkMode }) => {
   // All pages are now live — no under-development redirects
@@ -69,11 +83,36 @@ const Footer = ({ isDarkMode }) => {
             <h4 className={`font-bold mb-4 text-base ${isDarkMode ? 'text-[#F7E8D2]' : 'text-[#E7F0E6]'}`}>
               Contact
             </h4>
-            <p className={`text-sm sm:text-base ${isDarkMode ? 'text-[#BFAE95]' : 'text-[#DCE8DC]'}`}>
+            <p className={`text-sm sm:text-base mb-6 ${isDarkMode ? 'text-[#BFAE95]' : 'text-[#DCE8DC]'}`}>
               Email: {CONTACT_INFO.email}
             </p>
+
+            {/* Follow Us */}
+            <h4 className={`font-bold mb-3 text-base ${isDarkMode ? 'text-[#F7E8D2]' : 'text-[#E7F0E6]'}`}>
+              Follow Us
+            </h4>
+            <div className="flex gap-2">
+              {SOCIAL_LINKS.escape.map(({ icon: Icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`The Tiny Escape on ${label}`}
+                  title={label}
+                  className={`w-8 h-8 flex items-center justify-center rounded-lg text-sm transition-all duration-200 hover:scale-105 hover:shadow-lg ${
+                    isDarkMode
+                      ? 'bg-[#1A2830] border border-[#2A3A44] text-[#8BAAB8] hover:border-[#5F8C6A]'
+                      : 'bg-white/10 border border-white/20 text-white/80 hover:bg-white/25 hover:border-white/40 hover:text-white'
+                  }`}
+                >
+                  <Icon size={14} />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
+
         <div className={`pt-8 border-t text-center text-xs sm:text-sm ${
           isDarkMode ? 'border-[rgba(201,163,106,0.2)] text-[#9B8A72]' : 'border-[rgba(231,240,233,0.18)] text-[#CFE0D0]'
         }`}>

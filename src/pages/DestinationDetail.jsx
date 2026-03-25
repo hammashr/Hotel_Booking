@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, memo } from "react";
+import { useEffect, useMemo, useState, memo, useRef } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
 import PageLayout from "../components/layout/PageLayout";
@@ -141,6 +141,8 @@ const DestinationDetail = memo(() => {
   const [isLoadingStay, setIsLoadingStay] = useState(!localStay);
   const [fallbackToast, setFallbackToast] = useState("");
   const [isAmenitiesModalOpen, setIsAmenitiesModalOpen] = useState(false);
+  const heroRef = useRef(null);
+  const imgRef = useRef(null);
 
   useEffect(() => {
     setStay(localStay || null);
@@ -217,6 +219,17 @@ const DestinationDetail = memo(() => {
     }, 5000);
     return () => clearInterval(interval);
   }, [stay?.gallery?.length]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!heroRef.current || !imgRef.current) return;
+      const offset = window.scrollY * 0.3;
+      imgRef.current.style.transform = `translateY(${offset}px)`;
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    imgRef.current.style.transform = 'translateY(0px)';
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     if (!isAmenitiesModalOpen) return undefined;
@@ -320,10 +333,10 @@ const DestinationDetail = memo(() => {
       )}
 
       {/* ── Hero ── */}
-      <section className="relative h-[78vh] md:h-[88vh] overflow-hidden">
+      <section ref={heroRef} className="relative h-[78vh] md:h-[88vh] overflow-hidden">
 
         {/* Gallery slides */}
-        <div className="absolute inset-0">
+        <div ref={imgRef} className="absolute inset-0 will-change-transform" style={{ height: '130%', top: '-15%' }}>
           {stay.gallery.map((image, index) => (
             <div
               key={image}
@@ -383,13 +396,6 @@ const DestinationDetail = memo(() => {
           <div className="w-full container mx-auto px-4 sm:px-6 pb-20 md:pb-24">
             <div className="max-w-3xl">
 
-              {/* Tagline pill */}
-              <div className="mb-4">
-                <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[#162A18]/85 text-[#A8DFB8] border border-[#2F5D3A]/50 backdrop-blur-sm">
-                  {stay.tagline}
-                </span>
-              </div>
-
               {/* Name */}
               <h1
                 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-[1.02]"
@@ -446,7 +452,7 @@ const DestinationDetail = memo(() => {
                   }
                   className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/8 hover:bg-white/18 backdrop-blur-sm text-white font-semibold text-sm rounded-xl transition-all duration-300 border border-white/18 hover:border-white/35"
                 >
-                  Request Availability
+                  Book Now
                 </button>
               </div>
 
@@ -700,10 +706,10 @@ const DestinationDetail = memo(() => {
                     isDarkMode={isDarkMode}
                     themeKey="destinationPricing"
                     themeIndex={0}
-                    ctaLabel="Request Availability"
+                    ctaLabel="Book Now"
                     onCtaClick={() => handleBookNow(displayRate, "standard")}
-                    footerLabel="Check-in"
-                    footerText={`${stay.checkIn} • Check-out ${stay.checkOut}`}
+                    footerLabel=""
+                    footerText=""
                     className="min-h-[560px]"
                   />
                 </div>

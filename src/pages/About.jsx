@@ -1,12 +1,25 @@
-import { useMemo } from 'react';
+import { useMemo, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import PageLayout from '../components/layout/PageLayout';
 import config from '../config';
-import tinyEscape3 from '../assets/tiny escape 3.jpg';
+import aboutHero from '../assets/homes/all-homes/all-homes-1.jpg';
 
 const About = () => {
   const { isDarkMode } = useTheme();
+  const heroRef = useRef(null);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!heroRef.current || !imgRef.current) return;
+      const offset = window.scrollY * 0.3;
+      imgRef.current.style.transform = `translateY(${offset}px)`;
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    imgRef.current.style.transform = 'translateY(0px)';
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const values = [
     {
@@ -78,70 +91,45 @@ const About = () => {
       }}
     >
       {/* ── Hero ── */}
-      <section
-        className={`relative min-h-[52vh] flex items-center justify-center overflow-hidden pt-24 pb-16 ${
-          isDarkMode ? 'bg-[#0F0D0A]' : 'bg-[#F5F9F3]'
-        }`}
-      >
-        {/* Subtle background texture */}
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: `url(${tinyEscape3})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
+      <section ref={heroRef} className="relative w-full flex items-center justify-center overflow-hidden pt-24 pb-16" style={{ height: '576px', maxWidth: '100%' }}>
+        {/* Background image with parallax */}
+        <img
+          ref={imgRef}
+          src={aboutHero}
+          alt="All homes at The Tiny Escape"
+          className="absolute inset-0 w-full object-cover object-center will-change-transform"
+          style={{ height: '130%', top: '-15%' }}
         />
+        {/* Overlay */}
         <div
-          className={`absolute inset-0 ${
-            isDarkMode
-              ? 'bg-gradient-to-b from-[#0F0D0A]/90 via-[#0F0D0A]/80 to-[#0F0D0A]/95'
-              : 'bg-gradient-to-b from-[#F5F9F3]/90 via-[#F5F9F3]/80 to-[#F5F9F3]/95'
-          }`}
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.45))' }}
         />
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
-          <p
-            className={`text-xs uppercase tracking-[0.22em] font-bold mb-5 ${
-              isDarkMode ? 'text-[#A8E6A3]' : 'text-[#2F5D3A]'
-            }`}
-          >
+          <p className="text-xs uppercase tracking-[0.22em] font-bold mb-5 text-[#A8E6A3]">
             Our Story
           </p>
           <h1
-            className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-6 ${
-              isDarkMode ? 'text-[#F2EEE7]' : 'text-[#1F2A1F]'
-            }`}
-            style={{ fontFamily: 'Playfair Display, serif' }}
+            className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-white"
+            style={{ fontFamily: 'Playfair Display, serif', textShadow: '0 4px 20px rgba(0,0,0,0.4)' }}
           >
             About The Tiny Escape
           </h1>
-          <p
-            className={`text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto mb-10 ${
-              isDarkMode ? 'text-[#C4B9A8]' : 'text-[#3E4F3E]'
-            }`}
-          >
+          <p className="text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto mb-10 text-white/85">
             A thoughtfully curated tiny home village created for slow mornings, open skies, and meaningful time away — nestled in Bruceville-Eddy, Texas.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               to="/tours"
-              className={`inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 shadow-lg ${
-                isDarkMode
-                  ? 'bg-[#2F5D3A] text-white hover:bg-[#3A7048]'
-                  : 'bg-[#1F3A2A] text-white hover:bg-[#2F5D3A]'
-              }`}
+              className="inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 shadow-lg bg-[#2F5D3A] text-white hover:bg-[#3A7048]"
             >
               Browse Stays
             </Link>
             <Link
               to="/contact"
-              className={`inline-flex items-center gap-2 rounded-xl border-2 px-7 py-3.5 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 ${
-                isDarkMode
-                  ? 'border-[#A8E6A3] text-[#A8E6A3] hover:bg-[rgba(168,230,163,0.1)]'
-                  : 'border-[#1F3A2A] text-[#1F3A2A] hover:bg-[rgba(31,58,42,0.08)]'
-              }`}
+              className="inline-flex items-center gap-2 rounded-xl border-2 px-7 py-3.5 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 border-white text-white hover:bg-white/15"
             >
               Get in Touch
             </Link>
