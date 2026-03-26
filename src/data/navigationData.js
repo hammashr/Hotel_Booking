@@ -4,7 +4,7 @@ const NAV_ITEMS = [
   { name: "Home", path: "/" },
   {
     name: "Stays",
-    path: "/tours",
+    path: "/stays",
     hasDropdown: true,
     dropdownItems: [
       { name: "Razzo Creek", path: "/stay/apple-1-razoo-creek", icon: "" },

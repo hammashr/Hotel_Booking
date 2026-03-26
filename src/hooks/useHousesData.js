@@ -3,8 +3,9 @@ import { getHouses, getHousePackagesBySlug } from '../services/houses';
 import { normalizeHouseToStay, sortHousesByOrder } from '../utils/houseDataNormalizer';
 
 export const useHousesData = ({ fallbackData = [] } = {}) => {
+  const hasFallback = fallbackData && fallbackData.length > 0;
   const [houses, setHouses] = useState(sortHousesByOrder(fallbackData));
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(!hasFallback);
   const [isFallback, setIsFallback] = useState(false);
   const [error, setError] = useState('');
 

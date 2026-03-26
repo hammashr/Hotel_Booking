@@ -36,7 +36,8 @@ const App = () => {
           <Suspense fallback={null}>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/tours" element={<Tours />} />
+              <Route path="/stays" element={<Tours />} />
+              <Route path="/tours" element={<Navigate to="/stays" replace />} />
               <Route path="/destinations" element={<Destinations />} />
               <Route path="/stay/:slug" element={<DestinationDetail />} />
               <Route path="/destination/:slug" element={<LegacyDestinationRedirect />} />

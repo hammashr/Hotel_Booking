@@ -122,7 +122,7 @@ const Tours = () => {
         title: 'Our Stays | The Tiny Escape',
         description: 'Browse and book our tiny homes. Check availability for your dates and find the perfect cabin in Bruceville-Eddy, Texas.',
         keywords: 'The Tiny Escape, tiny home rentals, cabin stays, book tiny home, Texas getaway',
-        url: '/tours',
+        url: '/stays',
       }}
     >
       {/* ── Page Hero + Search Bar (one unified section) ── */}

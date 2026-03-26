@@ -72,32 +72,36 @@ const AMENITIES = [
 
 const TESTIMONIALS = [
   {
-    name: "Rosalia Treto",
+    name: "Jose Fajardo",
     rating: 5,
-    date: "4 months ago",
-    text: "I absolutely loved my stay at The Tiny Escape! From the moment I arrived, I felt an incredible sense of peace and calm. The location is beautiful — tucked away just enough to feel private, yet still close to everything you need. Cozy, thoughtfully designed, and full of charm. I left feeling refreshed and already can't wait to come back! 🌿✨",
-    avatar: "R",
+    location: "Google Review · Local Guide",
+    source: "google",
+    text: "Man where do I begin. From food at the Cafe lounge, horse riding, beautiful open scenery. 100 acres of pure fun. Man i love this place. Cannot wait to come back and adventure some more. 10/10 no doubt. Shout out to Tiny Escape. It really lives up to its name 🙌🙌🔥",
+    avatar: "J",
   },
   {
-    name: "tauseef ashraf",
+    name: "Jessica Seturino",
     rating: 5,
-    date: "Recently",
-    text: "The Tiny Escape is a peaceful forest retreat nestled halfway between Austin and Dallas. Cozy Scandinavian-style tiny homes sit among tall trees with a flowing creek nearby. Waking up to birdsong and sunlight through the woods is unforgettable and the included horse ride through shaded trails is a true highlight!",
-    avatar: "T",
+    location: "Google Review",
+    source: "google",
+    text: "Such a nice cozy getaway! ✨ If you love the outdoors and looking for a peaceful relaxation this is the perfect place for you. I loved 😍 the stargazing views by the camp fire. 🔥",
+    avatar: "J",
   },
   {
-    name: "Manuel Fajardo",
+    name: "Steven Kling",
     rating: 5,
-    date: "9 months ago",
-    text: "Loved the stay, very nice and peaceful, had a blast! 10/10",
-    avatar: "M",
+    location: "Facebook",
+    source: "facebook",
+    text: "Where do I begin? This place is everything I could ask for and more when looking for a getaway...the Cafe by the creek is the perfect place to enjoy a cup of coffee, or enjoy the sights and sounds of the surrounding nature. The cabins have a modern feel but a super cozy interior. I especially love the loft view. So nice! I rode a horse for the first time in 30 years..what a cool experience! My friends and I hung out by the fire pit and enjoyed the night sky....absolutely STUNNING place. Don't wait to book...this place is the real deal!!!",
+    avatar: "S",
   },
   {
-    name: "Christy Jaynes",
+    name: "Jacob McMillian",
     rating: 5,
-    date: "A year ago",
-    text: "Amazing, beautiful and relaxing atmosphere.",
-    avatar: "C",
+    location: "Facebook",
+    source: "facebook",
+    text: "Attended a soft-opening event and WOW what a great place to escape and un-wind! You can tell how much thought, effort, and detail is going into making the experience unforgettable. The cabins are clean and cozy, the newly added Cafe has desserts that are out of this world, and the activities they have planned will keep everyone entertained through your entire stay. Not to mention there are more attractions in progress including pools and a wedding venue! Can not wait to come back and re-experience it all plus more!",
+    avatar: "J",
   },
 ];
 
@@ -454,15 +458,21 @@ const Home = () => {
                 data-reveal
                 style={{ transitionDelay: `${index * 80}ms` }}
               >
-                {/* Google G icon */}
+                {/* Source icon */}
                 <div className="flex items-center justify-between mb-4">
                   <StarRating count={review.rating} />
-                  <svg viewBox="0 0 24 24" className="h-5 w-5 flex-shrink-0" aria-label="Google">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                  </svg>
+                  {review.source === "facebook" ? (
+                    <svg viewBox="0 0 24 24" className="h-5 w-5 flex-shrink-0" aria-label="Facebook">
+                      <path fill="#1877F2" d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24" className="h-5 w-5 flex-shrink-0" aria-label="Google">
+                      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                    </svg>
+                  )}
                 </div>
 
                 <p
@@ -490,13 +500,6 @@ const Home = () => {
                       }`}
                     >
                       {review.name}
-                    </p>
-                    <p
-                      className={`text-xs ${
-                        isDarkMode ? "text-[#6B6055]" : "text-[#7B917B]"
-                      }`}
-                    >
-                      {review.date}
                     </p>
                   </div>
                 </div>
