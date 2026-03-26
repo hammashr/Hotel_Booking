@@ -18,7 +18,7 @@ export const useHousesData = ({ fallbackData = [] } = {}) => {
     let mounted = true;
 
     const loadHouses = async () => {
-      setIsLoading(true);
+      if (!hasFallback) setIsLoading(true);
       setError('');
 
       try {
