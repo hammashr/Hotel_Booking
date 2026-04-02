@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import PageLayout from '../components/layout/PageLayout';
 import config from '../config';
-import aboutHero from '../assets/homes/all-homes/all-homes-1.jpg';
+import aboutHero from '../assets/homes/all-homes/1-DJI_20260326201205_0446_D.jpg';
 
 const About = () => {
   const { isDarkMode } = useTheme();

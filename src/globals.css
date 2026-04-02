@@ -28,6 +28,20 @@
   transform: rotateY(180deg);
 }
 
+/* ── Reviews Marquee ── */
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.reviews-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 35s linear infinite;
+}
+.reviews-track:hover {
+  animation-play-state: paused;
+}
+
 /* Feature thread card styles */
 .feature-thread-card {
   position: relative;

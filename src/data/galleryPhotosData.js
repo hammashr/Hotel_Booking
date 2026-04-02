@@ -19,20 +19,6 @@ import galleryParking1 from '../assets/gallery/gallery-parking-1.jpeg';
 import galleryPavilionCropped from '../assets/gallery/pavilion cropped.jpeg';
 import galleryFirepit from '../assets/gallery/Firepit.jpg';
 
-// ── Catalina Ridge ───────────────────────────────────────────
-import galleryCatalina1 from '../assets/gallery/gallery-catalina-1.jpg';
-
-// ── Kona Meadow ──────────────────────────────────────────────
-import galleryKona1 from '../assets/gallery/gallery-kona-1.jpg';
-import galleryKona2 from '../assets/gallery/gallery-kona-2.jpg';
-
-// ── Rani Ridge ───────────────────────────────────────────────
-import galleryRani6 from '../assets/gallery/gallery-rani-6.jpg';
-import galleryRani7 from '../assets/gallery/gallery-rani-7.jpg';
-import galleryRani8 from '../assets/gallery/gallery-rani-8.jpg';
-
-// ── Razzo Creek ──────────────────────────────────────────────
-import galleryRazzo1 from '../assets/gallery/gallery-razzo-1.jpg';
 
 // ── Horse Riding ─────────────────────────────────────────────
 import galleryHorse from '../assets/gallery/Horseback riding image.jpeg';
@@ -73,21 +59,6 @@ export const galleryPhotos = [
   // Pavilion & Firepit
   { id: 9,  title: 'Fireside Pavilion', image: galleryPavilionCropped },
   { id: 10, title: 'Firepit',           image: galleryFirepit },
-
-  // Catalina Ridge
-  { id: 11, title: 'Catalina Ridge',    image: galleryCatalina1 },
-
-  // Kona Meadow
-  { id: 12, title: 'Kona Meadow',       image: galleryKona1 },
-  { id: 13, title: 'Kona Meadow',       image: galleryKona2 },
-
-  // Rani Ridge
-  { id: 14, title: 'Rani Ridge',        image: galleryRani6 },
-  { id: 15, title: 'Rani Ridge',        image: galleryRani7 },
-  { id: 16, title: 'Rani Ridge',        image: galleryRani8 },
-
-  // Razzo Creek
-  { id: 17, title: 'Razzo Creek',       image: galleryRazzo1 },
 
   // Horse Riding
   { id: 18, title: 'Horse Riding',      image: galleryHorse },

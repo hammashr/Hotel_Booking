@@ -30,3 +30,7 @@ dist-ssr
 backend/.env
 backend/.env.*
 !backend/.env.example
+
+# Deployment clone (internal tool folder - do not track)
+.deploy_clone
+.claude

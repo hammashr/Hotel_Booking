@@ -4,7 +4,7 @@ import { FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa';
 import cafeOne from '../assets/prefab house portable container cafe/prefab house portable container cafe/cafe 5.jpeg';
 import cafeTwo from '../assets/prefab house portable container cafe/prefab house portable container cafe/cafe 6.jpg';
 import cafeThree from '../assets/prefab house portable container cafe/prefab house portable container cafe/cafe 7.jpg';
-import cafeHeroVideo from '../assets/videos/cafe-hero.mp4';
+import cafeHeroImg from '../assets/prefab house portable container cafe/prefab house portable container cafe/1-DSC09064.jpg';
 
 const menuHighlights = [
   { title: '☕ Signature Coffee Bar', text: 'Enjoy freshly brewed drip coffee, espresso drinks, and handcrafted cafe favorites served throughout the day.' },
@@ -37,15 +37,11 @@ const CreeksCafe = () => {
           isDarkMode ? 'bg-[#0B0C0E]' : 'bg-[#F8FAFC]'
         }`}
       >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-contain"
-        >
-          <source src={cafeHeroVideo} type="video/mp4" />
-        </video>
+        <img
+          src={cafeHeroImg}
+          alt="Creekside Cafe exterior"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/45 to-black/15" />
 
         <div className="relative container mx-auto px-4 pb-14 md:pb-20">

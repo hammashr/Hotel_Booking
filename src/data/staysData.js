@@ -2,27 +2,58 @@ import tinyHouse1 from "../assets/tiny house1.webp";
 import tinyEscape3 from "../assets/tiny escape 3.jpg";
 
 // Razzo Creek (Apple 1) images
-import razzoCreek1 from "../assets/homes/razzo-creek/razzo-creek-1.jpg";
-import razzoCreek2 from "../assets/homes/razzo-creek/razzo-creek-2.jpg";
+import razzoCreekHero from "../assets/homes/razzo-creek/01-DSC09085.jpg";
+import razzoCreek2 from "../assets/homes/razzo-creek/02-DSC09082.jpg";
+import razzoCreek3 from "../assets/homes/razzo-creek/03-DSC09043.jpg";
+import razzoCreek4 from "../assets/homes/razzo-creek/04-DSC09040.jpg";
+import razzoCreek5 from "../assets/homes/razzo-creek/05-DSC09037.jpg";
+import razzoCreek6 from "../assets/homes/razzo-creek/06-DSC09034.jpg";
+import razzoCreek7 from "../assets/homes/razzo-creek/07-DSC09031.jpg";
+import razzoCreek8 from "../assets/homes/razzo-creek/08-DSC09028.jpg";
+import razzoCreek9 from "../assets/homes/razzo-creek/09-DSC09022.jpg";
+import razzoCreek10 from "../assets/homes/razzo-creek/10-DSC09019.jpg";
+import razzoCreek11 from "../assets/homes/razzo-creek/11-DSC09013.jpg";
+import razzoCreek12 from "../assets/homes/razzo-creek/12-DSC09001.jpg";
 
 // Kona Meadow (Apple 2) images
-import konaMeadow1 from "../assets/homes/kona-meadow/kona-meadow-1.jpg";
-import konaMeadow2 from "../assets/homes/kona-meadow/kona-meadow-2.jpg";
-import konaMeadow3 from "../assets/homes/kona-meadow/kona-meadow-3.jpg";
-
-// Shared A-frame feature image
-import tinyEscape2026 from "../assets/homes/catalina-ridge/catalina-ridge-new.png";
+import konaMeadowHero from "../assets/homes/kona-meadow/01-DSC09094.jpg";
+import konaMeadow2 from "../assets/homes/kona-meadow/02-DSC09046.jpg";
+import konaMeadow3 from "../assets/homes/kona-meadow/03-DSC08878.jpg";
+import konaMeadow4 from "../assets/homes/kona-meadow/04-DSC08875.jpg";
+import konaMeadow5 from "../assets/homes/kona-meadow/05-DSC08869.jpg";
+import konaMeadow6 from "../assets/homes/kona-meadow/06-DSC08851.jpg";
+import konaMeadow7 from "../assets/homes/kona-meadow/07-DSC08845.jpg";
+import konaMeadow8 from "../assets/homes/kona-meadow/08-DSC08842.jpg";
+import konaMeadow9 from "../assets/homes/kona-meadow/09-DSC08833.jpg";
+import konaMeadow10 from "../assets/homes/kona-meadow/10-DSC08824.jpg";
 
 // Catalina Ridge (Triangle 1) images
-import catalinaRidge1 from "../assets/homes/catalina-ridge/catalina-ridge-1.jpg";
-import catalinaRidge4 from "../assets/homes/catalina-ridge/catalina-ridge-4.jpg";
-import catalinaRidge7 from "../assets/homes/catalina-ridge/catalina-ridge-7.jpg";
+import catalinaRidgeHero from "../assets/homes/catalina-ridge/01-DSC09091.jpg";
+import catalinaRidgeHeroResized from "../assets/homes/catalina-ridge/01-DSC09091.jpg";
+import catalinaRidge2 from "../assets/homes/catalina-ridge/02-DSC09079.jpg";
+import catalinaRidge3 from "../assets/homes/catalina-ridge/03-DSC09049.jpg";
+import catalinaRidge4 from "../assets/homes/catalina-ridge/04-DSC08977.jpg";
+import catalinaRidge5 from "../assets/homes/catalina-ridge/05-DSC08968.jpg";
+import catalinaRidge6 from "../assets/homes/catalina-ridge/06-DSC08914.jpg";
+import catalinaRidge7 from "../assets/homes/catalina-ridge/07-DSC08911.jpg";
+import catalinaRidge8 from "../assets/homes/catalina-ridge/08-DSC08908.jpg";
+import catalinaRidge9 from "../assets/homes/catalina-ridge/09-DSC08905.jpg";
+import catalinaRidge10 from "../assets/homes/catalina-ridge/10-DSC08894.jpg";
+import catalinaRidge11 from "../assets/homes/catalina-ridge/11-DSC08887.jpg";
 
 // Rani Ridge (Triangle 2) images
-import raniRidge2 from "../assets/homes/rani-ridge/rani-ridge-2.jpg";
-import raniRidge6 from "../assets/homes/rani-ridge/rani-ridge-6.jpg";
-import raniRidge8 from "../assets/homes/rani-ridge/rani-ridge-8.jpg";
-import raniRidge9 from "../assets/homes/rani-ridge/rani-ridge-9.jpg";
+import raniRidgeHero from "../assets/homes/rani-ridge/01-DSC09088.jpg";
+import raniRidge2 from "../assets/homes/rani-ridge/02-DSC09079.jpg";
+import raniRidge3 from "../assets/homes/rani-ridge/03-DSC09052.jpg";
+import raniRidge4 from "../assets/homes/rani-ridge/04-DSC08995.jpg";
+import raniRidge5 from "../assets/homes/rani-ridge/05-DSC08987.jpg";
+import raniRidge6 from "../assets/homes/rani-ridge/06-DSC08977.jpg";
+import raniRidge7 from "../assets/homes/rani-ridge/07-DSC08968.jpg";
+import raniRidge8 from "../assets/homes/rani-ridge/08-DSC08959.jpg";
+import raniRidge9 from "../assets/homes/rani-ridge/09-DSC08953.jpg";
+import raniRidge10 from "../assets/homes/rani-ridge/10-DSC08950.jpg";
+import raniRidge11 from "../assets/homes/rani-ridge/11-DSC08947.jpg";
+import raniRidge12 from "../assets/homes/rani-ridge/13-DSC08929.jpg";
 
 export const staysData = [
   {
@@ -45,8 +76,8 @@ export const staysData = [
     checkIn: "3:00 PM",
     checkOut: "11:00 AM",
     petFriendly: false,
-    heroImage: razzoCreek1,
-    gallery: [razzoCreek1, razzoCreek2],
+    heroImage: razzoCreekHero,
+    gallery: [razzoCreekHero, razzoCreek2, razzoCreek3, razzoCreek4, razzoCreek5, razzoCreek6, razzoCreek7, razzoCreek8, razzoCreek9, razzoCreek10, razzoCreek11, razzoCreek12],
     highlights: [
       "Sleeps up to 3 guests",
       "Queen bed + futon",
@@ -144,8 +175,8 @@ export const staysData = [
     checkIn: "3:00 PM",
     checkOut: "11:00 AM",
     petFriendly: false,
-    heroImage: konaMeadow2,
-    gallery: [konaMeadow1, konaMeadow2, konaMeadow3],
+    heroImage: konaMeadowHero,
+    gallery: [konaMeadowHero, konaMeadow2, konaMeadow3, konaMeadow4, konaMeadow5, konaMeadow6, konaMeadow7, konaMeadow8, konaMeadow9, konaMeadow10],
     highlights: [
       "Sleeps up to 3 guests",
       "Queen bed + futon",
@@ -243,16 +274,16 @@ export const staysData = [
     checkIn: "3:00 PM",
     checkOut: "11:00 AM",
     petFriendly: false,
-    heroImage: catalinaRidge1,
-    gallery: [catalinaRidge1, catalinaRidge4, catalinaRidge7],
+    heroImage: catalinaRidgeHeroResized,
+    gallery: [catalinaRidgeHeroResized, catalinaRidgeHero, catalinaRidge2, catalinaRidge3, catalinaRidge4, catalinaRidge5, catalinaRidge6, catalinaRidge7, catalinaRidge8, catalinaRidge9, catalinaRidge10, catalinaRidge11],
     highlights: [
       "Sleeps up to 4 guests",
-      "Queen bed + futon",
+      "Queen bed + Modular sofa",
       "Upstairs loft sleeping area",
       "Elevated A-frame design",
     ],
     featureChips: [
-      { icon: "🛏️", label: "Queen bed + futon" },
+      { icon: "🛏️", label: "Queen bed + Modular sofa" },
       { icon: "🏠", label: "Upstairs loft sleeping area" },
       { icon: "🪑", label: "Private outdoor seating" },
       { icon: "🔑", label: "Smart self check-in" },
@@ -342,16 +373,16 @@ export const staysData = [
     checkIn: "3:00 PM",
     checkOut: "11:00 AM",
     petFriendly: false,
-    heroImage: raniRidge2,
-    gallery: [raniRidge2, raniRidge6, raniRidge8, raniRidge9],
+    heroImage: raniRidgeHero,
+    gallery: [raniRidgeHero, raniRidge2, raniRidge3, raniRidge4, raniRidge5, raniRidge6, raniRidge7, raniRidge8, raniRidge9, raniRidge10, raniRidge11, raniRidge12],
     highlights: [
       "Sleeps up to 4 guests",
-      "Queen bed + futon",
+      "Queen bed + Daybed",
       "Upstairs loft sleeping area",
       "Elevated A-frame design",
     ],
     featureChips: [
-      { icon: "🛏️", label: "Queen bed + futon" },
+      { icon: "🛏️", label: "Queen bed + Daybed" },
       { icon: "🏠", label: "Upstairs loft sleeping area" },
       { icon: "🪑", label: "Private outdoor seating" },
       { icon: "🔑", label: "Smart self check-in" },

@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import PageLayout from '../components/layout/PageLayout';
 import { galleryPhotos } from '../data/galleryPhotosData';
@@ -36,6 +36,28 @@ const Gallery = () => {
       setSelectedPhoto(filteredPhotos[currentIndex + 1]);
     }
   };
+
+  // Hide navbar + handle Escape key when lightbox is open
+  useEffect(() => {
+    if (!selectedPhoto) return undefined;
+
+    const navbar = document.querySelector('header');
+    if (navbar) navbar.style.display = 'none';
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setSelectedPhoto(null);
+      if (e.key === 'ArrowRight') navigateLightbox('next');
+      if (e.key === 'ArrowLeft')  navigateLightbox('prev');
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      if (navbar) navbar.style.display = '';
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedPhoto]);
 
   return (
     <PageLayout
@@ -181,53 +203,84 @@ const Gallery = () => {
       {/* Lightbox Modal */}
       {selectedPhoto && (
         <div
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
+          className="fixed inset-0 z-[999] bg-black flex flex-col"
           onClick={() => setSelectedPhoto(null)}
         >
+          {/* Floating close button — always visible top-right */}
           <button
             onClick={() => setSelectedPhoto(null)}
-            className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-            aria-label="Close lightbox"
+            className="fixed top-5 right-5 z-[1000] flex items-center justify-center w-11 h-11 rounded-full bg-white text-[#0F172A] shadow-xl hover:bg-gray-100 transition-all duration-200 hover:scale-105"
+            aria-label="Close gallery"
+            style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.6)' }}
           >
-            <FaTimes size={24} />
+            <FaTimes size={15} />
           </button>
 
-          <div className="max-w-6xl w-full" onClick={(e) => e.stopPropagation()}>
+          {/* Top info bar */}
+          <div className="shrink-0 flex items-center justify-between px-5 py-3 pt-5" onClick={(e) => e.stopPropagation()}>
+            <span className="text-white/60 text-sm font-medium tracking-wide">
+              {filteredPhotos.findIndex(p => p.id === selectedPhoto.id) + 1} / {filteredPhotos.length}
+            </span>
+            {selectedPhoto.title && (
+              <span className="text-white text-sm font-semibold hidden sm:block" style={{ fontFamily: 'Playfair Display, serif' }}>
+                {selectedPhoto.title}
+              </span>
+            )}
+            <span className="w-11" />
+          </div>
+
+          {/* Main media */}
+          <div
+            className="flex-1 flex items-center justify-center relative min-h-0 px-16"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Prev arrow */}
+            <button
+              onClick={() => navigateLightbox('prev')}
+              disabled={filteredPhotos.findIndex(p => p.id === selectedPhoto.id) === 0}
+              className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 border border-white/25 text-white text-xl transition-all duration-200 hover:scale-105 disabled:opacity-30 disabled:cursor-not-allowed"
+            >‹</button>
+
             {selectedPhoto.mediaType === 'video' ? (
               <video
                 src={selectedPhoto.video}
                 poster={selectedPhoto.poster || selectedPhoto.image}
                 controls
-                className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+                className="max-h-full max-w-full object-contain rounded-xl shadow-2xl"
               />
             ) : (
               <img
+                key={selectedPhoto.id}
                 src={selectedPhoto.image}
                 alt={selectedPhoto.title}
                 decoding="async"
-                className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+                className="max-h-full max-w-full object-contain rounded-xl shadow-2xl"
+                style={{ animation: 'fadeIn 0.3s ease-out' }}
               />
             )}
 
+            {/* Next arrow */}
+            <button
+              onClick={() => navigateLightbox('next')}
+              disabled={filteredPhotos.findIndex(p => p.id === selectedPhoto.id) === filteredPhotos.length - 1}
+              className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 border border-white/25 text-white text-xl transition-all duration-200 hover:scale-105 disabled:opacity-30 disabled:cursor-not-allowed"
+            >›</button>
+          </div>
 
-
-            {/* Navigation Buttons */}
-            <div className="flex justify-center gap-4 mt-6">
-              <button
-                onClick={() => navigateLightbox('prev')}
-                disabled={filteredPhotos.findIndex(p => p.id === selectedPhoto.id) === 0}
-                className="px-6 py-3 bg-white/10 hover:bg-white/20 rounded-lg text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                ← Previous
-              </button>
-              <button
-                onClick={() => navigateLightbox('next')}
-                disabled={filteredPhotos.findIndex(p => p.id === selectedPhoto.id) === filteredPhotos.length - 1}
-                className="px-6 py-3 bg-white/10 hover:bg-white/20 rounded-lg text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                Next →
-              </button>
-            </div>
+          {/* Progress dots */}
+          <div className="shrink-0 flex justify-center gap-1.5 py-3" onClick={(e) => e.stopPropagation()}>
+            {filteredPhotos.map((_, i) => {
+              const currentIdx = filteredPhotos.findIndex(p => p.id === selectedPhoto.id);
+              return (
+                <button
+                  key={i}
+                  onClick={() => setSelectedPhoto(filteredPhotos[i])}
+                  className={`rounded-full transition-all duration-300 ${
+                    i === currentIdx ? 'bg-white w-5 h-1.5' : 'bg-white/35 hover:bg-white/60 w-1.5 h-1.5'
+                  }`}
+                />
+              );
+            })}
           </div>
         </div>
       )}
