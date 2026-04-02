@@ -17,7 +17,6 @@ import HeroSection from "../components/home/HeroSection";
 import tinyEscape7 from "../assets/tiny escape 7.jpeg";
 import ctaHeroBg from "../assets/homes/all-homes/1-DSC09097.jpg";
 import aerialDroneShot from "../assets/homes/all-homes/1-DJI_20260326163601_0440_D.jpg";
-import tinyEscape3 from "../assets/tiny escape 3.jpg";
 import parkingImage from "../assets/gallery/gallery-parking-1.jpeg";
 import cafeImage from "../assets/prefab house portable container cafe/prefab house portable container cafe/1-DSC09061.jpg";
 import firepitImage from "../assets/firepit/Firepit.jpg";
@@ -174,7 +173,7 @@ const Home = () => {
       }}
     >
       {/* Hero Section */}
-      <HeroSection isDarkMode={isDarkMode} videoSrc={heroVideo} />
+      <HeroSection isDarkMode={isDarkMode} videoSrc={heroVideo} posterSrc={tinyEscape7} />
 
       {/* ── Hero Text (moved below video) ── */}
       <section className={`py-12 md:py-16 text-center transition-colors duration-500 ${isDarkMode ? 'bg-[#0F0D0A]' : 'bg-[#F5F9F3]'}`}>
@@ -400,6 +399,9 @@ const Home = () => {
               <img
                 src={aerialDroneShot}
                 alt="Aerial view of The Tiny Escape"
+                loading="lazy"
+                decoding="async"
+                fetchPriority="low"
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
@@ -531,9 +533,20 @@ const Home = () => {
 
       {/* CTA Section */}
       <section
-        className="relative py-14 sm:py-20 md:py-24 min-h-[56vh] sm:min-h-[70vh] overflow-hidden img-section flex items-center justify-center"
-        style={{ "--cta-bg-image": `url(${ctaHeroBg})` }}
+        className="relative py-14 sm:py-20 md:py-24 min-h-[56vh] sm:min-h-[70vh] overflow-hidden flex items-center justify-center"
       >
+        <div className="absolute inset-0">
+          <img
+            src={ctaHeroBg}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            fetchPriority="low"
+            className="h-full w-full object-cover"
+          />
+          <div className={`absolute inset-0 ${isDarkMode ? 'bg-[linear-gradient(to_right,rgba(10,12,12,0.52),rgba(10,12,12,0.72))]' : 'bg-[linear-gradient(to_right,rgba(220,238,225,0.42),rgba(187,210,196,0.58))]'}`} />
+        </div>
         <div className="relative z-10 w-full mx-auto max-w-3xl px-4 sm:px-6">
           <div
             className="cta-cut-card tiny-cta-frame grid gap-10 lg:grid-cols-1 items-center px-4 sm:px-8 md:px-12 py-10 md:py-14 text-center"

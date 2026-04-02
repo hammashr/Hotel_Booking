@@ -2,8 +2,8 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './context/ThemeContext';
-import UnderDevelopment from './pages/UnderDevelopment';
 import TrackingScripts from './components/common/TrackingScripts';
+import DeferredChatWidget from './components/common/DeferredChatWidget';
 import ScrollToTop from './components/common/ScrollToTop';
 import RouteTracker from './components/common/RouteTracker';
 
@@ -19,6 +19,7 @@ const Contact = lazy(() => import('./pages/Contact'));
 const BookNow = lazy(() => import('./pages/BookNow'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsConditions = lazy(() => import('./pages/TermsConditions'));
+const UnderDevelopment = lazy(() => import('./pages/UnderDevelopment'));
 
 const LegacyDestinationRedirect = () => {
   const { slug } = useParams();
@@ -30,6 +31,7 @@ const App = () => {
     <ThemeProvider>
       <HelmetProvider>
         <TrackingScripts />
+        <DeferredChatWidget />
         <BrowserRouter>
           <ScrollToTop />
           <RouteTracker />
