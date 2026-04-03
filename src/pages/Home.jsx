@@ -176,7 +176,7 @@ const Home = () => {
       <HeroSection isDarkMode={isDarkMode} videoSrc={heroVideo} posterSrc={tinyEscape7} />
 
       {/* ── Hero Text (moved below video) ── */}
-      <section className={`py-12 md:py-16 text-center transition-colors duration-500 ${isDarkMode ? 'bg-[#0F0D0A]' : 'bg-[#F5F9F3]'}`}>
+      <section className={`py-12 md:py-16 text-center transition-colors duration-500 ${isDarkMode ? 'bg-[#111A11]' : 'bg-[#EAF3EA]'}`}>
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <h1
             className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-5 ${isDarkMode ? 'text-[#F2EEE7]' : 'text-[#1F2A1F]'}`}
@@ -192,8 +192,10 @@ const Home = () => {
 
       {/* ── A Different Kind of Escape ── */}
       <section
-        className={`relative py-16 md:py-24 lg:py-28 transition-colors duration-500 ${
-          isDarkMode ? "bg-[#0F0D0A]" : "bg-[#F5F9F3]"
+        className={`relative py-16 md:py-24 lg:py-28 transition-colors duration-500 border-y ${
+          isDarkMode
+            ? "bg-[#0F0D0A] border-[#1A2A1A]"
+            : "bg-white border-[#CFE3CF]"
         }`}
       >
         <div className="mx-auto max-w-5xl px-4 sm:px-6 text-center" data-reveal>

@@ -54,11 +54,7 @@ const PrivacyPolicy = () => {
               ))}
             </div>
 
-            <div className={`mt-8 p-6 rounded-xl ${isDarkMode ? 'bg-[#141A1F]' : 'bg-blue-50 border border-[#BFDBFE]'} `}>
-              <p className={`text-center ${isDarkMode ? 'text-[#C4CCD4]' : 'text-[#475569]'}`}>
-                Your privacy is important to us. If you have any questions or concerns about how we handle your personal information, please don't hesitate to contact us.
-              </p>
-            </div>
+
           </div>
         </div>
       </section>

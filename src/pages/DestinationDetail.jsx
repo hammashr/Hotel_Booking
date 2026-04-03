@@ -248,18 +248,11 @@ const DestinationDetail = memo(() => {
     };
     window.addEventListener("keydown", handleKeyDown);
 
-    // Auto-advance every 3 seconds
-    const timer = setInterval(() => {
-      setActivePhotoIndex((p) => (p === stay.gallery.length - 1 ? 0 : p + 1));
-    }, 3000);
-
     document.body.style.overflow = "hidden";
 
     return () => {
-      // Restore navbar when modal closes
       if (navbar) navbar.style.display = "";
       window.removeEventListener("keydown", handleKeyDown);
-      clearInterval(timer);
       document.body.style.overflow = "";
     };
   }, [showPhotoModal, stay?.gallery?.length]);
@@ -741,6 +734,30 @@ const DestinationDetail = memo(() => {
                     </p>
                   </div>
                 </div>
+              </div>
+
+              {/* ── Refund Policy ── */}
+              <div
+                className={`p-6 rounded-xl ${
+                  isDarkMode
+                    ? "bg-[#0F1419]"
+                    : "bg-[#F8FAFC] border border-[#E2E8F0]"
+                }`}
+              >
+                <h3
+                  className={`text-xl font-bold mb-3 ${
+                    isDarkMode ? "text-[#E0E7EE]" : "text-[#0F172A]"
+                  }`}
+                >
+                  Refund Policy
+                </h3>
+                <p
+                  className={`text-sm leading-relaxed ${
+                    isDarkMode ? "text-[#C9D6DF]" : "text-[#64748B]"
+                  }`}
+                >
+                  Cancellation policy: 100% refund up to 30 days before arrival, 50% refund up to 14 days before arrival.
+                </p>
               </div>
 
 

@@ -54,11 +54,7 @@ const TermsConditions = () => {
               ))}
             </div>
 
-            <div className={`mt-8 p-6 rounded-xl ${isDarkMode ? 'bg-[#141A1F]' : 'bg-blue-50 border border-[#BFDBFE]'} `}>
-              <p className={`text-center ${isDarkMode ? 'text-[#C4CCD4]' : 'text-[#475569]'}`}>
-                By using Tiny Escape services, you acknowledge that you have read, understood, and agree to be bound by these terms and conditions.
-              </p>
-            </div>
+
           </div>
         </div>
       </section>

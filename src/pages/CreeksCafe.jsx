@@ -4,7 +4,7 @@ import { FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa';
 import cafeOne from '../assets/prefab house portable container cafe/prefab house portable container cafe/cafe 5.jpeg';
 import cafeTwo from '../assets/prefab house portable container cafe/prefab house portable container cafe/cafe 6.jpg';
 import cafeThree from '../assets/prefab house portable container cafe/prefab house portable container cafe/cafe 7.jpg';
-import cafeHeroImg from '../assets/prefab house portable container cafe/prefab house portable container cafe/1-DSC09064.jpg';
+import cafeHeroImg from '../assets/prefab house portable container cafe/prefab house portable container cafe/1-DSC09061.jpg';
 
 const menuHighlights = [
   { title: '☕ Signature Coffee Bar', text: 'Enjoy freshly brewed drip coffee, espresso drinks, and handcrafted cafe favorites served throughout the day.' },

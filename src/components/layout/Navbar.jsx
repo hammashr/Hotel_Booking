@@ -100,7 +100,7 @@ const Navbar = ({ isDarkMode, mobileMenuOpen, setMobileMenuOpen }) => {
 
           {/* BOOK NOW button — desktop only */}
           <Link
-            to="/book-now"
+            to="/stays"
             className="hidden lg:inline-flex items-center gap-1.5 rounded-xl bg-[#E7F0E6] px-3 xl:px-5 py-2 xl:py-2.5 text-[10px] xl:text-sm font-black uppercase tracking-wider text-[#1F3A2A] shadow-md transition-all duration-300 hover:bg-white hover:shadow-lg hover:scale-105"
           >
             Book Now
@@ -197,7 +197,7 @@ const Navbar = ({ isDarkMode, mobileMenuOpen, setMobileMenuOpen }) => {
             {/* Mobile BOOK NOW */}
             <div className="pt-4 pb-2">
               <Link
-                to="/book-now"
+                to="/stays"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block w-full text-center rounded-xl bg-[#E7F0E6] px-5 py-3 text-sm font-black uppercase tracking-wider text-[#1F3A2A] shadow-md transition-all duration-300 hover:bg-white"
               >

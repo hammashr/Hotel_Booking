@@ -102,11 +102,12 @@ export const staysData = [
       "Wi-Fi",
       "Smart lock self check-in",
       "Outdoor seating area",
+      "Outdoor grill",
     ],
     amenityCategories: [
       {
         title: "Outdoors",
-        items: ["Container pools access", "Grand fire pit access", "Outdoor seating area"],
+        items: ["Container pools access", "Grand fire pit access", "Outdoor seating area", "Outdoor grill"],
       },
       {
         title: "Kitchen & dining",
@@ -131,7 +132,7 @@ export const staysData = [
     pricing: {
       standard: {
         title: "Weekday Rate",
-        price: 205,
+        price: 189,
         features: ["Nightly rate", "Self check-in", "Private outdoor space"],
       },
       signature: {
@@ -201,11 +202,12 @@ export const staysData = [
       "Wi-Fi",
       "Smart lock self check-in",
       "Outdoor seating area",
+      "Outdoor grill",
     ],
     amenityCategories: [
       {
         title: "Outdoors",
-        items: ["Container pools access", "Grand fire pit access", "Outdoor seating area"],
+        items: ["Container pools access", "Grand fire pit access", "Outdoor seating area", "Outdoor grill"],
       },
       {
         title: "Kitchen & dining",
@@ -230,7 +232,7 @@ export const staysData = [
     pricing: {
       standard: {
         title: "Weekday Rate",
-        price: 205,
+        price: 189,
         features: ["Nightly rate", "Self check-in", "Private outdoor space"],
       },
       signature: {
@@ -300,11 +302,12 @@ export const staysData = [
       "Wi-Fi",
       "Smart lock self check-in",
       "Outdoor seating area",
+      "Outdoor grill",
     ],
     amenityCategories: [
       {
         title: "Outdoors",
-        items: ["Container pools access", "Grand fire pit access", "Outdoor seating area"],
+        items: ["Container pools access", "Grand fire pit access", "Outdoor seating area", "Outdoor grill"],
       },
       {
         title: "Kitchen & dining",
@@ -399,11 +402,12 @@ export const staysData = [
       "Wi-Fi",
       "Smart lock self check-in",
       "Outdoor seating area",
+      "Outdoor grill",
     ],
     amenityCategories: [
       {
         title: "Outdoors",
-        items: ["Container pools access", "Grand fire pit access", "Outdoor seating area"],
+        items: ["Container pools access", "Grand fire pit access", "Outdoor seating area", "Outdoor grill"],
       },
       {
         title: "Kitchen & dining",

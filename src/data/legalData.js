@@ -9,7 +9,7 @@ export const termsSections = [
   },
   {
     title: '3. Cancellation and Refund Policy',
-    content: 'Cancellation policies vary by stay and season and are disclosed during booking. In general, cancellations 14 days or more before check-in may be eligible for a refund minus processing fees, while later cancellations may be partially refundable or non-refundable. Special circumstances will be reviewed case by case.'
+    content: 'Cancellation policy: 100% refund up to 30 days before arrival, 50% refund up to 14 days before arrival.'
   },
   {
     title: '4. Travel Insurance',

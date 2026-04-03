@@ -222,78 +222,65 @@ const Pavillion = () => {
               >
                 Check Availability
               </h2>
-              <p className={`mt-3 text-base ${isDarkMode ? 'text-[#8FA88F]' : 'text-[#4A6A4A]'}`}>
-                Select your event dates below, then reach out to our team to confirm and plan.
-              </p>
+              <div className="mt-3 flex flex-wrap items-center justify-center gap-3">
+                <span className="inline-flex items-center rounded-full bg-linear-to-r from-[#D1965A] to-[#F1C281] px-4 py-1.5 text-xs font-black uppercase tracking-widest text-[#1A120A] shadow">
+                  Coming Soon
+                </span>
+                <p className={`text-base ${isDarkMode ? 'text-[#8FA88F]' : 'text-[#4A6A4A]'}`}>
+                  The pavilion is not yet open for bookings — we'll be ready soon!
+                </p>
+              </div>
             </div>
 
             <div className={`rounded-3xl border overflow-hidden ${isDarkMode ? 'bg-[#0B0F0B] border-[#1A2A1A]' : 'bg-white border-[#DDE8DD]'}`}>
-              {/* Calendar */}
-              <div className="flex justify-center p-6">
-                <DayPicker
-                  mode="range"
-                  selected={dateRange}
-                  onSelect={(range) => setDateRange(range || { from: undefined, to: undefined })}
-                  numberOfMonths={2}
-                  defaultMonth={earliestBooking}
-                  disabled={{ before: earliestBooking }}
-                  modifiersStyles={{
-                    selected: {
-                      backgroundColor: '#2F5D3A',
-                      color: '#ffffff',
-                    },
-                    range_middle: {
-                      backgroundColor: isDarkMode ? '#1A2E1A' : '#EAF3EA',
-                      color: isDarkMode ? '#C9D6DF' : '#1F3A2A',
-                    },
-                  }}
-                />
+              {/* Calendar — disabled until opening */}
+              <div className="relative flex justify-center p-6">
+                {/* Unclickable overlay */}
+                <div className="absolute inset-0 z-10 cursor-not-allowed" />
+                <div className="opacity-40 pointer-events-none select-none">
+                  <DayPicker
+                    mode="range"
+                    selected={dateRange}
+                    onSelect={(range) => setDateRange(range || { from: undefined, to: undefined })}
+                    numberOfMonths={2}
+                    defaultMonth={earliestBooking}
+                    disabled={{ before: earliestBooking }}
+                    modifiersStyles={{
+                      selected: {
+                        backgroundColor: '#2F5D3A',
+                        color: '#ffffff',
+                      },
+                      range_middle: {
+                        backgroundColor: isDarkMode ? '#1A2E1A' : '#EAF3EA',
+                        color: isDarkMode ? '#C9D6DF' : '#1F3A2A',
+                      },
+                    }}
+                  />
+                </div>
               </div>
 
-              {/* Date summary + CTAs */}
+              {/* Coming Soon notice */}
               <div className={`px-6 py-5 border-t ${isDarkMode ? 'border-[#1A2A1A]' : 'border-[#E0EBE0]'}`}>
-                {dateRange?.from && dateRange?.to ? (
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                    <div>
-                      <p className={`text-xs uppercase tracking-wider mb-1 ${isDarkMode ? 'text-[#6A8A6A]' : 'text-[#5A7A5A]'}`}>
-                        Selected dates
-                      </p>
-                      <p className={`text-sm font-semibold ${isDarkMode ? 'text-[#D4E8D4]' : 'text-[#1F3A2A]'}`}>
-                        {formatDisplayDate(dateRange.from)} → {formatDisplayDate(dateRange.to)}
-                        <span className={`ml-2 font-normal ${isDarkMode ? 'text-[#8FA88F]' : 'text-[#4A6A4A]'}`}>
-                          ({nightCount} night{nightCount !== 1 ? 's' : ''})
-                        </span>
-                      </p>
-                    </div>
-                    <div className="flex gap-3">
-                      <Link
-                        to="/book-now"
-                        state={bookNowState}
-                        className="px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#1F3A2A] text-[#F7FBF7] hover:bg-[#2F5D3A] transition-colors duration-200"
-                      >
-                        Book Now
-                      </Link>
-                      <Link
-                        to="/contact"
-                        className={`px-5 py-2.5 rounded-xl text-sm font-semibold border transition-colors duration-200 ${
-                          isDarkMode
-                            ? 'border-[#2F5D3A] text-[#6BAF7A] hover:bg-[#1A2A1A]'
-                            : 'border-[#1F3A2A] text-[#1F3A2A] hover:bg-[#F0F7F0]'
-                        }`}
-                      >
-                        Contact Team
-                      </Link>
-                    </div>
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex items-center rounded-full bg-linear-to-r from-[#D1965A] to-[#F1C281] px-3 py-1 text-xs font-black uppercase tracking-widest text-[#1A120A] shadow">
+                      Coming Soon
+                    </span>
+                    <p className={`text-sm ${isDarkMode ? 'text-[#8FA88F]' : 'text-[#4A6A4A]'}`}>
+                      Bookings will open soon — stay tuned!
+                    </p>
                   </div>
-                ) : dateRange?.from ? (
-                  <p className={`text-sm ${isDarkMode ? 'text-[#8FA88F]' : 'text-[#4A6A4A]'}`}>
-                    Now select your event end date
-                  </p>
-                ) : (
-                  <p className={`text-sm ${isDarkMode ? 'text-[#6A8A6A]' : 'text-[#7A9A7A]'}`}>
-                    Click a start date to begin — then select your end date
-                  </p>
-                )}
+                  <Link
+                    to="/contact"
+                    className={`px-5 py-2.5 rounded-xl text-sm font-semibold border transition-colors duration-200 ${
+                      isDarkMode
+                        ? 'border-[#2F5D3A] text-[#6BAF7A] hover:bg-[#1A2A1A]'
+                        : 'border-[#1F3A2A] text-[#1F3A2A] hover:bg-[#F0F7F0]'
+                    }`}
+                  >
+                    Get Notified
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -324,18 +311,10 @@ const Pavillion = () => {
               <p className={`text-base leading-relaxed ${isDarkMode ? 'text-[#8FA88F]' : 'text-[#4A6A4A]'}`}>
                 Tell us your occasion, preferred setup, and guest count. Our team will help you shape a smooth and memorable experience tailored to your vision.
               </p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <Link
-                  to="/book-now"
-                  state={bookNowState}
-                  className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-[1.02] ${
-                    isDarkMode
-                      ? 'bg-[#1F3A2A] text-[#D4EDDA] hover:bg-[#2F5D3A]'
-                      : 'bg-[#1F3A2A] text-[#F7FBF7] hover:bg-[#2F5D3A]'
-                  }`}
-                >
-                  Book Now
-                </Link>
+              <div className="mt-7 flex flex-wrap items-center gap-3">
+                <span className="inline-flex items-center rounded-full bg-linear-to-r from-[#D1965A] to-[#F1C281] px-5 py-3 text-sm font-black uppercase tracking-widest text-[#1A120A] shadow animate-pulse">
+                  Coming Soon
+                </span>
                 <Link
                   to="/contact"
                   className={`px-6 py-3 rounded-xl text-sm font-semibold border transition-all duration-200 hover:scale-[1.02] ${
