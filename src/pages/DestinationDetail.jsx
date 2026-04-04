@@ -369,8 +369,31 @@ const DestinationDetail = memo(() => {
       <section className={`pt-20 md:pt-24 pb-0 ${isDarkMode ? "bg-[#0B0C0E]" : "bg-white"}`}>
         <div className="container mx-auto px-4 sm:px-6">
 
-          {/* Photo Grid */}
-          <div className="grid grid-cols-4 grid-rows-2 gap-2 h-[420px] md:h-[520px] rounded-2xl overflow-hidden">
+          {/* Photo Grid — mobile: hero only; md+: 4-col masonry grid */}
+
+          {/* Mobile: single hero image with photo count badge */}
+          <div
+            className="md:hidden relative rounded-2xl overflow-hidden h-[260px] cursor-pointer"
+            onClick={() => { setActivePhotoIndex(0); setShowPhotoModal(true); }}
+          >
+            <img
+              src={stay.gallery[0]}
+              alt={stay.name}
+              className="w-full h-full object-cover"
+            />
+            {stay.gallery.length > 1 && (
+              <button
+                onClick={(e) => { e.stopPropagation(); setActivePhotoIndex(0); setShowPhotoModal(true); }}
+                className="absolute bottom-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/90 text-[#0F172A] text-xs font-bold shadow-md border border-gray-200"
+              >
+                <span className="text-sm">⊞</span>
+                View all {stay.gallery.length} photos
+              </button>
+            )}
+          </div>
+
+          {/* Desktop: full 4-col × 2-row masonry grid */}
+          <div className="hidden md:grid grid-cols-4 grid-rows-2 gap-2 h-[520px] rounded-2xl overflow-hidden">
             {/* Large image — spans 2 cols × 2 rows */}
             <div
               className="col-span-2 row-span-2 cursor-pointer overflow-hidden"
