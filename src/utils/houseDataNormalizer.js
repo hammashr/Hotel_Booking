@@ -13,9 +13,9 @@ export const sortHousesByOrder = (items = []) =>
 export const createPricingFromPackages = (packages = [], fallbackPricing = {}) => {
   const packageMap = Object.fromEntries((packages || []).map((pkg) => [pkg.code, pkg]));
 
-  const standardPrice = packageMap.standard?.pricePerNight ?? fallbackPricing?.standard?.price ?? 0;
-  const signaturePrice = packageMap.signature?.pricePerNight ?? fallbackPricing?.signature?.price ?? standardPrice;
-  const extendedPrice = packageMap.extended?.pricePerNight ?? fallbackPricing?.extended?.price ?? standardPrice;
+  const standardPrice = fallbackPricing?.standard?.price ?? packageMap.standard?.pricePerNight ?? 0;
+  const signaturePrice = fallbackPricing?.signature?.price ?? packageMap.signature?.pricePerNight ?? standardPrice;
+  const extendedPrice = fallbackPricing?.extended?.price ?? packageMap.extended?.pricePerNight ?? standardPrice;
 
   return {
     standard: {
