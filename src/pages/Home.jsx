@@ -104,6 +104,46 @@ const TESTIMONIALS = [
     text: "Attended a soft-opening event and WOW what a great place to escape and un-wind! You can tell how much thought, effort, and detail is going into making the experience unforgettable. The cabins are clean and cozy, the newly added Cafe has desserts that are out of this world, and the activities they have planned will keep everyone entertained through your entire stay. Not to mention there are more attractions in progress including pools and a wedding venue! Can not wait to come back and re-experience it all plus more!",
     avatar: "J",
   },
+  {
+    name: "Tauseef Ashraf",
+    rating: 5,
+    location: "Google Review",
+    source: "google",
+    text: "The Tiny Escape is a peaceful forest retreat nestled halfway between Austin and Dallas. Cozy Scandinavian-style tiny homes sit among tall trees with a flowing creek nearby. Waking up to birdsong and sunlight through the woods is unforgettable and the included horse ride through shaded trails is a true highlight! A perfect reset for couples, families, or solo travelers just a short drive from the city. Can't wait to come back.",
+    avatar: "T",
+  },
+  {
+    name: "Rosalia Treto",
+    rating: 5,
+    location: "Google Review",
+    source: "google",
+    text: "I absolutely loved my stay at The Tiny Escape! From the moment I arrived, I felt an incredible sense of peace and calm. The location is beautiful — tucked away just enough to feel private, yet still close to everything you need. The space itself has such great vibes — cozy, thoughtfully designed, and full of charm. Whether you're looking to unwind, recharge, or just enjoy some quiet time away from the chaos, this place is perfect. I left feeling refreshed and already can't wait to come back! 🌿✨",
+    avatar: "R",
+  },
+  {
+    name: "Manuel Fajardo",
+    rating: 5,
+    location: "Google Review",
+    source: "google",
+    text: "Loved the stay, very nice and peaceful, had a blast! 10/10",
+    avatar: "M",
+  },
+  {
+    name: "Ruth Contreras",
+    rating: 5,
+    location: "Google Review",
+    source: "google",
+    text: "Can't wait for yall to officially open! The sneak peek was FABULOUS",
+    avatar: "R",
+  },
+  {
+    name: "Christy Jaynes",
+    rating: 5,
+    location: "Google Review",
+    source: "google",
+    text: "Amazing, beautiful and relaxing atmosphere.",
+    avatar: "C",
+  },
 ];
 
 const StarRating = ({ count }) => (
