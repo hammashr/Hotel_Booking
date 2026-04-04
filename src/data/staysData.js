@@ -32,7 +32,7 @@ import catalinaRidgeHero from "../assets/homes/catalina-ridge/01-DSC09091.jpg";
 import catalinaRidgeHeroResized from "../assets/homes/catalina-ridge/01-DSC09091.jpg";
 import catalinaRidge2 from "../assets/homes/catalina-ridge/02-DSC09079.jpg";
 import catalinaRidge3 from "../assets/homes/catalina-ridge/03-DSC09049.jpg";
-import catalinaRidge4 from "../assets/homes/catalina-ridge/04-DSC08977.jpg";
+import catalinaRidge4 from "../assets/homes/catalina-ridge/04-DSCbedroom.jpeg";
 import catalinaRidge5 from "../assets/homes/catalina-ridge/05-DSC08968.jpg";
 import catalinaRidge6 from "../assets/homes/catalina-ridge/06-DSC08914.jpg";
 import catalinaRidge7 from "../assets/homes/catalina-ridge/07-DSC08911.jpg";
@@ -47,7 +47,7 @@ import raniRidge2 from "../assets/homes/rani-ridge/02-DSC09079.jpg";
 import raniRidge3 from "../assets/homes/rani-ridge/03-DSC09052.jpg";
 import raniRidge4 from "../assets/homes/rani-ridge/04-DSC08995.jpg";
 import raniRidge5 from "../assets/homes/rani-ridge/05-DSC08987.jpg";
-import raniRidge6 from "../assets/homes/rani-ridge/06-DSC08977.jpg";
+import raniRidge6 from "../assets/homes/rani-ridge/04-DSCbedroom.jpeg";
 import raniRidge7 from "../assets/homes/rani-ridge/07-DSC08968.jpg";
 import raniRidge8 from "../assets/homes/rani-ridge/08-DSC08959.jpg";
 import raniRidge9 from "../assets/homes/rani-ridge/09-DSC08953.jpg";
@@ -277,7 +277,7 @@ export const staysData = [
     checkOut: "11:00 AM",
     petFriendly: false,
     heroImage: catalinaRidgeHeroResized,
-    gallery: [catalinaRidgeHeroResized, catalinaRidgeHero, catalinaRidge2, catalinaRidge3, catalinaRidge4, catalinaRidge5, catalinaRidge6, catalinaRidge7, catalinaRidge8, catalinaRidge9, catalinaRidge10, catalinaRidge11],
+    gallery: [catalinaRidgeHero, catalinaRidge2, catalinaRidge3, catalinaRidge4, catalinaRidge5, catalinaRidge6, catalinaRidge7, catalinaRidge8, catalinaRidge9, catalinaRidge10, catalinaRidge11],
     highlights: [
       "Sleeps up to 4 guests",
       "Queen bed + Modular sofa",

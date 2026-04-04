@@ -42,7 +42,7 @@ const Tours = () => {
       const initScript = document.createElement('script');
       initScript.type = 'text/javascript';
       initScript.innerHTML = `
-        var searchwidget = new SearchWidget('searchwidget', 'https://book.thetinyescape.com/the-tiny-escape/search', {"lang":"US","fields":["location","checkIn","checkOut","guests"],"maximumGuests":4,"daysBetweenDates":7,"openInNewTab":false,"backgroundColorButton":"#0c7420","colorButton":"#ffffff","uid":"6ccc7df6-fe56-4468-8612-977c9c73e66d"});
+        var searchwidget = new SearchWidget('searchwidget', 'https://book.thetinyescape.com/search', {"lang":"US","fields":["checkIn","checkOut","guests"],"maximumGuests":4,"daysBetweenDates":7,"openInNewTab":false,"backgroundColorButton":"#0c7420","colorButton":"#ffffff","uid":"6ccc7df6-fe56-4468-8612-977c9c73e66d"});
       `;
       document.body.appendChild(initScript);
     };
