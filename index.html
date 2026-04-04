@@ -82,11 +82,14 @@
       content="Tiny home stay in Texas Hill Country"
     />
 
-    <!-- ── Google Analytics 4 ──────────────────────────────────────────────
-         Replace G-XXXXXXXXXX with your real GA4 Measurement ID.
-         Set VITE_GA_ID in your .env file; this script reads it at build time
-         via the analytics.jsx util. (Runtime injection is handled in main.jsx)
-    ─────────────────────────────────────────────────────────────────────── -->
+    <!-- ── Google Analytics 4 ── -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V105NQ4818"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-V105NQ4818');
+    </script>
 
     <!-- ── Meta (Facebook) Pixel ───────────────────────────────────────────
          The Pixel is injected at runtime by src/utils/analytics.js
