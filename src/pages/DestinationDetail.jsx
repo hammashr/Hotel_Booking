@@ -756,7 +756,7 @@ const DestinationDetail = memo(() => {
                     isDarkMode ? "text-[#C9D6DF]" : "text-[#64748B]"
                   }`}
                 >
-                  Cancellation policy: 100% refund up to 30 days before arrival, 50% refund up to 14 days before arrival.
+                  Cancellation policy: 100% refund up to 30 days before arrival, 50% refund up to 14 days before arrival. No refunds for cancellations made within 14 days of check-in.
                 </p>
               </div>
 

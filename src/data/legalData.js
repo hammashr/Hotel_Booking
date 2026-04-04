@@ -9,7 +9,7 @@ export const termsSections = [
   },
   {
     title: '3. Cancellation and Refund Policy',
-    content: 'Cancellation policy: 100% refund up to 30 days before arrival, 50% refund up to 14 days before arrival.'
+    content: 'Cancellation policy: 100% refund up to 30 days before arrival, 50% refund up to 14 days before arrival. No refunds for cancellations made within 14 days of check-in.'
   },
   {
     title: '4. Travel Insurance',
@@ -53,7 +53,7 @@ export const termsSections = [
   },
   {
     title: '14. Contact Information',
-    content: 'For questions or concerns regarding these terms, contact us at hello@tinyescape.com.'
+    content: 'For questions or concerns regarding these terms, contact us at hello@thetinyescape.com.'
   }
 ];
 
@@ -80,7 +80,7 @@ export const privacySections = [
   },
   {
     title: '6. Your Rights',
-    content: 'You have the right to access your personal information, request correction, request deletion (subject to legal requirements), object to processing, withdraw consent for marketing communications, request data portability, and lodge a complaint with a supervisory authority. To exercise these rights, contact us at hello@tinyescape.com.'
+    content: 'You have the right to access your personal information, request correction, request deletion (subject to legal requirements), object to processing, withdraw consent for marketing communications, request data portability, and lodge a complaint with a supervisory authority. To exercise these rights, contact us at hello@thetinyescape.com.'
   },
   {
     title: '7. Data Retention',
@@ -100,7 +100,7 @@ export const privacySections = [
   },
   {
     title: '11. Marketing Communications',
-    content: 'We may send marketing communications about stays, special offers, and local tips if you have consented. You can opt out at any time by clicking the unsubscribe link in our emails or contacting us at hello@tinyescape.com.'
+    content: 'We may send marketing communications about stays, special offers, and local tips if you have consented. You can opt out at any time by clicking the unsubscribe link in our emails or contacting us at hello@thetinyescape.com.'
   },
   {
     title: '12. Changes to This Privacy Policy',
@@ -108,6 +108,6 @@ export const privacySections = [
   },
   {
     title: '13. Contact Us',
-    content: 'If you have questions or requests regarding this privacy policy or our data practices, contact us at hello@tinyescape.com or through our website contact form.'
+    content: 'If you have questions or requests regarding this privacy policy or our data practices, contact us at hello@thetinyescape.com or through our website contact form.'
   }
 ];

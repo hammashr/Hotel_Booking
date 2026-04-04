@@ -84,7 +84,7 @@ const BookNow = () => {
   ];
   const CLEANING_FEE = 50;
   const TAX_RATE = 0.06;
-  const CANCELLATION_POLICY = '100% refund up to 30 days before arrival, 50% refund up to 14 days before arrival';
+  const CANCELLATION_POLICY = '100% refund up to 30 days before arrival, 50% refund up to 14 days before arrival. No refunds for cancellations made within 14 days of check-in.';
 
   const ADD_ON_PRICE_MAP = ADD_ON_OPTIONS.reduce((acc, option) => {
     acc[option.value] = option.price;

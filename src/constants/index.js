@@ -23,7 +23,7 @@ export const POPULAR_DESTINATIONS = [
 
 // Contact Information
 export const CONTACT_INFO = {
-  email: 'hello@tinyescape.com',
+  email: 'hello@thetinyescape.com',
   phone: '+1 (512) 555-0189',
   location: 'Bruceville-Eddy, TX'
 };

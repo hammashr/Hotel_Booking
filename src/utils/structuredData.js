@@ -12,7 +12,7 @@ export const getOrganizationSchema = () => ({
   "logo": `${siteUrl}/logo.png`,
   "image": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=1200",
   "telephone": "+1-512-555-0134",
-  "email": "hello@tinyescape.com",
+  "email": "hello@thetinyescape.com",
   "address": {
     "@type": "PostalAddress",
     "addressCountry": "US",

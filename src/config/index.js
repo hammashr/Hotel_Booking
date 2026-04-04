@@ -19,7 +19,7 @@ export const config = {
     name: 'The Tiny Escape',
     url: import.meta.env.VITE_SITE_URL || 'https://tinyescape.vercel.app',
     tagline: 'Find your next stay',
-    email: 'hello@tinyescape.com',
+    email: 'hello@thetinyescape.com',
     phone: '+1 (512) 555-0189',
     whatsapp: '+15125550189',
   },
