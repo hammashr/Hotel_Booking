@@ -51,15 +51,7 @@ export const tourInterests = [
   'Razzo Creek',
   'Kona Meadows',
   'Catalina Ridge',
-  'Rani Ridge',
-  'Couples Getaway',
-  'Family Stay',
-  'Group Retreat',
-  'Remote Work Escape',
-  'Horseback Riding Experience',
-  'Fireside & Relaxation',
-  'Corporate / Team Building',
-  'Not Sure – Help Me Choose'
+  'Rani Ridge'
 ];
 
 export const months = [
