@@ -239,16 +239,6 @@ const Home = () => {
             >
               View Our Stays
             </Link>
-            <Link
-              to={requestAvailabilityPath}
-              className={`inline-flex items-center gap-2 rounded-xl border-2 px-7 py-3.5 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 ${
-                isDarkMode
-                  ? "border-[#C9A36A] text-[#C9A36A] hover:bg-[rgba(201,163,106,0.1)]"
-                  : "border-[#1F3A2A] text-[#1F3A2A] hover:bg-[rgba(31,58,42,0.08)]"
-              }`}
-            >
-              Book Now
-            </Link>
           </div>
         </div>
       </section>
