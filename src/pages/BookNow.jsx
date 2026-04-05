@@ -467,7 +467,7 @@ const BookNow = () => {
         name: 'Book Now | The Tiny Escape',
         description:
           'Request dates for Tiny Escape stays in Texas with transparent pricing and quick confirmation.',
-        url: 'https://tinyescape.vercel.app/book-now',
+        url: 'https://thetinyescape.com/book-now',
       },
       getFAQSchema([
         {

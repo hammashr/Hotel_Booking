@@ -13,7 +13,7 @@ const envSchema = z.object({
   MONGO_URI: z.string().min(1, 'MONGO_URI is required'),
   CORS_ORIGINS: z
     .string()
-    .default('https://tinyescape.vercel.app,http://localhost:5173'),
+    .default('https://thetinyescape.com,https://www.thetinyescape.com,http://localhost:5173,http://localhost:3000'),
   SQUARE_ACCESS_TOKEN: z.string().optional().default(''),
   SQUARE_LOCATION_ID: z.string().optional().default(''),
   SQUARE_WEBHOOK_SIGNATURE_KEY: z.string().optional().default(''),

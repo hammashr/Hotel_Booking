@@ -10,14 +10,16 @@
 export const config = {
   // API Configuration
   api: {
-    baseUrl: import.meta.env.VITE_API_URL || 'http://localhost:3000/api',
+    baseUrl:
+      import.meta.env.VITE_API_URL ||
+      (import.meta.env.DEV ? 'http://localhost:3000/api' : '/api'),
     timeout: 10000, // 10 seconds
   },
 
   // Site Configuration
   site: {
     name: 'The Tiny Escape',
-    url: import.meta.env.VITE_SITE_URL || 'https://tinyescape.vercel.app',
+    url: import.meta.env.VITE_SITE_URL || 'https://thetinyescape.com',
     tagline: 'Find your next stay',
     email: 'hello@thetinyescape.com',
     phone: '+1 (512) 555-0189',

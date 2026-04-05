@@ -80,7 +80,7 @@ const sendContactEmail = async (formData) => {
         <div style="padding:28px 32px;background:#f9fafb;border:1px solid #D4E8D4;border-top:none;border-radius:0 0 8px 8px;">
           <p style="font-size:15px;">Hi ${fullName},</p>
           <p style="font-size:15px;">Thank you for contacting <strong>The Tiny Escape</strong>. We've received your message and will get back to you as soon as possible — usually within 24 hours.</p>
-          <p style="font-size:15px;">In the meantime, feel free to browse our stays at <a href="https://tinyescape.vercel.app" style="color:#2F5D3A;">thetinyescape.com</a>.</p>
+          <p style="font-size:15px;">In the meantime, feel free to browse our stays at <a href="https://thetinyescape.com" style="color:#2F5D3A;">thetinyescape.com</a>.</p>
           <p style="font-size:15px;margin-top:24px;">Warm regards,<br/><strong>The Tiny Escape Team</strong></p>
         </div>
         <p style="font-size:12px;color:#9ca3af;text-align:center;margin-top:16px;">The Tiny Escape · Bruceville-Eddy, TX</p>
