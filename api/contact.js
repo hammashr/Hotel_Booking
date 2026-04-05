@@ -1,9 +1,20 @@
-import nodemailer from 'nodemailer';
+import nodemailer from "nodemailer";
+
+const getEmailConfig = () => ({
+  host: process.env.EMAIL_HOST || "smtp.office365.com",
+  port: Number.parseInt(process.env.EMAIL_PORT || "587", 10),
+  user: process.env.EMAIL_USER || "",
+  pass: process.env.EMAIL_PASS || "",
+  to:
+    process.env.EMAIL_TO || process.env.EMAIL_USER || "hello@thetinyescape.com",
+});
 
 export default async function handler(req, res) {
   // Only allow POST
-  if (req.method !== 'POST') {
-    return res.status(405).json({ success: false, message: 'Method not allowed' });
+  if (req.method !== "POST") {
+    return res
+      .status(405)
+      .json({ success: false, message: "Method not allowed" });
   }
 
   const {
@@ -20,28 +31,45 @@ export default async function handler(req, res) {
 
   // Basic validation
   if (!fullName || fullName.trim().length < 2) {
-    return res.status(400).json({ success: false, message: 'Full name is required.' });
+    return res
+      .status(400)
+      .json({ success: false, message: "Full name is required." });
   }
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return res.status(400).json({ success: false, message: 'A valid email address is required.' });
+    return res
+      .status(400)
+      .json({ success: false, message: "A valid email address is required." });
   }
 
   try {
+    const emailConfig = getEmailConfig();
+
+    if (!emailConfig.user || !emailConfig.pass) {
+      console.error(
+        "Contact form email configuration is incomplete. EMAIL_USER and EMAIL_PASS are required.",
+      );
+      return res.status(503).json({
+        success: false,
+        message:
+          "Contact form is temporarily unavailable. Please try again shortly.",
+      });
+    }
+
     const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST || 'smtp.office365.com',
-      port: parseInt(process.env.EMAIL_PORT || '587'),
+      host: emailConfig.host,
+      port: emailConfig.port,
       secure: false, // STARTTLS
+      requireTLS: true,
       auth: {
-        user: process.env.EMAIL_USER, // hello@thetinyescape.com
-        pass: process.env.EMAIL_PASS, // GoDaddy email password
+        user: emailConfig.user,
+        pass: emailConfig.pass,
       },
-      tls: { ciphers: 'SSLv3' },
     });
 
     // Email to the business
     await transporter.sendMail({
-      from: `"The Tiny Escape Website" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_TO || 'hello@thetinyescape.com',
+      from: `"The Tiny Escape Website" <${emailConfig.user}>`,
+      to: emailConfig.to,
       replyTo: email,
       subject: `New Contact Inquiry from ${fullName}`,
       html: `
@@ -53,12 +81,12 @@ export default async function handler(req, res) {
             <table style="width:100%;border-collapse:collapse;font-size:15px;">
               <tr><td style="padding:8px 0;color:#5A7A5A;width:180px;font-weight:600;">Full Name</td><td style="padding:8px 0;">${fullName}</td></tr>
               <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Email</td><td style="padding:8px 0;"><a href="mailto:${email}" style="color:#2F5D3A;">${email}</a></td></tr>
-              <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Phone</td><td style="padding:8px 0;">${countryCode || ''} ${phone || '—'}</td></tr>
-              <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Number of Guests</td><td style="padding:8px 0;">${numberOfTravelers || '—'}</td></tr>
-              <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Occasion</td><td style="padding:8px 0;">${travelType || '—'}</td></tr>
-              <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Preferred Stay</td><td style="padding:8px 0;">${stayInterest || '—'}</td></tr>
-              <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Preferred Month</td><td style="padding:8px 0;">${preferredMonth || '—'}</td></tr>
-              <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;vertical-align:top;">Message</td><td style="padding:8px 0;">${message || '—'}</td></tr>
+              <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Phone</td><td style="padding:8px 0;">${countryCode || ""} ${phone || "—"}</td></tr>
+              <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Number of Guests</td><td style="padding:8px 0;">${numberOfTravelers || "—"}</td></tr>
+              <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Occasion</td><td style="padding:8px 0;">${travelType || "—"}</td></tr>
+              <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Preferred Stay</td><td style="padding:8px 0;">${stayInterest || "—"}</td></tr>
+              <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Preferred Month</td><td style="padding:8px 0;">${preferredMonth || "—"}</td></tr>
+              <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;vertical-align:top;">Message</td><td style="padding:8px 0;">${message || "—"}</td></tr>
             </table>
           </div>
           <p style="font-size:12px;color:#9ca3af;text-align:center;margin-top:16px;">Sent from thetinyescape.com contact form</p>
@@ -69,7 +97,7 @@ export default async function handler(req, res) {
     // Auto-reply to guest (best-effort)
     try {
       await transporter.sendMail({
-        from: `"The Tiny Escape" <${process.env.EMAIL_USER}>`,
+        from: `"The Tiny Escape" <${emailConfig.user}>`,
         to: email,
         subject: `We received your message, ${fullName}!`,
         html: `
@@ -91,9 +119,16 @@ export default async function handler(req, res) {
       // Auto-reply failure should not block success response
     }
 
-    return res.status(200).json({ success: true, message: 'Message sent successfully.' });
+    return res
+      .status(200)
+      .json({ success: true, message: "Message sent successfully." });
   } catch (error) {
-    console.error('Contact form error:', error.message);
-    return res.status(500).json({ success: false, message: 'Failed to send message. Please try again.' });
+    console.error("Contact form error:", error);
+    return res
+      .status(500)
+      .json({
+        success: false,
+        message: "Failed to send message. Please try again.",
+      });
   }
 }

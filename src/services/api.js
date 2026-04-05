@@ -4,15 +4,15 @@
  *
  * Uses apiClient so base URL comes from VITE_API_BASE_URL.
  */
-import { apiClient } from './apiClient';
+import { apiClient } from "./apiClient";
 
 // Generic API request handler
 export const apiRequest = async (endpoint, options = {}) => {
   try {
     return await apiClient(endpoint, options);
   } catch (error) {
-    const message = error?.message || 'Request failed. Please try again.';
-    console.error('API Request Failed:', message);
+    const message = error?.message || "Request failed. Please try again.";
+    console.error("API Request Failed:", message);
     throw new Error(message);
   }
 };
@@ -23,7 +23,7 @@ export const toursAPI = {
   getAll: async () => {
     // TODO: Replace with actual API call
     // return apiRequest('/tours', { method: 'GET' });
-    const { toursData } = await import('../data/toursData');
+    const { toursData } = await import("../data/toursData");
     return Promise.resolve(toursData);
   },
 
@@ -31,16 +31,18 @@ export const toursAPI = {
   getById: async (id) => {
     // TODO: Replace with actual API call
     // return apiRequest(`/tours/${id}`);
-    const { toursData } = await import('../data/toursData');
-    return Promise.resolve(toursData.find(tour => tour.id === id));
+    const { toursData } = await import("../data/toursData");
+    return Promise.resolve(toursData.find((tour) => tour.id === id));
   },
 
   // Get tours by category
   getByCategory: async (category) => {
     // TODO: Replace with actual API call
     // return apiRequest(`/tours/category/${category}`);
-    const { toursData } = await import('../data/toursData');
-    return Promise.resolve(toursData.filter(tour => tour.category === category));
+    const { toursData } = await import("../data/toursData");
+    return Promise.resolve(
+      toursData.filter((tour) => tour.category === category),
+    );
   },
 };
 
@@ -49,27 +51,29 @@ export const staysAPI = {
   // Get all stays
   getAll: async () => {
     // TODO: Replace with actual API call
-    const { staysData } = await import('../data/staysData');
+    const { staysData } = await import("../data/staysData");
     return Promise.resolve(staysData);
   },
 
   // Get single stay by slug
   getBySlug: async (slug) => {
     // TODO: Replace with actual API call
-    const { staysData } = await import('../data/staysData');
-    return Promise.resolve(staysData.find(stay => stay.slug === slug));
+    const { staysData } = await import("../data/staysData");
+    return Promise.resolve(staysData.find((stay) => stay.slug === slug));
   },
 };
 
 // Houses API (backend-integrated)
 export const housesAPI = {
-  getAll: async () => apiRequest('/houses', { method: 'GET' }),
+  getAll: async () => apiRequest("/houses", { method: "GET" }),
 
-  getBySlug: async (slug) => apiRequest(`/houses/${slug}`, { method: 'GET' }),
+  getBySlug: async (slug) => apiRequest(`/houses/${slug}`, { method: "GET" }),
 
-  getPackagesBySlug: async (slug) => apiRequest(`/houses/${slug}/packages`, { method: 'GET' }),
+  getPackagesBySlug: async (slug) =>
+    apiRequest(`/houses/${slug}/packages`, { method: "GET" }),
 
-  getUnavailableDates: async (slug) => apiRequest(`/houses/${slug}/unavailable-dates`, { method: 'GET' }),
+  getUnavailableDates: async (slug) =>
+    apiRequest(`/houses/${slug}/unavailable-dates`, { method: "GET" }),
 };
 
 // Gallery API
@@ -77,7 +81,7 @@ export const galleryAPI = {
   // Get all photos
   getAll: async () => {
     // TODO: Replace with actual API call
-    const { galleryData } = await import('../data/galleryData');
+    const { galleryData } = await import("../data/galleryData");
     return Promise.resolve(galleryData);
   },
 };
@@ -95,7 +99,7 @@ export const reviewsAPI = {
   submit: async (reviewData) => {
     // TODO: Replace with actual API call
     // return apiRequest('/reviews', { method: 'POST', body: JSON.stringify(reviewData) });
-    console.log('Review submitted:', reviewData);
+    console.log("Review submitted:", reviewData);
     return Promise.resolve({ success: true });
   },
 };
@@ -103,33 +107,31 @@ export const reviewsAPI = {
 // Bookings API
 export const bookingsAPI = {
   checkAvailability: async (payload) =>
-    apiRequest('/bookings/check-availability', {
-      method: 'POST',
+    apiRequest("/bookings/check-availability", {
+      method: "POST",
       body: JSON.stringify(payload),
     }),
 
   // Create new booking
   create: async (bookingData) => {
-    return apiRequest('/bookings', {
-      method: 'POST',
+    return apiRequest("/bookings", {
+      method: "POST",
       body: JSON.stringify(bookingData),
     });
   },
 
   // Get booking by ID
-  getById: async (bookingId) => apiRequest(`/bookings/${bookingId}`, { method: 'GET' }),
+  getById: async (bookingId) =>
+    apiRequest(`/bookings/${bookingId}`, { method: "GET" }),
 };
 
 // Contact API
 export const contactAPI = {
   // Send contact form
   sendMessage: async (contactData) => {
-    // TODO: Replace with actual API call
-    // return apiRequest('/contact', { method: 'POST', body: JSON.stringify(contactData) });
-    console.log('Contact message sent:', contactData);
-    return Promise.resolve({ 
-      success: true, 
-      message: 'Thank you! We will get back to you soon.' 
+    return apiRequest("/contact", {
+      method: "POST",
+      body: JSON.stringify(contactData),
     });
   },
 };

@@ -1,19 +1,17 @@
-const nodemailer = require('nodemailer');
-const { env } = require('../config/env');
-const { logger } = require('../utils/logger');
+const nodemailer = require("nodemailer");
+const { env } = require("../config/env");
+const { logger } = require("../utils/logger");
 
 // Create reusable transporter using GoDaddy / Office 365 SMTP
 const createTransporter = () =>
   nodemailer.createTransport({
-    host: env.EMAIL_HOST,       // smtp.office365.com
-    port: env.EMAIL_PORT,       // 587
-    secure: false,              // STARTTLS (not SSL)
+    host: env.EMAIL_HOST, // smtp.office365.com
+    port: env.EMAIL_PORT, // 587
+    secure: false, // STARTTLS (not SSL)
+    requireTLS: true,
     auth: {
-      user: env.EMAIL_USER,     // hello@thetinyescape.com
-      pass: env.EMAIL_PASS,     // GoDaddy email password
-    },
-    tls: {
-      ciphers: 'SSLv3',
+      user: env.EMAIL_USER, // hello@thetinyescape.com
+      pass: env.EMAIL_PASS, // GoDaddy email password
     },
   });
 
@@ -33,6 +31,12 @@ const sendContactEmail = async (formData) => {
     message,
   } = formData;
 
+  if (!env.EMAIL_USER || !env.EMAIL_PASS) {
+    throw new Error(
+      "Email configuration is incomplete. EMAIL_USER and EMAIL_PASS are required.",
+    );
+  }
+
   const transporter = createTransporter();
 
   // Email to the business — full form details
@@ -50,12 +54,12 @@ const sendContactEmail = async (formData) => {
           <table style="width:100%;border-collapse:collapse;font-size:15px;">
             <tr><td style="padding:8px 0;color:#5A7A5A;width:180px;font-weight:600;">Full Name</td><td style="padding:8px 0;">${fullName}</td></tr>
             <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Email</td><td style="padding:8px 0;"><a href="mailto:${email}" style="color:#2F5D3A;">${email}</a></td></tr>
-            <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Phone</td><td style="padding:8px 0;">${countryCode || ''} ${phone || '—'}</td></tr>
-            <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Number of Guests</td><td style="padding:8px 0;">${numberOfTravelers || '—'}</td></tr>
-            <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Occasion</td><td style="padding:8px 0;">${travelType || '—'}</td></tr>
-            <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Preferred Stay</td><td style="padding:8px 0;">${stayInterest || '—'}</td></tr>
-            <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Preferred Month</td><td style="padding:8px 0;">${preferredMonth || '—'}</td></tr>
-            <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;vertical-align:top;">Message</td><td style="padding:8px 0;">${message || '—'}</td></tr>
+            <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Phone</td><td style="padding:8px 0;">${countryCode || ""} ${phone || "—"}</td></tr>
+            <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Number of Guests</td><td style="padding:8px 0;">${numberOfTravelers || "—"}</td></tr>
+            <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Occasion</td><td style="padding:8px 0;">${travelType || "—"}</td></tr>
+            <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Preferred Stay</td><td style="padding:8px 0;">${stayInterest || "—"}</td></tr>
+            <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;">Preferred Month</td><td style="padding:8px 0;">${preferredMonth || "—"}</td></tr>
+            <tr><td style="padding:8px 0;color:#5A7A5A;font-weight:600;vertical-align:top;">Message</td><td style="padding:8px 0;">${message || "—"}</td></tr>
           </table>
         </div>
         <p style="font-size:12px;color:#9ca3af;text-align:center;margin-top:16px;">Sent from thetinyescape.com contact form</p>
