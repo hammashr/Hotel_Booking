@@ -17,6 +17,12 @@ const envSchema = z.object({
   SQUARE_ACCESS_TOKEN: z.string().optional().default(''),
   SQUARE_LOCATION_ID: z.string().optional().default(''),
   SQUARE_WEBHOOK_SIGNATURE_KEY: z.string().optional().default(''),
+  // GoDaddy / Office 365 SMTP
+  EMAIL_HOST: z.string().optional().default('smtp.office365.com'),
+  EMAIL_PORT: z.string().optional().default('587').transform(Number),
+  EMAIL_USER: z.string().optional().default(''),  // hello@thetinyescape.com
+  EMAIL_PASS: z.string().optional().default(''),  // GoDaddy email password
+  EMAIL_TO:   z.string().optional().default('hello@thetinyescape.com'),
 });
 
 const parsed = envSchema.safeParse(process.env);

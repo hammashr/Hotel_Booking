@@ -35,19 +35,32 @@ const Contact = () => {
     message: ''
   });
 
-  const [formStatus, setFormStatus] = useState({ submitted: false, error: false });
+  const [formStatus, setFormStatus] = useState({ submitted: false, error: false, loading: false });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setFormStatus({ submitted: true, error: false });
+    setFormStatus({ submitted: false, error: false, loading: true });
 
-    setTimeout(() => {
+    try {
+      const apiBase = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+      const res = await fetch(`${apiBase}/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || 'Something went wrong.');
+      }
+
+      setFormStatus({ submitted: true, error: false, loading: false });
       setFormData({
         fullName: '',
         email: '',
@@ -59,8 +72,11 @@ const Contact = () => {
         preferredMonth: '',
         message: ''
       });
-      setFormStatus({ submitted: false, error: false });
-    }, 3000);
+
+      setTimeout(() => setFormStatus({ submitted: false, error: false, loading: false }), 5000);
+    } catch (err) {
+      setFormStatus({ submitted: false, error: err.message || 'Failed to send. Please try again.', loading: false });
+    }
   };
 
   const iconMap = {
@@ -258,13 +274,21 @@ const Contact = () => {
                 {formStatus.submitted && (
                   <div
                     className="mb-6 p-4 rounded-xl border"
-                    style={{
-                      background: 'rgba(106,175,126,0.10)',
-                      borderColor: 'rgba(106,175,126,0.30)'
-                    }}
+                    style={{ background: 'rgba(106,175,126,0.10)', borderColor: 'rgba(106,175,126,0.30)' }}
                   >
                     <p className="font-semibold" style={{ color: '#6AAF7E' }}>
-                      ✓ Thanks! We received your request and will reach out soon.
+                      ✓ Thanks! We received your message and will reach out soon.
+                    </p>
+                  </div>
+                )}
+
+                {formStatus.error && (
+                  <div
+                    className="mb-6 p-4 rounded-xl border"
+                    style={{ background: 'rgba(220,38,38,0.07)', borderColor: 'rgba(220,38,38,0.25)' }}
+                  >
+                    <p className="font-semibold" style={{ color: '#dc2626' }}>
+                      ✗ {formStatus.error}
                     </p>
                   </div>
                 )}
@@ -413,15 +437,28 @@ const Contact = () => {
                   {/* Submit */}
                   <button
                     type="submit"
-                    className="w-full px-8 py-4 rounded-xl font-bold text-base tracking-wide transition-all duration-300 flex items-center justify-center gap-3 hover:opacity-90 active:scale-[0.99]"
+                    disabled={formStatus.loading}
+                    className="w-full px-8 py-4 rounded-xl font-bold text-base tracking-wide transition-all duration-300 flex items-center justify-center gap-3 hover:opacity-90 active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed"
                     style={{
                       background: 'linear-gradient(135deg, #2F5D3A 0%, #1F3A2A 100%)',
                       color: '#EAF3EA',
                       boxShadow: '0 6px 24px rgba(31,58,42,0.35)'
                     }}
                   >
-                    <FaPaperPlane />
-                    <span>Send Message</span>
+                    {formStatus.loading ? (
+                      <>
+                        <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                        </svg>
+                        <span>Sending…</span>
+                      </>
+                    ) : (
+                      <>
+                        <FaPaperPlane />
+                        <span>Send Message</span>
+                      </>
+                    )}
                   </button>
                 </form>
               </div>
