@@ -7,13 +7,29 @@ import { getHouseBySlug, getHousePackagesBySlug } from "../services/houses";
 import { getDestinationSchema } from "../utils/structuredData";
 import { normalizeHouseToStay } from "../utils/houseDataNormalizer";
 
-// ── Hostfully booking widget UIDs per property ────────────────────────────────
-const HOSTFULLY_WIDGET_UIDS = {
-  "triangle-1-catalina-ridge": "dd9ec806-aaf3-42b3-8de3-14facc803a23",
-  "apple-1-razoo-creek":       "56a823e1-4d33-43f4-8ca8-ffefd7b9643e",
-  "apple-2-kona-meadows":      "769ecfc3-4980-49c9-b045-0622616723ff",
-  "triangle-2-rani-ridge":     "06e040e1-5007-4339-bd23-e55f57281632",
+// ── Hostfully booking widget config per property ──────────────────────────────
+const HOSTFULLY_WIDGET_CONFIGS = {
+  "triangle-1-catalina-ridge": {
+    uid: "dd9ec806-aaf3-42b3-8de3-14facc803a23",
+    maximun_availability: "2029-04-04T05:24:44.313Z",
+  },
+  "apple-1-razoo-creek": {
+    uid: "56a823e1-4d33-43f4-8ca8-ffefd7b9643e",
+    maximun_availability: "2029-04-04T05:32:21.184Z",
+  },
+  "apple-2-kona-meadows": {
+    uid: "769ecfc3-4980-49c9-b045-0622616723ff",
+    maximun_availability: "2029-04-04T05:28:07.121Z",
+  },
+  "triangle-2-rani-ridge": {
+    uid: "06e040e1-5007-4339-bd23-e55f57281632",
+    maximun_availability: "2029-04-04T05:30:04.154Z",
+  },
 };
+// Keep legacy UID map for availability checks in JSX
+const HOSTFULLY_WIDGET_UIDS = Object.fromEntries(
+  Object.entries(HOSTFULLY_WIDGET_CONFIGS).map(([k, v]) => [k, v.uid])
+);
 
 
 import {
@@ -274,32 +290,39 @@ const DestinationDetail = memo(() => {
   }
 
   // ── Hostfully booking widget ──────────────────────────────────────────────
-  const widgetLoaded = useRef(false);
-
   useEffect(() => {
-    if (widgetLoaded.current) return;
-    widgetLoaded.current = true;
-
-    const propertyUid = HOSTFULLY_WIDGET_UIDS[stay.slug];
-    if (!propertyUid) return; // No UID yet for this property
+    const propertyConfig = HOSTFULLY_WIDGET_CONFIGS[stay.slug];
+    if (!propertyConfig) return;
+    const { uid: propertyUid, maximun_availability } = propertyConfig;
 
     const PIKADAY_SRC = "https://platform.hostfully.com/assets/js/pikaday.js";
     const WIDGET_SRC  = "https://platform.hostfully.com/assets/js/leadCaptureWidget_2.0.js";
 
+    // Remove any previously injected init script so the widget re-runs cleanly
+    const prevInit = document.getElementById("hostfully-widget-init");
+    if (prevInit) prevInit.remove();
+
+    // Clear the widget container so a stale widget from a previous property
+    // doesn't block re-initialization (was causing wrong / missing price bug)
+    const container = document.getElementById("leadWidget");
+    if (container) container.innerHTML = "";
+
     const initWidget = () => {
-      const container = document.getElementById("leadWidget");
-      if (!container || container.children.length > 0) return;
+      const el = document.getElementById("leadWidget");
+      if (!el) return;
       const s = document.createElement("script");
+      s.id   = "hostfully-widget-init";
       s.type = "text/javascript";
       s.innerHTML = `
         var widget = new Widget('leadWidget', '${propertyUid}', {
-          "maximun_availability":"2029-03-31T08:20:11.037Z","type":"agency","fields":[],
+          "maximun_availability":"${maximun_availability}","type":"agency","fields":[],
           "showAvailability":true,"lang":"US","minStay":true,"price":true,
           "hidePriceWithoutDates":false,"cc":false,"emailClient":true,"saveCookie":true,
           "showDynamicMinStay":true,"backgroundColor":"#FFFFFF",
-          "buttonSubmit":{"backgroundColor":"#126039"},"showPriceDetailsLink":false,
-          "showGetQuoteLink":false,"labelColor":"#126039","showTotalWithoutSD":true,
-          "showDiscount":true,"includeReferrerToRequest":true,"customDomainName":null,
+          "buttonSubmit":{"backgroundColor":"#204133"},"showPriceDetailsLink":false,
+          "showGetQuoteLink":false,"labelColor":"#204133","showTotalWithoutSD":true,
+          "redirectURL":false,"showDiscount":true,"includeReferrerToRequest":true,
+          "customDomainName":"https://pms.thetinyescape.com/",
           "source":null,"aid":"ORB-49587220416635719","clickID":null,
           "valuesByDefaults":{"checkIn":{"value":""},"checkOut":{"value":""},
           "guests":{"value":""},"discountCode":{"value":""}},
@@ -320,9 +343,18 @@ const DestinationDetail = memo(() => {
       w.src = WIDGET_SRC; w.async = true;
       w.onload = initWidget;
       document.head.appendChild(w);
-    } else if (window.Widget) {
+    } else {
+      // Scripts already cached — re-init immediately for the new property
       initWidget();
     }
+
+    return () => {
+      // Cleanup: clear widget DOM when navigating away so next property starts fresh
+      const el = document.getElementById("leadWidget");
+      if (el) el.innerHTML = "";
+      const oldInit = document.getElementById("hostfully-widget-init");
+      if (oldInit) oldInit.remove();
+    };
   }, [stay.slug]);
 
 
