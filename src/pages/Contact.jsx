@@ -47,8 +47,7 @@ const Contact = () => {
     setFormStatus({ submitted: false, error: false, loading: true });
 
     try {
-      const apiBase = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
-      const res = await fetch(`${apiBase}/contact`, {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
