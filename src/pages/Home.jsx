@@ -198,7 +198,7 @@ const Home = () => {
   );
 
   const viewStaysPath = "/tours";
-  const requestAvailabilityPath = "/book-now";
+  const requestAvailabilityPath = "https://book.thetinyescape.com";
 
   return (
     <PageLayout

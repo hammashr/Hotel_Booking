@@ -118,9 +118,9 @@ const TripCategoryPage = ({ config }) => {
           <h2 className={`text-3xl font-bold mb-6 ${TITLE_TEXT}`}>{config.ctaTitle}</h2>
           <p className={`text-lg mb-8 ${MUTED_TEXT}`}>{config.ctaDescription}</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/book-now" className={`px-8 py-3 rounded-lg font-semibold transition-colors ${config.ctaPrimaryClassName}`}>
+            <a href="https://book.thetinyescape.com" target="_blank" rel="noopener noreferrer" className={`px-8 py-3 rounded-lg font-semibold transition-colors ${config.ctaPrimaryClassName}`}>
               Check Availability
-            </Link>
+            </a>
           </div>
         </div>
       </section>

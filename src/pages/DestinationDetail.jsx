@@ -733,7 +733,7 @@ const DestinationDetail = memo(() => {
                 ) : (
                   <div className={`rounded-xl border p-6 text-center ${isDarkMode ? "bg-[#0F1419] border-[#1E2A1E] text-[#C9D6DF]" : "bg-[#F8FAFC] border-[#E2E8F0] text-[#64748B]"}`}>
                     <p className="text-sm">Booking widget coming soon for this property.</p>
-                    <a href="/book-now" className="mt-3 inline-block rounded-xl px-6 py-2.5 text-sm font-bold bg-[#126039] text-white hover:bg-[#0e4f2e] transition-colors">
+                    <a href="https://book.thetinyescape.com" target="_blank" rel="noopener noreferrer" className="mt-3 inline-block rounded-xl px-6 py-2.5 text-sm font-bold bg-[#126039] text-white hover:bg-[#0e4f2e] transition-colors">
                       Book Now
                     </a>
                   </div>

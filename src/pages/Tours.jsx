@@ -291,8 +291,10 @@ const Tours = () => {
             Check availability and start planning your stay at The Tiny Escape.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
-            <Link
-              to="/book-now"
+            <a
+              href="https://book.thetinyescape.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`rounded-xl px-6 py-3 text-sm font-bold transition-all hover:scale-105 ${
                 isDarkMode
                   ? 'bg-[#C9A36A] text-[#1A120A] hover:bg-[#E7CFA2]'
@@ -300,7 +302,7 @@ const Tours = () => {
               }`}
             >
               Check Availability
-            </Link>
+            </a>
             <Link
               to="/contact"
               className={`rounded-xl border-2 px-6 py-3 text-sm font-bold transition-all hover:scale-105 ${
