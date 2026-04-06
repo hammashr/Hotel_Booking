@@ -99,7 +99,7 @@ export const reviewsAPI = {
   submit: async (reviewData) => {
     // TODO: Replace with actual API call
     // return apiRequest('/reviews', { method: 'POST', body: JSON.stringify(reviewData) });
-    console.log("Review submitted:", reviewData);
+    // TODO: Replace with actual API call when reviews endpoint is ready
     return Promise.resolve({ success: true });
   },
 };

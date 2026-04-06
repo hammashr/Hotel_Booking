@@ -12,6 +12,9 @@ export default defineConfig({
     // Emit source maps only in dev
     sourcemap: false,
 
+    // Strip all console.* calls and debugger statements from production bundles
+    minify: 'esbuild',
+
     // Split vendor chunks so the browser can cache them separately
     rollupOptions: {
       output: {
@@ -25,6 +28,11 @@ export default defineConfig({
         },
       },
     },
+  },
+
+  // Drop console.* and debugger from production builds
+  esbuild: {
+    drop: ['console', 'debugger'],
   },
 
   // Faster dev server: pre-bundle heavy deps

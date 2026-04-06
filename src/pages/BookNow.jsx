@@ -700,7 +700,7 @@ const BookNow = () => {
                     onToken={(nonce) => {
                       // Send nonce to backend → POST /api/payments/deposit
                       // with { nonce, bookingId: confirmedBookingId, amount: 10000 }
-                      console.log("Square deposit nonce:", nonce);
+                      // nonce received — send to backend when payment integration is wired up
                       setDepositPaid(true);
                       setDepositError("");
                     }}
