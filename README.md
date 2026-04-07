@@ -86,7 +86,7 @@ For complete technical documentation, architecture details, SEO implementation, 
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/paktourzone.com.git
+git clone https://github.com/hammashr/Hotel_Booking.git
 
 # Navigate to project directory
 cd paktourzone.com

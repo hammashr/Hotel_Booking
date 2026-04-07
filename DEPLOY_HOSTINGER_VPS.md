@@ -28,7 +28,7 @@ npm install -g pm2
 ```bash
 mkdir -p /var/www/thetinyescape
 cd /var/www/thetinyescape
-git clone https://github.com/Talha-Swati/hotel-sample .
+git clone https://github.com/hammashr/Hotel_Booking .
 ```
 
 If the repository is already on the server:
