@@ -1,182 +1,225 @@
-# PakTourZone.com 🏔️
+# The Tiny Escape 🌿
 
-> **Enterprise-grade tourism platform optimized for full-stack development**
+> A full-stack tourism & glamping booking platform — live at [thetinyescape.com](https://www.thetinyescape.com)
 
-A modern, SEO-optimized tour booking platform showcasing the breathtaking beauty of Northern Pakistan. Built with React 19, featuring enterprise architecture, reusable components, and full-stack readiness.
+![Status](https://img.shields.io/badge/Status-Live-success)
+![React](https://img.shields.io/badge/React-19.2.0-61DAFB?logo=react)
+![Node.js](https://img.shields.io/badge/Node.js-20-339933?logo=nodedotjs)
+![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose-47A248?logo=mongodb)
+![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-4.1-06B6D4?logo=tailwindcss)
+![Vite](https://img.shields.io/badge/Vite-7.2-646CFF?logo=vite)
 
-![PakTourZone](https://img.shields.io/badge/Status-Production%20Ready-success)
-![React](https://img.shields.io/badge/React-19.2.0-blue)
-![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-4.1-38bdf8)
-![SEO](https://img.shields.io/badge/SEO-Optimized-green)
-![Architecture](https://img.shields.io/badge/Architecture-Enterprise-purple)
+## 🌐 Live Site
 
-## ✨ Latest Optimizations (January 2026)
+🔗 **[https://www.thetinyescape.com](https://www.thetinyescape.com)**
+📅 **Booking:** [book.thetinyescape.com](https://book.thetinyescape.com)
 
-### 🏗️ **Enterprise Architecture**
-- ✅ **API Service Layer** (`src/services/`) - Centralized data fetching, ready for backend
-- ✅ **Custom Hooks** (`src/hooks/`) - Reusable logic (forms, navbar, click-outside)
-- ✅ **Config Management** (`src/config/`) - Environment-based configuration
-- ✅ **Utility Library** (`src/utils/`) - 30+ helper functions
-- ✅ **Component Library** - Reusable UI (PageLayout, PageHero, FilterBar)
+---
 
-### 🚀 **Code Quality Improvements**
-- ✅ Eliminated **2000+ lines** of duplicate code
-- ✅ Centralized **all data sources** and **API calls**
-- ✅ Unified **form handling** with validation
-- ✅ Consistent **styling patterns** across pages
-- ✅ **Best practices** for scalability & maintainability
+## 📖 About
 
-### 📦 **New Structure**
+**The Tiny Escape** is a luxury glamping & outdoor retreat experience based in **Central Texas**. This repository contains the full-stack web platform — a production-grade application handling everything from property listings and availability calendars to contact forms and booking management.
+
+The platform features a modern React frontend with an Express.js + MongoDB backend, deployed on Vercel (frontend) and a Hostinger VPS (backend API).
+
+---
+
+## ✨ Features
+
+- **Multi-property Stays** — Showcase glamping cabins with availability calendars
+- **Online Booking** — Integrated Hostfully booking widget with live availability
+- **Experiences** — Horse riding, hiking, campfires and more
+- **Creekside Cafe & Fireside Pavilion** — Dedicated venue pages
+- **Live Chat Widget** — Real-time visitor support
+- **Gallery** — Full photo gallery of the property
+- **Contact Form** — Serverless form via Vercel + Nodemailer (Office 365)
+- **SEO Optimized** — Schema.org structured data, react-helmet-async meta tags
+- **Dark/Light Theme** — System preference detection
+- **Fully Responsive** — Mobile-first design across all devices
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+| Technology | Version | Purpose |
+|---|---|---|
+| React | 19.2.0 | UI Framework |
+| Vite | 7.2.4 | Build Tool |
+| Tailwind CSS | 4.1.17 | Styling |
+| React Router DOM | 7.9.6 | Client-side Routing |
+| Framer Motion | 12.x | Animations |
+| React Hook Form + Zod | Latest | Form Validation |
+| React Helmet Async | 2.0.5 | SEO Meta Tags |
+
+### Backend
+| Technology | Version | Purpose |
+|---|---|---|
+| Node.js | 20 | Runtime |
+| Express.js | 4.21.2 | API Framework |
+| MongoDB + Mongoose | 8.9.0 | Database |
+| Nodemailer | 8.0.4 | Email (Office 365) |
+| Helmet | 8.0.0 | Security Headers |
+| Express Rate Limit | 7.5.0 | Rate Limiting |
+| PM2 | Latest | Process Manager |
+
+### Infrastructure
+| Service | Purpose |
+|---|---|
+| Vercel | Frontend hosting + Serverless functions |
+| Hostinger VPS | Backend API server (Ubuntu 24 + Nginx) |
+| MongoDB Atlas | Database hosting |
+| GoDaddy / DNS | Domain: thetinyescape.com |
+
+---
+
+## 📁 Project Structure
+
 ```
-src/
-├── services/        # API layer (backend-ready)
-├── hooks/           # Custom React hooks
-├── config/          # App configuration
-├── utils/           # Helper functions
-├── components/      # Reusable components
-│   ├── common/      # PageHero, FilterBar, SEO
-│   └── layout/      # PageLayout, Navbar, Footer
-├── pages/           # Page components
-├── data/            # Mock data (will be replaced by API)
-└── constants/       # Shared constants
+hotel-sample/
+├── src/                        # React frontend
+│   ├── components/
+│   │   ├── booking/            # Booking components
+│   │   ├── common/             # PageHero, SEO, FilterBar
+│   │   ├── layout/             # Navbar, Footer, PageLayout
+│   │   ├── home/               # HeroSection, FeaturedTours
+│   │   └── stays/              # AvailabilityCalendar
+│   ├── pages/                  # Route-level page components
+│   ├── services/               # API service layer
+│   ├── hooks/                  # Custom React hooks
+│   ├── config/                 # App configuration
+│   ├── utils/                  # Helper functions
+│   ├── context/                # ThemeContext
+│   └── data/                   # Static data
+├── backend/
+│   └── src/
+│       ├── controllers/        # Route controllers
+│       ├── models/             # Mongoose models
+│       ├── routes/             # Express routes
+│       ├── middleware/         # Error handling, rate limiting
+│       └── config/             # DB & env config
+├── api/
+│   └── contact.js              # Vercel serverless contact form
+├── deploy/
+│   └── nginx/                  # Nginx server config
+├── vercel.json                 # Vercel deployment config
+└── backend/ecosystem.config.cjs # PM2 config
 ```
 
-### 📚 **New Documentation**
-| Guide | Description |
-|-------|-------------|
-| **[ARCHITECTURE.md](./ARCHITECTURE.md)** | Complete architecture guide & best practices |
-| **[MIGRATION_GUIDE.md](./MIGRATION_GUIDE.md)** | Step-by-step code migration examples |
-| **[TECHNICAL_DOCUMENTATION.md](./TECHNICAL_DOCUMENTATION.md)** | Technical specifications |
+---
 
-## 🌟 Features
+## 🚀 Getting Started
 
-- **SEO-Optimized** with structured data (Schema.org) and meta tags
-- **Dark/Light Theme** with system preference detection
-- **Fully Responsive** mobile-first design
-- **Code-Split Routes** for optimal performance
-- **WCAG 2.1 Compliant** accessibility
-- **Interactive Components** - modals, forms, animations
+### Prerequisites
+- Node.js 20+
+- MongoDB (local or Atlas)
+- npm
 
-## 📄 Key Pages
-
-1. **Home** - Hero section, featured tours, quick actions
-2. **Destinations** - 6 major destinations with detail pages
-3. **Tour Types** - Adventure, Family, Honeymoon, Corporate, Budget
-4. **Services** - Hotel booking, transport, guides, visa, insurance
-5. **Custom Tour Builder** - Interactive form with pricing
-6. **Gallery** - Image showcase with lightbox
-7. **Special Offers** - Seasonal discounts and deals
-
-## 🚀 Tech Stack
-
-- **Frontend:** React 19.2.0
-- **Styling:** Tailwind CSS 4.1.17
-- **Routing:** React Router DOM 7.9.6
-- **SEO:** react-helmet-async 2.0.5
-- **Icons:** Lucide React, React Icons
-- **Build Tool:** Vite 7.2.4
-- **Forms:** React Hook Form + Zod validation
-- **Animations:** Framer Motion
-
-## 📚 Documentation
-
-For complete technical documentation, architecture details, SEO implementation, and deployment guide, see [TECHNICAL_DOCUMENTATION.md](TECHNICAL_DOCUMENTATION.md)
-
-## 🛠️ Installation
+### Frontend Setup
 
 ```bash
 # Clone the repository
 git clone https://github.com/hammashr/Hotel_Booking.git
-
-# Navigate to project directory
-cd paktourzone.com
+cd Hotel_Booking
 
 # Install dependencies
 npm install
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your values
 
 # Start development server
 npm run dev
 ```
 
-## 📦 Available Scripts
+### Backend Setup
 
 ```bash
-npm run dev      # Start development server
-npm run build    # Build for production
-npm run preview  # Preview production build
-npm run lint     # Run ESLint
+cd backend
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with MongoDB URI, email credentials, etc.
+
+# Start development server
+npm run dev
 ```
 
-## 🎨 Design Themes
+### Available Scripts
 
-### Dark Theme (Northern Noir)
-- **Pages:** Home, Destinations, About
-- **Colors:** `#0B0C0E`, `#22D3EE`, `#4DBBFF`, `#C4CCD4`
-- **Style:** Professional, mysterious, premium
+```bash
+# Frontend
+npm run dev        # Start Vite dev server
+npm run build      # Production build
+npm run preview    # Preview production build
+npm run lint       # Run ESLint
 
-### Light Theme (Bright & Modern)
-- **Pages:** Tours, Gallery, Contact
-- **Colors:** Various pastels (cyan, rose, purple) on white
-- **Style:** Clean, approachable, energetic
-
-## 🌐 Live Demo
-
-🔗 [Visit PakTourZone.com](https://paktourzone.vercel.app)
-
-## 📂 Project Structure
-
-```
-paktourzone/
-├── public/           # Static assets
-├── src/
-│   ├── Pages/       # Page components
-│   │   ├── Home.jsx
-│   │   ├── Tours.jsx
-│   │   ├── Destinations.jsx
-│   │   ├── Gallery.jsx
-│   │   ├── About.jsx
-│   │   └── Contact.jsx
-│   ├── assets/      # Images and media
-│   ├── App.jsx      # Main app with routes
-│   ├── main.jsx     # Entry point
-│   └── globals.css  # Global styles
-├── .gitignore
-├── package.json
-├── vite.config.js
-└── tailwind.config.js
+# Backend
+npm run dev        # Start with nodemon
+npm run start      # Production start
+npm run seed       # Seed database
 ```
 
-## 🎯 Key Features by Page
+---
 
-- **Home:** Mobile menu, dual headers, gradient overlays
-- **Tours:** Live filtering, sorting, dynamic counts
-- **Destinations:** Horizontal scroll, spotlight selection
-- **Gallery:** Lightbox modal, masonry layout
-- **About:** Timeline, team hover effects
-- **Contact:** Form validation, WhatsApp integration, FAQ accordion
+## ⚙️ Environment Variables
 
-## 🔧 Configuration
+### Frontend (`.env`)
+```env
+VITE_API_BASE_URL=http://localhost:5000
+VITE_SITE_URL=https://thetinyescape.com
+VITE_GA_ID=
+VITE_GOOGLE_MAPS_KEY=
+```
 
-The project uses Tailwind CSS 4.1 with custom Northern Noir color palette. See `NORTHERN_NOIR_COLORS.md` for the complete color reference.
+### Backend (`backend/.env`)
+```env
+NODE_ENV=production
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+CORS_ORIGINS=https://thetinyescape.com,https://www.thetinyescape.com
+EMAIL_HOST=smtp.office365.com
+EMAIL_PORT=587
+EMAIL_USER=hello@thetinyescape.com
+EMAIL_PASS=your_email_password
+```
 
-## 📱 Responsive Design
+---
 
-All pages are fully responsive with breakpoints:
-- Mobile: < 768px
-- Tablet: 768px - 1024px
-- Desktop: > 1024px
+## 🚢 Deployment
 
-## 🤝 Contributing
+### Frontend → Vercel
+```bash
+# Push to main branch — Vercel auto-deploys
+git push origin main
+```
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+### Backend → Hostinger VPS
+```bash
+# SSH into server
+ssh root@your-server-ip
 
-## 📝 License
+# Pull latest code
+cd /var/www/thetinyescape
+git pull origin main
 
-This project is open source and available under the [MIT License](LICENSE).
+# Install new dependencies (if any)
+cd backend && npm install
 
-## 👨‍💻 Author
+# Restart backend
+pm2 restart tiny-escape-api
+```
 
-Built with ❤️ for adventure seekers exploring Northern Pakistan
+---
+
+## 📞 Contact
+
+**The Tiny Escape** — hello@thetinyescape.com
+**Developer** — [Hammad Ashraf](https://github.com/hammashr)
 
 ---
 
