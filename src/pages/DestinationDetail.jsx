@@ -412,6 +412,8 @@ const DestinationDetail = memo(() => {
               src={stay.gallery[0]}
               alt={stay.name}
               className="w-full h-full object-cover"
+              loading="eager"
+              decoding="async"
             />
             {stay.gallery.length > 1 && (
               <button
@@ -435,6 +437,8 @@ const DestinationDetail = memo(() => {
                 src={stay.gallery[0]}
                 alt={stay.name}
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                loading="eager"
+                decoding="async"
               />
             </div>
 
@@ -450,6 +454,8 @@ const DestinationDetail = memo(() => {
                     src={stay.gallery[i]}
                     alt={`${stay.name} photo ${i + 1}`}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
                   />
                 ) : (
                   <div className={`w-full h-full ${isDarkMode ? "bg-[#1A1F1A]" : "bg-[#E8EFE8]"}`} />
@@ -880,6 +886,7 @@ const DestinationDetail = memo(() => {
               alt={`${stay.name} photo ${activePhotoIndex + 1}`}
               className="max-h-full max-w-full object-contain rounded-xl shadow-2xl"
               style={{ animation: "fadeIn 0.35s ease-out" }}
+              decoding="async"
             />
 
             {/* Next arrow */}
@@ -921,7 +928,7 @@ const DestinationDetail = memo(() => {
                       : "border-transparent opacity-45 hover:opacity-80"
                   }`}
                 >
-                  <img src={img} alt="" className="w-full h-full object-cover" />
+                  <img src={img} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" />
                 </button>
               ))}
             </div>

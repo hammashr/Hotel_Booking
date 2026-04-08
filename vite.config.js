@@ -1,13 +1,29 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    ViteImageOptimizer({
+      // Compress JPEGs to 80% quality — reduces 4 MB files to ~400 KB
+      jpg: { quality: 80 },
+      jpeg: { quality: 80 },
+      // Compress PNGs
+      png: { quality: 80, compressionLevel: 9 },
+      // Keep WebP lossless where already used
+      webp: { lossless: true },
+      // Skip files smaller than 10 KB (nothing to gain)
+      includePublic: true,
+      logStats: true,
+    }),
+  ],
 
   build: {
-    // Increase inline limit so tiny assets get inlined instead of fetched
-    assetsInlineLimit: 8192,
+    // Don't inline images — serve them as separate hashed files so the
+    // browser can cache them independently of the JS bundle
+    assetsInlineLimit: 0,
 
     // Emit source maps only in dev
     sourcemap: false,
