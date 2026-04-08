@@ -177,7 +177,7 @@ export const staysData = [
     checkOut: "11:00 AM",
     petFriendly: false,
     heroImage: konaMeadowHero,
-    gallery: [konaMeadowHero, konaMeadow2, konaMeadow3, konaMeadow4, konaMeadow5, konaMeadow6, konaMeadow7, konaMeadow8, konaMeadow9, konaMeadow10],
+    gallery: [konaMeadowHero, konaMeadow5, konaMeadow6, konaMeadow7, konaMeadow8, konaMeadow9, konaMeadow10, konaMeadow4, konaMeadow2, konaMeadow3],
     highlights: [
       "Sleeps up to 3 guests",
       "Queen bed + futon",
