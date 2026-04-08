@@ -77,7 +77,7 @@ export const staysData = [
     checkOut: "11:00 AM",
     petFriendly: false,
     heroImage: razzoCreekHero,
-    gallery: [razzoCreekHero, razzoCreek2, razzoCreek3, razzoCreek4, razzoCreek5, razzoCreek6, razzoCreek7, razzoCreek8, razzoCreek9, razzoCreek10, razzoCreek11, razzoCreek12],
+    gallery: [razzoCreekHero, razzoCreek2, razzoCreek4, razzoCreek5, razzoCreek6, razzoCreek7, razzoCreek8, razzoCreek9, razzoCreek10, razzoCreek11, razzoCreek3, razzoCreek12],
     highlights: [
       "Sleeps up to 3 guests",
       "Queen bed + futon",
