@@ -277,7 +277,7 @@ export const staysData = [
     checkOut: "11:00 AM",
     petFriendly: false,
     heroImage: catalinaRidgeHeroResized,
-    gallery: [catalinaRidgeHero, catalinaRidge2, catalinaRidge3, catalinaRidge4, catalinaRidge5, catalinaRidge6, catalinaRidge7, catalinaRidge8, catalinaRidge9, catalinaRidge10, catalinaRidge11],
+    gallery: [catalinaRidgeHero, catalinaRidge2, catalinaRidge8, catalinaRidge9, catalinaRidge4, catalinaRidge5, catalinaRidge7, catalinaRidge6, catalinaRidge3, catalinaRidge10, catalinaRidge11],
     highlights: [
       "Sleeps up to 4 guests",
       "Queen bed + Modular sofa",
