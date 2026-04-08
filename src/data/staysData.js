@@ -377,7 +377,7 @@ export const staysData = [
     checkOut: "11:00 AM",
     petFriendly: false,
     heroImage: raniRidgeHero,
-    gallery: [raniRidgeHero, raniRidge2, raniRidge3, raniRidge4, raniRidge5, raniRidge6, raniRidge7, raniRidge8, raniRidge9, raniRidge10, raniRidge11, raniRidge12],
+    gallery: [raniRidgeHero, raniRidge2, raniRidge8, raniRidge11, raniRidge10, raniRidge6, raniRidge7, raniRidge9, raniRidge5, raniRidge12, raniRidge3, raniRidge4],
     highlights: [
       "Sleeps up to 4 guests",
       "Queen bed + Daybed",
