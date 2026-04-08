@@ -1,0 +1,6 @@
+/* Custom styles for The Tiny Escape booking site */
+
+/* Hide phone number from footer on book.thetinyescape.com */
+[data-testid="common-footer-agency-phone"] {
+  display: none !important;
+}
