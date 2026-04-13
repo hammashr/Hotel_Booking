@@ -47,26 +47,30 @@ const Tours = () => {
       document.body.appendChild(initScript);
     };
 
-    // Load pikaday if not already present
-    if (!document.querySelector(`script[src="${PIKADAY_SRC}"]`)) {
-      const pikadayScript = document.createElement('script');
-      pikadayScript.src = PIKADAY_SRC;
-      pikadayScript.type = 'text/javascript';
-      pikadayScript.async = true;
-      document.head.appendChild(pikadayScript);
-    }
+    // Load a script and resolve only after it is fully executed.
+    // If the script tag already exists in the DOM it resolves immediately
+    // (the browser already has it cached/executed).
+    const loadScript = (src) =>
+      new Promise((resolve) => {
+        if (document.querySelector(`script[src="${src}"]`)) {
+          resolve();
+          return;
+        }
+        const script = document.createElement('script');
+        script.src = src;
+        script.type = 'text/javascript';
+        script.async = true;
+        script.onload = resolve;
+        document.head.appendChild(script);
+      });
 
-    // Load widget script if not already present, otherwise re-init directly
-    if (!document.querySelector(`script[src="${WIDGET_SRC}"]`)) {
-      const widgetScript = document.createElement('script');
-      widgetScript.src = WIDGET_SRC;
-      widgetScript.type = 'text/javascript';
-      widgetScript.async = true;
-      widgetScript.onload = initWidget;
-      document.head.appendChild(widgetScript);
-    } else if (window.SearchWidget) {
-      initWidget();
-    }
+    // Load strictly sequentially: pikaday → widget → init.
+    // This eliminates the race condition where the widget tried to use
+    // pikaday before it had finished loading on first visit.
+    loadScript(PIKADAY_SRC)
+      .then(() => loadScript(WIDGET_SRC))
+      .then(() => initWidget());
+
     // No cleanup — scripts intentionally persist in DOM across navigations
   }, []);
 
