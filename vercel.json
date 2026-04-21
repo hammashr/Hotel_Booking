@@ -1,6 +1,6 @@
 {
   "buildCommand": "npm run build",
-  "installCommand": "npm install && cd backend && npm install",
+  "installCommand": "npm install --include=dev && cd backend && npm install",
   "outputDirectory": "dist",
   "framework": "vite",
   "functions": {
