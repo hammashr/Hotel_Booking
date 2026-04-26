@@ -8,46 +8,6 @@
       "includeFiles": "backend/**"
     }
   },
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Strict-Transport-Security",
-          "value": "max-age=63072000; includeSubDomains; preload"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "SAMEORIGIN"
-        },
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
-        },
-        {
-          "key": "Permissions-Policy",
-          "value": "camera=(), microphone=(), geolocation=(), payment=(self https://web.squarecdn.com https://sandbox.web.squarecdn.com)"
-        },
-        {
-          "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://platform.hostfully.com https://sandbox.web.squarecdn.com https://web.squarecdn.com https://www.googletagmanager.com https://www.google-analytics.com; script-src-elem 'self' 'unsafe-inline' https://platform.hostfully.com https://sandbox.web.squarecdn.com https://web.squarecdn.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https: http:; connect-src 'self' https://api.thetinyescape.com https://pms.thetinyescape.com https://book.thetinyescape.com https://platform.hostfully.com https://web.squarecdn.com https://sandbox.web.squarecdn.com https://connect.squareup.com https://www.google-analytics.com https://www.googletagmanager.com; frame-src 'self' https://book.thetinyescape.com https://pms.thetinyescape.com https://platform.hostfully.com https://sandbox.web.squarecdn.com https://web.squarecdn.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
-        }
-      ]
-    },
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        }
-      ]
-    }
-  ],
   "rewrites": [
     {
       "source": "/api/(.*)",

@@ -12,11 +12,7 @@ export const createBookingRequest = async (payload) =>
     body: JSON.stringify(payload),
   });
 
-// lookupToken is required by the API — pass the token received at booking creation
-export const getBookingById = async (bookingId, lookupToken) => {
-  if (!lookupToken) throw new Error('A lookup token is required to retrieve booking details.');
-  return apiClient(`/bookings/${encodeURIComponent(bookingId)}?token=${encodeURIComponent(lookupToken)}`);
-};
+export const getBookingById = async (bookingId) => apiClient(`/bookings/${bookingId}`);
 
 export const pricePreview = async (payload) =>
   apiClient('/bookings/price-preview', {

@@ -7,7 +7,6 @@ const {
   pricePreview,
 } = require('../controllers/bookingController');
 const validateRequest = require('../middleware/validateRequest');
-const { lookupLimiter } = require('../middleware/rateLimiters');
 const {
   bookingIdParamsSchema,
   checkAvailabilitySchema,
@@ -20,7 +19,6 @@ const router = express.Router();
 router.post('/check-availability', validateRequest(checkAvailabilitySchema), checkAvailability);
 router.post('/price-preview', validateRequest(pricePreviewSchema), pricePreview);
 router.post('/', validateRequest(createBookingSchema), createBookingRequest);
-// lookupLimiter applied here as a second layer specifically to prevent token brute-force
-router.get('/:bookingId', lookupLimiter, validateRequest(bookingIdParamsSchema), getBookingByBookingId);
+router.get('/:bookingId', validateRequest(bookingIdParamsSchema), getBookingByBookingId);
 
 module.exports = router;

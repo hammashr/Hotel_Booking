@@ -120,11 +120,9 @@ export const bookingsAPI = {
     });
   },
 
-  // Get booking by ID — lookupToken is required (returned at booking creation)
-  getById: async (bookingId, lookupToken) => {
-    if (!lookupToken) throw new Error('A lookup token is required to retrieve booking details.');
-    return apiRequest(`/bookings/${encodeURIComponent(bookingId)}?token=${encodeURIComponent(lookupToken)}`, { method: "GET" });
-  },
+  // Get booking by ID
+  getById: async (bookingId) =>
+    apiRequest(`/bookings/${bookingId}`, { method: "GET" }),
 };
 
 // Contact API
