@@ -103,6 +103,7 @@ const BookNow = () => {
 
   const [bookingConfirmed, setBookingConfirmed] = useState(false);
   const [confirmedBookingId, setConfirmedBookingId] = useState("");
+  const [confirmedLookupToken, setConfirmedLookupToken] = useState("");
   const [depositPaid, setDepositPaid] = useState(false);
   const [depositError, setDepositError] = useState("");
   const [submissionState, setSubmissionState] = useState({
@@ -480,8 +481,13 @@ const BookNow = () => {
         setConfirmedBookingId(
           response?.bookingId || response?.summary?.bookingId || "",
         );
+        // Save the lookup token so the guest can retrieve their booking later
+        setConfirmedLookupToken(
+          response?.summary?.lookupToken || "",
+        );
       } else {
         setConfirmedBookingId("");
+        setConfirmedLookupToken("");
       }
 
       setBookingConfirmed(true);
@@ -598,11 +604,22 @@ const BookNow = () => {
                   Thank you for choosing Tiny Escape
                 </p>
                 {confirmedBookingId && (
-                  <p
-                    className={`text-sm font-semibold ${isDarkMode ? "text-[#22D3EE]" : "text-[#2563EB]"}`}
-                  >
-                    Booking ID: {confirmedBookingId}
-                  </p>
+                  <div className="mt-2 space-y-1">
+                    <p
+                      className={`text-sm font-semibold ${isDarkMode ? "text-[#22D3EE]" : "text-[#2563EB]"}`}
+                    >
+                      Booking ID: {confirmedBookingId}
+                    </p>
+                    {confirmedLookupToken && (
+                      <p
+                        className={`text-xs break-all ${isDarkMode ? "text-[#9CA3AF]" : "text-[#6B7280]"}`}
+                      >
+                        <span className="font-semibold">Save this lookup token</span> — you will need it to check your booking status:
+                        <br />
+                        <span className="font-mono select-all">{confirmedLookupToken}</span>
+                      </p>
+                    )}
+                  </div>
                 )}
               </div>
 

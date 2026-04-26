@@ -312,29 +312,47 @@ const createBookingRequest = asyncHandler(async (req, res) => {
     .populate('packageId', 'name code pricePerNight minNights')
     .lean();
 
+  // includeLookupToken=true — the guest needs to save this token to look up their booking later
   res.status(201).json({
     success: true,
     message: 'Booking request created successfully',
     bookingId,
-    summary: formatBookingSummary(populated),
+    summary: formatBookingSummary(populated, true),
   });
 });
 
 const getBookingByBookingId = asyncHandler(async (req, res) => {
   const { bookingId } = req.params;
+  const { token } = req.query;
+
+  // Require a lookup token to prevent unauthenticated PII enumeration.
+  // Return 404 (not 403) so ID existence is not leaked.
+  if (!token || typeof token !== 'string' || token.trim().length === 0) {
+    throw new ApiError(404, 'Booking not found');
+  }
 
   const booking = await BookingRequest.findOne({ bookingId: bookingId.toUpperCase() })
     .populate('houseId', 'name slug')
     .populate('packageId', 'name code pricePerNight minNights')
     .lean();
 
-  if (!booking) {
-    throw new ApiError(404, `Booking not found for ID: ${bookingId}`);
+  // Use timing-safe comparison to prevent token oracle attacks
+  const crypto = require('crypto');
+  const expectedToken = booking?.lookupToken || '';
+  const providedToken = token.trim();
+  const tokensMatch =
+    expectedToken.length > 0 &&
+    providedToken.length === expectedToken.length &&
+    crypto.timingSafeEqual(Buffer.from(providedToken), Buffer.from(expectedToken));
+
+  if (!booking || !tokensMatch) {
+    throw new ApiError(404, 'Booking not found');
   }
 
+  // Never re-expose lookupToken in lookup responses (includeLookupToken=false)
   res.status(200).json({
     success: true,
-    summary: formatBookingSummary(booking),
+    summary: formatBookingSummary(booking, false),
   });
 });
 

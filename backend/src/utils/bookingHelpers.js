@@ -53,8 +53,11 @@ const generateBookingId = async () => {
   throw new Error('Failed to generate unique bookingId');
 };
 
-const formatBookingSummary = (booking) => ({
+// includeLookupToken=true only when called immediately after booking creation
+// so the guest can save their token. The GET lookup endpoint never re-exposes it.
+const formatBookingSummary = (booking, includeLookupToken = false) => ({
   bookingId: booking.bookingId,
+  ...(includeLookupToken && { lookupToken: booking.lookupToken }),
   status: booking.status,
   paymentStatus: booking.paymentStatus,
   house: {

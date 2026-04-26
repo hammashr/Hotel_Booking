@@ -1,3 +1,4 @@
+const crypto = require('crypto');
 const mongoose = require('mongoose');
 
 const guestSchema = new mongoose.Schema(
@@ -157,6 +158,13 @@ const bookingRequestSchema = new mongoose.Schema(
       trim: true,
       uppercase: true,
       unique: true,
+    },
+    lookupToken: {
+      type: String,
+      required: true,
+      unique: true,
+      index: true,
+      default: () => crypto.randomBytes(32).toString('hex'),
     },
     houseId: {
       type: mongoose.Schema.Types.ObjectId,
