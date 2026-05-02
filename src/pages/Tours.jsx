@@ -170,10 +170,6 @@ const Tours = () => {
                         </svg>
                         <span className="text-white text-xs font-bold">{stay.rating || '4.9'}</span>
                       </div>
-                      <div className="text-right">
-                        <span className="text-white font-black text-xl leading-none drop-shadow-lg">${stay.pricing?.standard?.price || '—'}</span>
-                        <span className="text-white/65 text-[11px] ml-1">/ night</span>
-                      </div>
                     </div>
                   </div>
 
@@ -325,3 +321,4 @@ const Tours = () => {
 };
 
 export default Tours;
+                                                                                                                                                                                                                                                                                                                             
