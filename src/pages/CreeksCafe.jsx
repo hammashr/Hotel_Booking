@@ -14,9 +14,9 @@ const menuHighlights = [
 ];
 
 const cafeTimings = [
-  { label: 'Tuesday – Saturday', value: '7:30 AM – 2:30 PM' },
-  { label: 'Sunday', value: '7:30 AM – 12:30 PM' },
-  { label: 'Monday', value: 'Closed' }
+  { label: 'Friday', value: '7:00 AM – 2:00 PM', value2: '5:00 PM – 8:00 PM' },
+  { label: 'Saturday', value: '8:00 AM – 3:00 PM' },
+  { label: 'Sunday', value: '9:00 AM – 3:00 PM' }
 ];
 
 const CreeksCafe = () => {
@@ -119,20 +119,28 @@ const CreeksCafe = () => {
               ))}
             </div>
 
-            <div className="mt-7 grid sm:grid-cols-3 gap-3">
-              {cafeTimings.map((slot) => (
-                <div
-                  key={slot.label}
-                  className={`rounded-xl border p-4 ${
-                    isDarkMode
-                      ? 'bg-[#0B0C0E] border-[#1F2A33]'
-                      : 'bg-[#F8FAFC] border-[#DDE8DD]'
-                  }`}
-                >
-                  <p className={`text-xs uppercase tracking-wider ${isDarkMode ? 'text-[#8B949E]' : 'text-[#64748B]'}`}>{slot.label}</p>
-                  <p className={`mt-1 text-sm font-semibold ${isDarkMode ? 'text-[#E0E7EE]' : 'text-[#0F172A]'}`}>{slot.value}</p>
-                </div>
-              ))}
+            <div className="mt-7">
+              <p className={`text-xs font-semibold uppercase tracking-widest mb-3 ${isDarkMode ? 'text-[#8B949E]' : 'text-[#64748B]'}`}>
+                We're Open
+              </p>
+              <div className="grid sm:grid-cols-3 gap-3">
+                {cafeTimings.map((slot) => (
+                  <div
+                    key={slot.label}
+                    className={`rounded-xl border p-4 ${
+                      isDarkMode
+                        ? 'bg-[#0B0C0E] border-[#1F2A33]'
+                        : 'bg-[#F8FAFC] border-[#DDE8DD]'
+                    }`}
+                  >
+                    <p className={`text-xs uppercase tracking-wider ${isDarkMode ? 'text-[#8B949E]' : 'text-[#64748B]'}`}>{slot.label}</p>
+                    <p className={`mt-1 text-sm font-semibold ${isDarkMode ? 'text-[#E0E7EE]' : 'text-[#0F172A]'}`}>{slot.value}</p>
+                    {slot.value2 && (
+                      <p className={`text-sm font-semibold ${isDarkMode ? 'text-[#E0E7EE]' : 'text-[#0F172A]'}`}>{slot.value2}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
