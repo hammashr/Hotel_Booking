@@ -1,18 +1,10 @@
 /* ============================================================
    The Tiny Escape — Custom Hostfully DBS Styles
-   High-specificity selectors to beat styled-components
+   v4 — simplified selectors, no path dependency
    ============================================================ */
 
-/* ── Font ── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
-html body,
-html body * {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-}
-
 /* ══════════════════════════════════════════════
-   NAVBAR / HEADER  (deep selectors = high specificity)
+   NAVBAR
 ══════════════════════════════════════════════ */
 
 html body header[data-testid="common-header"] {
@@ -21,38 +13,37 @@ html body header[data-testid="common-header"] {
 }
 
 /* Logo image */
-html body header[data-testid="common-header"] a[data-testid="logo-link"] img {
+html body a[data-testid="logo-link"] img {
   height: 46px !important;
   width: auto !important;
 }
 
-/* "The Tiny Escape" text next to logo */
-html body header[data-testid="common-header"] a[data-testid="logo-link"] span {
+/* "The Tiny Escape" brand text */
+html body a[data-testid="logo-link"] span {
   color: #E7F0E6 !important;
   font-weight: 700 !important;
   font-size: 18px !important;
   letter-spacing: 0.01em !important;
 }
 
-/* "Home" nav link */
-html body header[data-testid="common-header"] nav a[data-testid="home-link"] {
+/* Home link */
+html body a[data-testid="home-link"] {
   color: #E7F0E6 !important;
   font-weight: 600 !important;
   font-size: 14px !important;
   text-decoration: none !important;
-  letter-spacing: 0.02em !important;
   background: transparent !important;
   padding: 6px 8px !important;
 }
 
-html body header[data-testid="common-header"] nav a[data-testid="home-link"]:hover {
+html body a[data-testid="home-link"]:hover {
   color: #ffffff !important;
   background: transparent !important;
   text-decoration: none !important;
 }
 
-/* ─── "Book Now" button — high specificity ─── */
-html body header[data-testid="common-header"] nav a[data-testid="book-now-link"] {
+/* ─── Book Now button ─── */
+html body a[data-testid="book-now-link"] {
   background-color: #E7F0E6 !important;
   background: #E7F0E6 !important;
   color: #1F3A2A !important;
@@ -63,51 +54,70 @@ html body header[data-testid="common-header"] nav a[data-testid="book-now-link"]
   border-radius: 10px !important;
   padding: 8px 22px !important;
   text-decoration: none !important;
-  border: 2px solid transparent !important;
-  box-shadow: none !important;
-  outline: none !important;
+  border: none !important;
   cursor: pointer !important;
   display: inline-flex !important;
   align-items: center !important;
   line-height: 1.4 !important;
+  box-shadow: none !important;
 }
 
-html body header[data-testid="common-header"] nav a[data-testid="book-now-link"]:hover {
+html body a[data-testid="book-now-link"]:hover,
+html body a[data-testid="book-now-link"]:focus {
   background-color: #ffffff !important;
   background: #ffffff !important;
   color: #1F3A2A !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18) !important;
   text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18) !important;
 }
 
 /* ══════════════════════════════════════════════
-   FOOTER  (high specificity)
+   FOOTER
 ══════════════════════════════════════════════ */
 
 html body footer[data-testid="common-footer"] {
   padding: 36px 32px 24px !important;
+  align-items: center !important;
+  text-align: center !important;
 }
 
-/* Agency logo image in footer */
-html body footer[data-testid="common-footer"] a[data-testid="agency-logo"] img {
+/* ─── Centre the top row (logo + nav links) ─── */
+/* Override Bootstrap's justify-content-sm-between → center */
+html body footer[data-testid="common-footer"] > div:first-child {
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 48px !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+}
+
+/* Nav links row inside footer */
+html body footer[data-testid="common-footer"] > div:first-child > div {
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+html body a[data-testid="agency-logo"] {
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+html body a[data-testid="agency-logo"] img {
   height: 52px !important;
   width: auto !important;
 }
 
-/* "The Tiny Escape" name text in footer */
-html body footer[data-testid="common-footer"] a[data-testid="agency-logo"] span {
+html body a[data-testid="agency-logo"] span {
   color: #E7F0E6 !important;
   font-weight: 700 !important;
   font-size: 17px !important;
 }
 
-/* All footer links */
 html body footer[data-testid="common-footer"] a {
   color: #E7F0E6 !important;
   font-weight: 600 !important;
   font-size: 14px !important;
   text-decoration: none !important;
-  letter-spacing: 0.02em !important;
 }
 
 html body footer[data-testid="common-footer"] a:hover {
@@ -115,24 +125,43 @@ html body footer[data-testid="common-footer"] a:hover {
   text-decoration: underline !important;
 }
 
-/* Footer divider */
 html body footer[data-testid="common-footer"] hr {
   border-color: rgba(231, 240, 233, 0.3) !important;
   margin: 16px 0 !important;
 }
 
-/* Agency info (email / website) */
-html body footer[data-testid="common-footer"] [data-testid="agency-info"] span,
-html body footer[data-testid="common-footer"] [data-testid="agency-info"] a {
-  color: rgba(231, 240, 233, 0.75) !important;
-  font-size: 13px !important;
+/* ─── Centre the bottom agency-info row ─── */
+html body [data-testid="agency-info"] {
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
 }
 
-html body footer[data-testid="common-footer"] [data-testid="agency-info"] a:hover {
+html body [data-testid="agency-info"] span,
+html body [data-testid="agency-info"] a {
+  color: rgba(231, 240, 233, 0.75) !important;
+  font-size: 13px !important;
+  text-align: center !important;
+}
+
+html body [data-testid="agency-info"] a:hover {
   color: #ffffff !important;
 }
 
-/* Hide phone number */
-html body footer[data-testid="common-footer"] [data-testid="common-footer-agency-phone"] {
+/* Hide phone */
+[data-testid="common-footer-agency-phone"] {
   display: none !important;
+}
+
+/* ══════════════════════════════════════════════
+   NAVBAR — centre inner content
+══════════════════════════════════════════════ */
+html body header[data-testid="common-header"] > div {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+  padding: 0 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
 }
