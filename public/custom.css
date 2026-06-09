@@ -12,10 +12,15 @@ html body header[data-testid="common-header"] {
   min-height: 68px !important;
 }
 
-/* Logo image */
+/* Logo image — bigger */
 html body a[data-testid="logo-link"] img {
-  height: 46px !important;
+  height: 64px !important;
   width: auto !important;
+}
+
+/* Hide "Where" / Search destinations field */
+[data-testid="where-field-container"] {
+  display: none !important;
 }
 
 /* "The Tiny Escape" brand text */
