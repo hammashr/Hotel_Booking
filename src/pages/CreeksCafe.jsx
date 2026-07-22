@@ -14,9 +14,9 @@ const menuHighlights = [
 ];
 
 const cafeTimings = [
-  { label: 'Friday', value: '7:00 AM – 2:00 PM', value2: '5:00 PM – 8:00 PM' },
-  { label: 'Saturday', value: '8:00 AM – 3:00 PM' },
-  { label: 'Sunday', value: '9:00 AM – 3:00 PM' }
+  { label: 'Friday', value: '7:00 AM – 2:00 PM' },
+  { label: 'Saturday', value: '8:00 AM – 2:00 PM' },
+  { label: 'Sunday', value: '9:00 AM – 2:00 PM' }
 ];
 
 const CreeksCafe = () => {
